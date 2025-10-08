@@ -1,31 +1,31 @@
 :root.dark {
-  --background: 222.2 84% 4.9%;
+  --background: 222.2 47.4% 11.2%;
   --foreground: 210 40% 98%;
 
-  --card: 222.2 84% 4.9%;
+  --card: 217.2 32.6% 17.5%;
   --card-foreground: 210 40% 98%;
 
-  --popover: 222.2 84% 4.9%;
+  --popover: 217.2 32.6% 17.5%;
   --popover-foreground: 210 40% 98%;
 
-  --primary: 210 40% 96.1%;
-  --primary-foreground: 222.2 47.4% 11.2%;
+  --primary: 238.7 83.5% 66.7%;
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 217.2 32.6% 17.5%;
+  --secondary: 215.3 25% 26.7%;
   --secondary-foreground: 210 40% 98%;
 
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20% 65%;
+  --muted: 215.3 25% 26.7%;
+  --muted-foreground: 215 20.2% 65.1%;
 
-  --accent: 217.2 32.6% 17.5%;
+  --accent: 215.3 25% 26.7%;
   --accent-foreground: 210 40% 98%;
 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive: 0 72.2% 50.6%;
+  --destructive-foreground: 0 0% 100%;
 
-  --border: 217.2 32.6% 17.5%;
+  --border: 215.3 25% 26.7%;
   --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
+  --ring: 187.9 85.7% 53.3%;
 
   --btn-bg: var(--color-card);
   --btn-fg: var(--color-card-fg);

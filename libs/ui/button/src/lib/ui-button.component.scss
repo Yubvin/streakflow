@@ -2,7 +2,7 @@
   display: inline-block;
 }
 
-.btn {
+:host button {
   -webkit-tap-highlight-color: transparent;
   appearance: none;
   user-select: none;
@@ -16,22 +16,11 @@
   height: var(--btn-h-md);
   padding: 0 var(--btn-px-md);
   border-radius: var(--btn-radius);
-  border: 1px solid var(--btn-border);
-  background: var(--btn-bg);
-  color: var(--btn-fg);
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-card-fg);
 
-  font-family: var(
-      --font-sans,
-      ui-sans-serif,
-      system-ui,
-      -apple-system,
-      'Segoe UI',
-      Roboto,
-      Inter,
-      Arial
-    ),
-    serif;
-
+  font-family: var(--font-sans), serif;
   font-weight: 500;
   font-size: var(--btn-font-md);
   line-height: 1;
@@ -49,18 +38,21 @@
 
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--color-ring, #60a5fa);
+    box-shadow: 0 0 0 2px var(--btn-ring);
   }
 
-  &.is-block {
+  &[data-block='true'] {
     display: inline-flex;
     width: 100%;
   }
 
-  &.is-disabled,
   &:disabled {
     opacity: 0.6;
     cursor: default;
+    pointer-events: none;
+  }
+  &[aria-busy='true'] {
+    cursor: progress;
   }
 
   .btn__inner {
@@ -68,7 +60,6 @@
     align-items: center;
     gap: 8px;
   }
-
   .btn__label {
     display: inline-flex;
     align-items: center;
@@ -91,92 +82,106 @@
   }
 }
 
-.size-sm {
+:host button[data-size='sm'] {
   height: var(--btn-h-sm);
   padding: 0 var(--btn-px-sm);
   font-size: var(--btn-font-sm);
 }
 
-.size-md {
+:host button[data-size='md'] {
   height: var(--btn-h-md);
   padding: 0 var(--btn-px-md);
   font-size: var(--btn-font-md);
 }
 
-.size-lg {
+:host button[data-size='lg'] {
   height: var(--btn-h-lg);
   padding: 0 var(--btn-px-lg);
   font-size: var(--btn-font-lg);
 }
 
-.size-icon {
-  height: var(--btn-h-icon, var(--btn-h-md));
-  width: var(--btn-h-icon, var(--btn-h-md));
+:host button[data-size='icon'] {
+  height: var(--btn-h-md);
+  width: var(--btn-h-md);
   padding: 0;
 }
 
-.variant-primary {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  border-color: color-mix(in oklab, var(--color-primary) 20%, #fff);
+:host button[data-variant='primary'] {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+  border-color: color-mix(in oklab, var(--btn-primary-bg) 20%, #fff);
+
   &:hover {
-    background: color-mix(in oklab, var(--color-primary) 92%, #000);
+    background: color-mix(
+      in oklab,
+      var(--btn-primary-bg) calc(100% - var(--btn-hover-overlay)),
+      #000
+    );
   }
 }
 
-.variant-secondary {
-  background: var(--color-secondary);
-  color: var(--color-on-secondary);
-  border-color: color-mix(in oklab, var(--color-secondary) 40%, transparent);
+:host button[data-variant='secondary'] {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-fg);
+  border-color: color-mix(in oklab, var(--btn-secondary-bg) 40%, transparent);
+
   &:hover {
-    background: color-mix(in oklab, var(--color-secondary) 92%, #000);
+    background: color-mix(
+      in oklab,
+      var(--btn-secondary-bg) calc(100% - var(--btn-hover-overlay)),
+      #000
+    );
   }
 }
 
-.variant-ghost {
+:host button[data-variant='ghost'] {
   background: transparent;
-  color: var(--color-fg, #0f172a);
+  color: var(--btn-ghost-fg);
   border-color: transparent;
+
   &:hover {
-    background: var(--color-accent, #f1f5f9);
-    border-color: var(--color-border, #e2e8f0);
+    background: var(--color-accent);
+    border-color: var(--color-border);
   }
 }
 
-.variant-outline {
-  background: var(--color-bg, #fff);
-  color: var(--color-fg, #0f172a);
-  border-color: var(--color-border, #e2e8f0);
+:host button[data-variant='outline'] {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  border-color: var(--btn-outline-border);
+
   &:hover {
-    background: var(--color-accent, #f1f5f9);
+    background: var(--color-accent);
   }
 }
 
-.variant-destructive {
-  background: var(--color-destructive, #ef4444);
-  color: var(--color-on-destructive, #fff);
-  border-color: color-mix(in oklab, var(--color-destructive) 20%, #fff);
+:host button[data-variant='destructive'] {
+  background: var(--btn-destructive-bg);
+  color: var(--btn-destructive-fg);
+  border-color: color-mix(in oklab, var(--btn-destructive-bg) 20%, #fff);
+
   &:hover {
-    background: color-mix(in oklab, var(--color-destructive) 92%, #000);
+    background: color-mix(
+      in oklab,
+      var(--btn-destructive-bg) calc(100% - var(--btn-hover-overlay)),
+      #000
+    );
   }
 }
 
-.variant-link {
+:host button[data-variant='link'] {
   background: transparent;
   border-color: transparent;
-  color: var(--color-primary);
+  color: var(--btn-link-fg);
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
 }
 
-.is-loading .btn__label {
-  opacity: 1;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .btn .btn__spinner {
+  :host button .btn__spinner {
     animation: none;
   }
 }

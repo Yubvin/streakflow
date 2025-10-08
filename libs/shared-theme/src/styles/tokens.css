@@ -55,10 +55,9 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.14);
-}
 
-:root {
   --btn-radius: var(--radius);
+
   --btn-h-sm: 32px;
   --btn-h-md: 40px;
   --btn-h-lg: 44px;
@@ -69,11 +68,7 @@
 
   --btn-font-sm: var(--text-sm);
   --btn-font-md: var(--text-sm);
-  --btn-font-lg: var(--text-base);
-
-  --btn-bg: var(--color-card);
-  --btn-fg: var(--color-card-fg);
-  --btn-border: var(--color-border);
+  --btn-font-lg: 16px;
 
   --btn-primary-bg: var(--color-primary);
   --btn-primary-fg: var(--color-on-primary);
@@ -81,8 +76,15 @@
   --btn-secondary-bg: var(--color-secondary);
   --btn-secondary-fg: var(--color-on-secondary);
 
+  --btn-ghost-fg: var(--color-fg);
+  --btn-outline-border: var(--color-border);
+  --btn-link-fg: var(--color-primary);
+
   --btn-destructive-bg: var(--color-destructive);
   --btn-destructive-fg: var(--color-on-destructive);
+
+  --btn-hover-overlay: 8%;
+  --btn-ring: var(--color-ring);
 }
 
 html,

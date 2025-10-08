@@ -4,11 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:web": "nx serve web",
-    "lint": "nx run-many -t lint --all",
-    "lint:fix": "nx run-many -t lint --all --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "start:web": "nx serve web"
   },
   "keywords": [],
   "author": "",
