@@ -1,0 +1,44 @@
+:root {
+  --badge-radius: var(--radius-sm);
+  --badge-font-weight: var(--font-weight-semibold);
+  --badge-letter-spacing: 0.02em;
+  --badge-font-size-sm: var(--text-2xs);
+  --badge-font-size-md: var(--text-xs);
+  --badge-line-height: 1;
+
+  --badge-pad-x-sm: var(--space-2);
+  --badge-pad-x-md: var(--space-3);
+  --badge-pad-y-sm: var(--space-1);
+  --badge-pad-y-md: var(--space-1_5);
+
+  --badge-transition-duration: var(--motion-fast);
+  --badge-transition-ease: var(--ease-out);
+  --badge-hover-scale: 1.01;
+  --badge-hover-raise: 1px;
+  --badge-hover-shadow: var(--shadow-sm);
+
+  --badge-default-bg: var(--color-secondary);
+  --badge-default-fg: var(--color-on-secondary);
+  --badge-default-border: transparent;
+
+  --badge-secondary-bg: var(--color-muted);
+  --badge-secondary-fg: var(--color-on-muted);
+  --badge-secondary-border: transparent;
+
+  --badge-outline-bg: transparent;
+  --badge-outline-fg: var(--color-fg);
+  --badge-outline-border: var(--color-border);
+
+  --badge-success-bg: color-mix(in oklab, var(--color-primary), #fff 82%);
+  --badge-success-fg: var(--color-primary);
+
+  --badge-warning-bg: color-mix(in oklab, var(--color-accent), #fff 82%);
+  --badge-warning-fg: var(--color-accent);
+
+  --badge-destructive-bg: color-mix(
+    in oklab,
+    var(--color-destructive),
+    #fff 80%
+  );
+  --badge-destructive-fg: var(--color-destructive);
+}

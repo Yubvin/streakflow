@@ -1,0 +1,37 @@
+:root {
+  --btn-radius: var(--radius-md);
+  --btn-h-sm: 32px;
+  --btn-h-md: 36px;
+  --btn-h-lg: 40px;
+
+  --btn-pad-x-sm: var(--space-3);
+  --btn-pad-x-md: var(--space-4);
+  --btn-pad-x-lg: var(--space-5);
+  --btn-gap: var(--space-2);
+
+  --btn-font-size-sm: var(--text-sm);
+  --btn-font-size-md: var(--text-sm);
+  --btn-font-size-lg: var(--text-base);
+  --btn-font-weight: var(--font-weight-medium);
+
+  --btn-transition-duration: var(--motion-normal);
+  --btn-transition-ease: var(--ease-out);
+  --btn-hover-scale: 1.015;
+  --btn-active-scale: 0.99;
+  --btn-hover-overlay: 10%;
+  --btn-active-overlay: 12%;
+
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-fg: var(--color-on-primary);
+
+  --btn-secondary-bg: var(--color-secondary);
+  --btn-secondary-fg: var(--color-on-secondary);
+
+  --btn-ghost-bg: transparent;
+  --btn-ghost-fg: var(--color-fg);
+
+  --btn-destructive-bg: var(--color-destructive);
+  --btn-destructive-fg: var(--color-on-destructive);
+
+  --btn-border-color: var(--color-border);
+}

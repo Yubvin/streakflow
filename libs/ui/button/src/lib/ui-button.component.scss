@@ -11,18 +11,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--btn-gap);
 
   height: var(--btn-h-md);
-  padding: 0 var(--btn-px-md);
+  padding: 0 var(--btn-pad-x-md);
   border-radius: var(--btn-radius);
   border: 1px solid var(--color-border);
   background: var(--color-card);
   color: var(--color-card-fg);
 
   font-family: var(--font-sans), serif;
-  font-weight: 500;
-  font-size: var(--btn-font-md);
+  font-weight: var(--btn-font-weight);
+  font-size: var(--btn-font-size-md);
   line-height: 1;
 
   white-space: nowrap;
@@ -38,7 +38,7 @@
 
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--btn-ring);
+    box-shadow: 0 0 0 2px var(--color-ring);
   }
 
   &[data-block='true'] {
@@ -58,7 +58,7 @@
   .btn__inner {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--btn-gap);
   }
   .btn__label {
     display: inline-flex;
@@ -84,20 +84,20 @@
 
 :host button[data-size='sm'] {
   height: var(--btn-h-sm);
-  padding: 0 var(--btn-px-sm);
-  font-size: var(--btn-font-sm);
+  padding: 0 var(--btn-pad-x-sm);
+  font-size: var(--btn-font-size-sm);
 }
 
 :host button[data-size='md'] {
   height: var(--btn-h-md);
-  padding: 0 var(--btn-px-md);
-  font-size: var(--btn-font-md);
+  padding: 0 var(--btn-pad-x-md);
+  font-size: var(--btn-font-size-md);
 }
 
 :host button[data-size='lg'] {
   height: var(--btn-h-lg);
-  padding: 0 var(--btn-px-lg);
-  font-size: var(--btn-font-lg);
+  padding: 0 var(--btn-pad-x-lg);
+  font-size: var(--btn-font-size-lg);
 }
 
 :host button[data-size='icon'] {

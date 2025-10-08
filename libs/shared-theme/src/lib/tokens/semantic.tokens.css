@@ -1,0 +1,29 @@
+:root {
+  --color-bg: hsl(var(--background));
+  --color-fg: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-fg: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-fg: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-on-primary: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-on-secondary: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-on-muted: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-on-accent: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-on-destructive: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}

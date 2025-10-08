@@ -1,7 +1,6 @@
 <div class="p-8 space-y-8">
   <h2 class="text-lg font-semibold mb-4">UiButton — Showcase</h2>
 
-  <!-- Variants -->
   <section>
     <h3 class="text-sm font-medium mb-2">Variants</h3>
     <div class="flex flex-wrap gap-3">
@@ -11,7 +10,6 @@
     </div>
   </section>
 
-  <!-- Sizes -->
   <section>
     <h3 class="text-sm font-medium mb-2">Sizes</h3>
     <div class="flex flex-wrap gap-3">
@@ -21,7 +19,6 @@
     </div>
   </section>
 
-  <!-- Disabled -->
   <section>
     <h3 class="text-sm font-medium mb-2">Disabled</h3>
     <div class="flex flex-wrap gap-3">
@@ -31,7 +28,6 @@
     </div>
   </section>
 
-  <!-- Loading -->
   <section>
     <h3 class="text-sm font-medium mb-2">Loading</h3>
     <div class="flex flex-wrap gap-3">
@@ -41,7 +37,6 @@
     </div>
   </section>
 
-  <!-- Icons -->
   <section>
     <h3 class="text-sm font-medium mb-2">With icons</h3>
     <div class="flex flex-wrap gap-3">
@@ -61,17 +56,43 @@
     </div>
   </section>
 
-  <!-- Block -->
   <section>
     <h3 class="text-sm font-medium mb-2">Full width (block)</h3>
     <ui-button block>Continue</ui-button>
   </section>
 
-  <!-- Interactive -->
   <section>
     <h3 class="text-sm font-medium mb-2">Interactive toggle</h3>
     <ui-button [loading]="loading()" (click)="toggleLoading()">
       Toggle loading
     </ui-button>
+  </section>
+
+  <h2 class="text-lg font-semibold mt-10 mb-4">UiBadge — Showcase</h2>
+
+  <section>
+    <h3 class="text-sm font-medium mb-2">Variants</h3>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-badge>Default</ui-badge>
+      <ui-badge variant="secondary">Secondary</ui-badge>
+      <ui-badge variant="outline">Outline</ui-badge>
+      <ui-badge variant="destructive">Destructive</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="text-sm font-medium mb-2">Sizes</h3>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-badge size="sm">Small</ui-badge>
+      <ui-badge size="md">Medium</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="text-sm font-medium mb-2">Interactive</h3>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-badge [interactive]="true">Clickable</ui-badge>
+      <ui-badge variant="outline" [interactive]="true">Outline</ui-badge>
+    </div>
   </section>
 </div>

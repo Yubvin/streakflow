@@ -1,0 +1,92 @@
+:host {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ui-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  border-radius: var(--badge-radius);
+  font-weight: var(--badge-font-weight);
+  letter-spacing: var(--badge-letter-spacing);
+  line-height: var(--badge-line-height);
+
+  transition: transform var(--badge-transition-duration)
+      var(--badge-transition-ease),
+    background-color var(--badge-transition-duration)
+      var(--badge-transition-ease),
+    color var(--badge-transition-duration) var(--badge-transition-ease),
+    box-shadow var(--badge-transition-duration) var(--badge-transition-ease),
+    border-color var(--badge-transition-duration) var(--badge-transition-ease);
+
+  /* sizes */
+  :host([data-size='sm']) & {
+    font-size: var(--badge-font-size-sm);
+    padding: var(--badge-pad-y-sm) var(--badge-pad-x-sm);
+    min-height: calc(var(--badge-pad-y-sm) * 2 + 1em);
+  }
+
+  :host([data-size='md']) & {
+    font-size: var(--badge-font-size-md);
+    padding: var(--badge-pad-y-md) var(--badge-pad-x-md);
+    min-height: calc(var(--badge-pad-y-md) * 2 + 1em);
+  }
+
+  /* variants */
+  :host([data-variant='default']) & {
+    background: var(--badge-default-bg);
+    color: var(--badge-default-fg);
+    box-shadow: inset 0 0 0 1px var(--badge-default-border);
+  }
+
+  :host([data-variant='secondary']) & {
+    background: var(--badge-secondary-bg);
+    color: var(--badge-secondary-fg);
+    box-shadow: inset 0 0 0 1px var(--badge-secondary-border);
+  }
+
+  :host([data-variant='outline']) & {
+    background: var(--badge-outline-bg);
+    color: var(--badge-outline-fg);
+    box-shadow: inset 0 0 0 1px var(--badge-outline-border);
+  }
+
+  :host([data-variant='success']) & {
+    background: var(--badge-success-bg);
+    color: var(--badge-success-fg);
+  }
+
+  :host([data-variant='warning']) & {
+    background: var(--badge-warning-bg);
+    color: var(--badge-warning-fg);
+  }
+
+  :host([data-variant='destructive']) & {
+    background: var(--badge-destructive-bg);
+    color: var(--badge-destructive-fg);
+  }
+}
+
+:host(.is-clickable),
+:host([class~='is-clickable']) {
+  cursor: pointer;
+
+  .ui-badge {
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ui-badge:hover {
+      transform: translateY(calc(-1 * var(--badge-hover-raise)))
+        scale(var(--badge-hover-scale));
+      box-shadow: var(--badge-hover-shadow);
+    }
+    .ui-badge:active {
+      transform: translateY(0) scale(1);
+      box-shadow: none;
+    }
+  }
+}
