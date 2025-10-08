@@ -25,6 +25,7 @@ export type UiButtonType = 'button' | 'submit' | 'reset';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'data-component': 'ui-button',
+    '[class]': 'customClass()',
   },
 })
 export class UiButtonComponent {
@@ -35,21 +36,5 @@ export class UiButtonComponent {
   readonly disabled = input(false, { transform: booleanAttribute });
   readonly loading = input(false, { transform: booleanAttribute });
   readonly block = input(false, { transform: booleanAttribute });
-
-  private joinClassNames(
-    ...tokens: Array<string | false | null | undefined>
-  ): string {
-    return tokens.filter(Boolean).join(' ');
-  }
-
-  readonly classes = computed<string>(() =>
-    this.joinClassNames(
-      'btn',
-      `variant-${this.variant()}`,
-      `size-${this.size()}`,
-      (this.disabled() || this.loading()) && 'is-disabled',
-      this.loading() && 'is-loading',
-      this.block() && 'is-block'
-    )
-  );
+  readonly customClass = input<string>('');
 }

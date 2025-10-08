@@ -1,87 +1,126 @@
-<div class="p-8 space-y-8">
-  <h2 class="text-lg font-semibold mb-4">UiButton — Showcase</h2>
-
+<div class="p-8 space-y-12 max-w-7xl mx-auto min-h-screen" style="background-color: var(--tw-bg-background);">
   <section>
-    <h3 class="text-sm font-medium mb-2">Variants</h3>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Buttons — All Variants</h2>
     <div class="flex flex-wrap gap-3">
-      <ui-button>Primary</ui-button>
-      <ui-button variant="secondary">Secondary</ui-button>
-      <ui-button variant="ghost">Ghost</ui-button>
+      <ui-button variant="primary">Save Changes</ui-button>
+      <ui-button variant="secondary">Cancel</ui-button>
+      <ui-button variant="destructive">Delete Account</ui-button>
+      <ui-button variant="outline">View Details</ui-button>
+      <ui-button variant="ghost">Skip</ui-button>
+      <ui-button variant="link">Learn More</ui-button>
     </div>
   </section>
 
   <section>
-    <h3 class="text-sm font-medium mb-2">Sizes</h3>
-    <div class="flex flex-wrap gap-3">
-      <ui-button size="sm">Small</ui-button>
-      <ui-button size="md">Medium</ui-button>
-      <ui-button size="lg">Large</ui-button>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Buttons — Sizes</h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-button size="sm">Small Button</ui-button>
+      <ui-button size="md">Default Button</ui-button>
+      <ui-button size="lg">Large Button</ui-button>
+      <ui-button size="icon">
+        <app-icon name="gear" [size]="16"></app-icon>
+      </ui-button>
     </div>
   </section>
 
   <section>
-    <h3 class="text-sm font-medium mb-2">Disabled</h3>
-    <div class="flex flex-wrap gap-3">
-      <ui-button disabled>Primary</ui-button>
-      <ui-button variant="secondary" disabled>Secondary</ui-button>
-      <ui-button variant="ghost" disabled>Ghost</ui-button>
-    </div>
-  </section>
-
-  <section>
-    <h3 class="text-sm font-medium mb-2">Loading</h3>
-    <div class="flex flex-wrap gap-3">
-      <ui-button loading>Loading</ui-button>
-      <ui-button variant="secondary" loading>Loading</ui-button>
-      <ui-button variant="ghost" loading>Loading</ui-button>
-    </div>
-  </section>
-
-  <section>
-    <h3 class="text-sm font-medium mb-2">With icons</h3>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Buttons — With Icons</h2>
     <div class="flex flex-wrap gap-3">
       <ui-button>
         <span icon-left>
           <app-icon name="plus" [size]="16"></app-icon>
         </span>
-        Add
+        Add Habit
       </ui-button>
-
       <ui-button variant="secondary">
-        Settings
+        Export Data
         <span icon-right>
           <app-icon name="gear" [size]="16"></app-icon>
         </span>
       </ui-button>
+      <ui-button variant="outline">
+        <span icon-left>
+          <app-icon name="gear" [size]="16"></app-icon>
+        </span>
+        Settings
+      </ui-button>
+      <ui-button variant="ghost">
+        <span icon-left>
+          <app-icon name="plus" [size]="16"></app-icon>
+        </span>
+        Create New
+      </ui-button>
     </div>
   </section>
 
   <section>
-    <h3 class="text-sm font-medium mb-2">Full width (block)</h3>
-    <ui-button block>Continue</ui-button>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Buttons — States</h2>
+    <div class="flex flex-wrap gap-3">
+      <ui-button>Active Button</ui-button>
+      <ui-button disabled>Disabled Button</ui-button>
+      <ui-button loading>Saving...</ui-button>
+      <ui-button variant="destructive" loading>Deleting...</ui-button>
+    </div>
   </section>
 
   <section>
-    <h3 class="text-sm font-medium mb-2">Interactive toggle</h3>
-    <ui-button [loading]="loading()" (click)="toggleLoading()">
-      Toggle loading
-    </ui-button>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Buttons — Full Width</h2>
+    <div class="space-y-3">
+      <ui-button block>Continue to Payment</ui-button>
+      <ui-button variant="outline" block>Go Back</ui-button>
+    </div>
   </section>
 
-  <h2 class="text-lg font-semibold mt-10 mb-4">UiBadge — Showcase</h2>
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Buttons — Real Use Cases</h2>
+    <div class="space-y-6">
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">Form Actions</p>
+        <div class="flex gap-3">
+          <ui-button>Submit Form</ui-button>
+          <ui-button variant="outline">Reset</ui-button>
+          <ui-button variant="ghost">Cancel</ui-button>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">Danger Actions</p>
+        <div class="flex gap-3">
+          <ui-button variant="destructive">Delete Habit</ui-button>
+          <ui-button variant="outline">Keep Habit</ui-button>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">Navigation</p>
+        <div class="flex gap-3">
+          <ui-button variant="primary">Next Step</ui-button>
+          <ui-button variant="secondary">Previous</ui-button>
+          <ui-button variant="link">Skip Tutorial</ui-button>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">Loading States</p>
+        <ui-button [loading]="loading()" (click)="toggleLoading()">
+          Toggle Loading Demo
+        </ui-button>
+      </div>
+    </div>
+  </section>
 
   <section>
-    <h3 class="text-sm font-medium mb-2">Variants</h3>
+    <h2 class="text-2xl font-bold mb-6 mt-16">Badges — All Variants</h2>
     <div class="flex flex-wrap items-center gap-3">
-      <ui-badge>Default</ui-badge>
+      <ui-badge variant="default">Default Badge</ui-badge>
       <ui-badge variant="secondary">Secondary</ui-badge>
-      <ui-badge variant="outline">Outline</ui-badge>
       <ui-badge variant="destructive">Destructive</ui-badge>
+      <ui-badge variant="outline">Outline</ui-badge>
     </div>
   </section>
 
   <section>
-    <h3 class="text-sm font-medium mb-2">Sizes</h3>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Badges — Sizes</h2>
     <div class="flex flex-wrap items-center gap-3">
       <ui-badge size="sm">Small</ui-badge>
       <ui-badge size="md">Medium</ui-badge>
@@ -89,10 +128,212 @@
   </section>
 
   <section>
-    <h3 class="text-sm font-medium mb-2">Interactive</h3>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Badges — Status Indicators</h2>
     <div class="flex flex-wrap items-center gap-3">
-      <ui-badge [interactive]="true">Clickable</ui-badge>
-      <ui-badge variant="outline" [interactive]="true">Outline</ui-badge>
+      <ui-badge variant="default">Active</ui-badge>
+      <ui-badge variant="secondary">Pending</ui-badge>
+      <ui-badge variant="destructive">Failed</ui-badge>
+      <ui-badge variant="outline">Draft</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Badges — Habit Frequency</h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-badge customClass="capitalize">daily</ui-badge>
+      <ui-badge customClass="capitalize">weekly</ui-badge>
+      <ui-badge customClass="capitalize">monthly</ui-badge>
+      <ui-badge variant="outline" customClass="capitalize">custom</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Badges — Priority Levels</h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-badge variant="destructive" customClass="uppercase">high</ui-badge>
+      <ui-badge customClass="uppercase">medium</ui-badge>
+      <ui-badge variant="secondary" customClass="uppercase">low</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Badges — Tags & Labels</h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-badge variant="outline">Health</ui-badge>
+      <ui-badge variant="outline">Productivity</ui-badge>
+      <ui-badge variant="outline">Fitness</ui-badge>
+      <ui-badge variant="outline">Learning</ui-badge>
+      <ui-badge variant="outline">Mindfulness</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Badges — Notifications</h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-badge variant="destructive" customClass="uppercase tracking-wide">new</ui-badge>
+      <ui-badge variant="default" customClass="uppercase tracking-wide">updated</ui-badge>
+      <ui-badge variant="secondary">3 unread</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Badges — Version & Meta</h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-badge variant="outline" customClass="font-mono text-[10px]">v2.0.1</ui-badge>
+      <ui-badge variant="outline" customClass="font-mono text-[10px]">beta</ui-badge>
+      <ui-badge variant="secondary" customClass="font-mono">API</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Badges — Interactive (Clickable)</h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <ui-badge [interactive]="true">Filter: All</ui-badge>
+      <ui-badge variant="outline" [interactive]="true">Filter: Active</ui-badge>
+      <ui-badge variant="secondary" [interactive]="true">Sort by Date</ui-badge>
+      <ui-badge variant="destructive" [interactive]="true">Clear Filters</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Badge Test — Frequency (как в прототипе)</h2>
+    <div class="space-y-4">
+      <ui-badge variant="secondary" customClass="capitalize">daily</ui-badge>
+      <ui-badge variant="secondary" customClass="capitalize">weekly</ui-badge>
+      <ui-badge variant="secondary" customClass="capitalize">daily</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Real Example — Habit Card</h2>
+    <div class="border rounded-lg p-4 max-w-md shadow-sm hover:shadow-md transition-shadow" style="background-color: var(--tw-bg-card);">
+      <div class="flex items-start justify-between mb-3">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">🧘</span>
+          <div>
+            <h3 class="font-medium text-foreground">Morning Meditation</h3>
+            <div class="flex items-center gap-1 text-sm text-muted-foreground mt-1">
+              <span>🔥</span>
+              <span>7 day streak</span>
+            </div>
+          </div>
+        </div>
+        <ui-button variant="secondary" size="sm" customClass="bg-[#DCFCE7] hover:bg-green-200 text-green-800">
+          Done
+        </ui-button>
+      </div>
+      <div class="space-y-2">
+        <div class="flex justify-between text-sm">
+          <span class="text-muted-foreground">Today's Progress</span>
+          <span class="font-medium">100%</span>
+        </div>
+        <div class="h-2 bg-muted rounded-full overflow-hidden">
+          <div class="h-full bg-primary w-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Real Example — Habits Table (from prototype)</h2>
+    <div class="border rounded-lg overflow-hidden" style="background-color: var(--tw-bg-card);">
+      <table class="w-full">
+        <thead>
+          <tr class="border-b bg-muted/5">
+            <th class="py-4 pl-6 pr-4 text-left text-sm font-medium text-muted-foreground">Habit</th>
+            <th class="py-4 px-6 text-left text-sm font-medium text-muted-foreground">Frequency</th>
+            <th class="py-4 px-6 text-center text-sm font-medium text-muted-foreground">Current Streak</th>
+            <th class="py-4 px-6 text-left text-sm font-medium text-muted-foreground">Last Updated</th>
+            <th class="py-4 pl-6 pr-6 text-center text-sm font-medium text-muted-foreground w-16">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b hover:bg-muted/20 transition-colors group">
+            <td class="py-5 pl-6 pr-4">
+              <div class="flex items-center gap-3">
+                <span class="text-lg">🧘</span>
+                <div>
+                  <div class="font-medium text-sm">Morning Meditation</div>
+                  <div class="text-xs text-muted-foreground mt-1">Goal: 1 times/day</div>
+                </div>
+              </div>
+            </td>
+            <td class="py-5 px-6">
+              <ui-badge variant="secondary" customClass="capitalize">daily</ui-badge>
+            </td>
+            <td class="py-5 px-6 text-center">
+              <div class="flex flex-col items-center">
+                <span class="font-semibold text-sm">7</span>
+                <span class="text-xs text-muted-foreground">days</span>
+              </div>
+            </td>
+            <td class="py-5 px-6">
+              <span class="text-sm text-muted-foreground">Today</span>
+            </td>
+            <td class="py-5 pl-6 pr-6 text-center">
+              <ui-button variant="ghost" size="sm" customClass="h-8 w-8 p-0">
+                ⚙️
+              </ui-button>
+            </td>
+          </tr>
+          <tr class="border-b hover:bg-muted/20 transition-colors group">
+            <td class="py-5 pl-6 pr-4">
+              <div class="flex items-center gap-3">
+                <span class="text-lg">💪</span>
+                <div>
+                  <div class="font-medium text-sm">Gym Workout</div>
+                  <div class="text-xs text-muted-foreground mt-1">Goal: 3 times/week</div>
+                </div>
+              </div>
+            </td>
+            <td class="py-5 px-6">
+              <ui-badge variant="secondary" customClass="capitalize">weekly</ui-badge>
+            </td>
+            <td class="py-5 px-6 text-center">
+              <div class="flex flex-col items-center">
+                <span class="font-semibold text-sm">12</span>
+                <span class="text-xs text-muted-foreground">days</span>
+              </div>
+            </td>
+            <td class="py-5 px-6">
+              <span class="text-sm text-muted-foreground">Yesterday</span>
+            </td>
+            <td class="py-5 pl-6 pr-6 text-center">
+              <ui-button variant="ghost" size="sm" customClass="h-8 w-8 p-0">
+                ⚙️
+              </ui-button>
+            </td>
+          </tr>
+          <tr class="hover:bg-muted/20 transition-colors group">
+            <td class="py-5 pl-6 pr-4">
+              <div class="flex items-center gap-3">
+                <span class="text-lg">📚</span>
+                <div>
+                  <div class="font-medium text-sm">Read 30 Minutes</div>
+                  <div class="text-xs text-muted-foreground mt-1">Goal: 1 times/day</div>
+                </div>
+              </div>
+            </td>
+            <td class="py-5 px-6">
+              <ui-badge variant="secondary" customClass="capitalize">daily</ui-badge>
+            </td>
+            <td class="py-5 px-6 text-center">
+              <div class="flex flex-col items-center">
+                <span class="font-semibold text-sm">3</span>
+                <span class="text-xs text-muted-foreground">days</span>
+              </div>
+            </td>
+            <td class="py-5 px-6">
+              <span class="text-sm text-muted-foreground">2 days ago</span>
+            </td>
+            <td class="py-5 pl-6 pr-6 text-center">
+              <ui-button variant="ghost" size="sm" customClass="h-8 w-8 p-0">
+                ⚙️
+              </ui-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 </div>

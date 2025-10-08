@@ -14,7 +14,17 @@
 
 :root {
   --focus-ring-shadow: 0 0 0 2px var(--color-ring);
+  
+  /* Tailwind CSS variables */
+  --tw-bg-background: hsl(var(--background));
+  --tw-bg-card: hsl(var(--card));
+  --tw-bg-muted: hsl(var(--muted));
+  --tw-text-foreground: hsl(var(--foreground));
+  --tw-text-card-foreground: hsl(var(--card-foreground));
+  --tw-text-muted-foreground: hsl(var(--muted-foreground));
+  --tw-border-border: hsl(var(--border));
 }
+
 :focus-visible {
   outline: none;
   box-shadow: var(--focus-ring-shadow);
