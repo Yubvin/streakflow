@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "ui": ["libs/ui/src/index.ts"]
+      "@streakflow/ui": ["libs/ui/src/index.ts"],
+      "@streakflow/ui/button": ["libs/ui/button/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

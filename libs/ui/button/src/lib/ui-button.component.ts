@@ -13,14 +13,14 @@ export type UiButtonType = 'button' | 'submit' | 'reset';
 @Component({
   selector: 'ui-button',
   standalone: true,
-  templateUrl: './ui-button.html',
-  styleUrl: './ui-button.scss',
+  templateUrl: './ui-button.component.html',
+  styleUrl: './ui-button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'data-component': 'ui-button',
   },
 })
-export class UiButton {
+export class UiButtonComponent {
   readonly variant = input<UiButtonVariant>('primary');
   readonly size = input<UiButtonSize>('md');
   readonly type = input<UiButtonType>('button');

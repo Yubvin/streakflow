@@ -1,6 +1,6 @@
-import { Component, input, numberAttribute, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { UiButton } from 'ui';
+import { UiButtonComponent } from '@streakflow/ui/button';
 
 @Component({
   selector: 'app-icon',
@@ -21,7 +21,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [UiButton, RouterModule, AppIcon],
+  imports: [RouterModule, AppIcon, UiButtonComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
