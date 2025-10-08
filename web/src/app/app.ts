@@ -1,13 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, input, numberAttribute, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UiButton } from 'ui';
 
 @Component({
-  imports: [UiButton, RouterModule],
+  selector: 'app-icon',
+  standalone: true,
+  template: `
+    <span
+      class="inline-flex items-center justify-center bg-zinc-200 text-zinc-700 rounded-sm"
+      [style.width.rem]="size() / 4"
+      [style.height.rem]="size() / 4"
+    >
+      <small>{{ name() }}</small>
+    </span>
+  `,
+})
+export class AppIcon {
+  readonly name = input<string>('');
+  readonly size = input<number>(16);
+}
+
+@Component({
+  imports: [UiButton, RouterModule, AppIcon],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
-  protected title = 'web';
+  readonly loading = signal(false);
+
+  toggleLoading() {
+    this.loading.update((v) => !v);
+  }
 }

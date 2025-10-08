@@ -1,8 +1,77 @@
-<ui-button variant="primary" [loading]="false">
-  Save
-</ui-button>
+<div class="p-8 space-y-8">
+  <h2 class="text-lg font-semibold mb-4">UiButton — Showcase</h2>
 
-<ui-button variant="ghost" size="lg" [block]="true">
-  Continue
-</ui-button>
-<router-outlet></router-outlet>
+  <!-- Variants -->
+  <section>
+    <h3 class="text-sm font-medium mb-2">Variants</h3>
+    <div class="flex flex-wrap gap-3">
+      <ui-button>Primary</ui-button>
+      <ui-button variant="secondary">Secondary</ui-button>
+      <ui-button variant="ghost">Ghost</ui-button>
+    </div>
+  </section>
+
+  <!-- Sizes -->
+  <section>
+    <h3 class="text-sm font-medium mb-2">Sizes</h3>
+    <div class="flex flex-wrap gap-3">
+      <ui-button size="sm">Small</ui-button>
+      <ui-button size="md">Medium</ui-button>
+      <ui-button size="lg">Large</ui-button>
+    </div>
+  </section>
+
+  <!-- Disabled -->
+  <section>
+    <h3 class="text-sm font-medium mb-2">Disabled</h3>
+    <div class="flex flex-wrap gap-3">
+      <ui-button disabled>Primary</ui-button>
+      <ui-button variant="secondary" disabled>Secondary</ui-button>
+      <ui-button variant="ghost" disabled>Ghost</ui-button>
+    </div>
+  </section>
+
+  <!-- Loading -->
+  <section>
+    <h3 class="text-sm font-medium mb-2">Loading</h3>
+    <div class="flex flex-wrap gap-3">
+      <ui-button loading>Loading</ui-button>
+      <ui-button variant="secondary" loading>Loading</ui-button>
+      <ui-button variant="ghost" loading>Loading</ui-button>
+    </div>
+  </section>
+
+  <!-- Icons -->
+  <section>
+    <h3 class="text-sm font-medium mb-2">With icons</h3>
+    <div class="flex flex-wrap gap-3">
+      <ui-button>
+        <span icon-left>
+          <app-icon name="plus" [size]="16"></app-icon>
+        </span>
+        Add
+      </ui-button>
+
+      <ui-button variant="secondary">
+        Settings
+        <span icon-right>
+          <app-icon name="gear" [size]="16"></app-icon>
+        </span>
+      </ui-button>
+    </div>
+  </section>
+
+  <!-- Block -->
+  <section>
+    <h3 class="text-sm font-medium mb-2">Full width (block)</h3>
+    <ui-button block>Continue</ui-button>
+  </section>
+
+  <!-- Interactive -->
+  <section>
+    <h3 class="text-sm font-medium mb-2">Interactive toggle</h3>
+    <ui-button [loading]="loading()" (click)="toggleLoading()">
+      Toggle loading
+    </ui-button>
+  </section>
+</div>
