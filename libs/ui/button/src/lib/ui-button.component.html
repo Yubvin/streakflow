@@ -1,7 +1,7 @@
 <button
   [attr.type]="type()"
   [disabled]="disabled() || loading()"
-  [attr.aria-disabled]="(disabled() || loading()) ? 'true' : null"
+  [attr.aria-disabled]="disabled() || loading() ? 'true' : null"
   [attr.aria-busy]="loading() ? 'true' : null"
   [class]="classes()"
   [attr.data-variant]="variant()"

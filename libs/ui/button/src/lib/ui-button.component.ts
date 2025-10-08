@@ -6,8 +6,15 @@ import {
   booleanAttribute,
 } from '@angular/core';
 
-export type UiButtonVariant = 'primary' | 'secondary' | 'ghost';
-export type UiButtonSize = 'sm' | 'md' | 'lg';
+export type UiButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'ghost'
+  | 'outline'
+  | 'destructive'
+  | 'link';
+
+export type UiButtonSize = 'sm' | 'md' | 'lg' | 'icon';
 export type UiButtonType = 'button' | 'submit' | 'reset';
 
 @Component({
@@ -32,13 +39,13 @@ export class UiButtonComponent {
   private readonly base =
     'inline-flex items-center justify-center rounded-md font-medium transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 select-none';
 
-  private readonly sizeClasses: Record<UiButtonSize, string> = {
+  private readonly sizeClasses: Partial<Record<UiButtonSize, string>> = {
     sm: 'text-sm px-3 py-1.5',
     md: 'text-sm px-4 py-2',
     lg: 'text-base px-5 py-2.5',
   };
 
-  private readonly variantClasses: Record<UiButtonVariant, string> = {
+  private readonly variantClasses: Partial<Record<UiButtonVariant, string>> = {
     primary:
       'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-400 disabled:bg-blue-600/70',
     secondary:
