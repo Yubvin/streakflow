@@ -1,0 +1,12 @@
+@import './theme.light.css';
+@import './theme.dark.css';
+@import './tokens.css';
+
+:root {
+  --focus-ring-shadow: 0 0 0 2px var(--color-ring);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}

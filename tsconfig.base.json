@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@streakflow/shared-theme": ["libs/shared-theme/src/index.ts"],
       "@streakflow/ui": ["libs/ui/src/index.ts"],
       "@streakflow/ui/button": ["libs/ui/button/src/index.ts"]
     }
