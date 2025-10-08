@@ -57,6 +57,34 @@
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.14);
 }
 
+:root {
+  --btn-radius: var(--radius);
+  --btn-h-sm: 32px;
+  --btn-h-md: 40px;
+  --btn-h-lg: 44px;
+
+  --btn-px-sm: 12px;
+  --btn-px-md: 16px;
+  --btn-px-lg: 20px;
+
+  --btn-font-sm: var(--text-sm);
+  --btn-font-md: var(--text-sm);
+  --btn-font-lg: var(--text-base);
+
+  --btn-bg: var(--color-card);
+  --btn-fg: var(--color-card-fg);
+  --btn-border: var(--color-border);
+
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-fg: var(--color-on-primary);
+
+  --btn-secondary-bg: var(--color-secondary);
+  --btn-secondary-fg: var(--color-on-secondary);
+
+  --btn-destructive-bg: var(--color-destructive);
+  --btn-destructive-fg: var(--color-on-destructive);
+}
+
 html,
 body {
   background: var(--color-bg);

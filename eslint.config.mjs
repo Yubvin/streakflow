@@ -1,9 +1,12 @@
 import nx from '@nx/eslint-plugin';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
+  // Disable conflicting stylistic rules and run Prettier as an ESLint rule
+  eslintPluginPrettierRecommended,
   {
     ignores: ['**/dist'],
   },
