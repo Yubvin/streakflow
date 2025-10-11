@@ -26,6 +26,7 @@
       "@streakflow/ui/checkbox": ["libs/ui/checkbox/src/index.ts"],
       "@streakflow/ui/input": ["libs/ui/input/src/index.ts"],
       "@streakflow/ui/label": ["libs/ui/label/src/index.ts"],
+      "@streakflow/ui/pagination": ["libs/ui/pagination/src/index.ts"],
       "@streakflow/ui/progress": ["libs/ui/progress/src/index.ts"],
       "@streakflow/ui/progress-steps": ["libs/ui/progress-steps/src/index.ts"],
       "@streakflow/ui/radio-group": ["libs/ui/radio-group/src/index.ts"],

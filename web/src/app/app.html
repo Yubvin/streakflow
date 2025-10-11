@@ -2522,4 +2522,233 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Pagination — Page Navigation</h2>
+    <p class="text-muted-foreground mb-6">Pagination controls for navigating through multiple pages of content.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Pagination</h3>
+        <p class="text-sm text-muted-foreground mb-3">Simple page navigation with previous/next</p>
+        <ui-pagination>
+          <ui-pagination-content>
+            <ui-pagination-item>
+              <ui-pagination-previous [href]="['/page', 1]"></ui-pagination-previous>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 1]">1</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 2]" [isActive]="true">2</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 3]">3</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-next [href]="['/page', 3]"></ui-pagination-next>
+            </ui-pagination-item>
+          </ui-pagination-content>
+        </ui-pagination>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">With Ellipsis</h3>
+        <p class="text-sm text-muted-foreground mb-3">Show ellipsis for many pages</p>
+        <ui-pagination>
+          <ui-pagination-content>
+            <ui-pagination-item>
+              <ui-pagination-previous [href]="['/page', 4]"></ui-pagination-previous>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 1]">1</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-ellipsis></ui-pagination-ellipsis>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 4]">4</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 5]" [isActive]="true">5</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 6]">6</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-ellipsis></ui-pagination-ellipsis>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 10]">10</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-next [href]="['/page', 6]"></ui-pagination-next>
+            </ui-pagination-item>
+          </ui-pagination-content>
+        </ui-pagination>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">First Page</h3>
+        <p class="text-sm text-muted-foreground mb-3">At the beginning of pagination</p>
+        <ui-pagination>
+          <ui-pagination-content>
+            <ui-pagination-item>
+              <ui-pagination-previous [href]="['/']"></ui-pagination-previous>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 1]" [isActive]="true">1</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 2]">2</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 3]">3</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-ellipsis></ui-pagination-ellipsis>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 20]">20</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-next [href]="['/page', 2]"></ui-pagination-next>
+            </ui-pagination-item>
+          </ui-pagination-content>
+        </ui-pagination>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Last Page</h3>
+        <p class="text-sm text-muted-foreground mb-3">At the end of pagination</p>
+        <ui-pagination>
+          <ui-pagination-content>
+            <ui-pagination-item>
+              <ui-pagination-previous [href]="['/page', 19]"></ui-pagination-previous>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 1]">1</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-ellipsis></ui-pagination-ellipsis>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 18]">18</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 19]">19</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 20]" [isActive]="true">20</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-next [href]="['/page', 20]"></ui-pagination-next>
+            </ui-pagination-item>
+          </ui-pagination-content>
+        </ui-pagination>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Real Example — Habits List</h3>
+        <p class="text-sm text-muted-foreground mb-3">Pagination for browsing habits</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>All Habits</ui-card-title>
+            <ui-card-description>Showing 10-20 of 156 habits</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="space-y-3">
+              <div class="p-3 border rounded-lg" style="border-color: var(--tw-border-border);">
+                <div class="flex items-center gap-3">
+                  <span class="text-lg">🧘</span>
+                  <div class="flex-1">
+                    <div class="font-medium text-sm">Morning Meditation</div>
+                    <div class="text-xs text-muted-foreground">Daily • 7 day streak</div>
+                  </div>
+                  <ui-badge variant="secondary" size="sm">Active</ui-badge>
+                </div>
+              </div>
+              <div class="p-3 border rounded-lg" style="border-color: var(--tw-border-border);">
+                <div class="flex items-center gap-3">
+                  <span class="text-lg">💪</span>
+                  <div class="flex-1">
+                    <div class="font-medium text-sm">Gym Workout</div>
+                    <div class="text-xs text-muted-foreground">Weekly • 12 day streak</div>
+                  </div>
+                  <ui-badge variant="secondary" size="sm">Active</ui-badge>
+                </div>
+              </div>
+              <div class="p-3 border rounded-lg" style="border-color: var(--tw-border-border);">
+                <div class="flex items-center gap-3">
+                  <span class="text-lg">📚</span>
+                  <div class="flex-1">
+                    <div class="font-medium text-sm">Read 30 Minutes</div>
+                    <div class="text-xs text-muted-foreground">Daily • 3 day streak</div>
+                  </div>
+                  <ui-badge variant="secondary" size="sm">Active</ui-badge>
+                </div>
+              </div>
+            </div>
+          </ui-card-content>
+          <ui-card-footer>
+            <ui-pagination>
+              <ui-pagination-content>
+                <ui-pagination-item>
+                  <ui-pagination-previous [href]="['/habits', 'page', 1]"></ui-pagination-previous>
+                </ui-pagination-item>
+                <ui-pagination-item>
+                  <ui-pagination-link [href]="['/habits', 'page', 1]">1</ui-pagination-link>
+                </ui-pagination-item>
+                <ui-pagination-item>
+                  <ui-pagination-link [href]="['/habits', 'page', 2]" [isActive]="true">2</ui-pagination-link>
+                </ui-pagination-item>
+                <ui-pagination-item>
+                  <ui-pagination-link [href]="['/habits', 'page', 3]">3</ui-pagination-link>
+                </ui-pagination-item>
+                <ui-pagination-item>
+                  <ui-pagination-ellipsis></ui-pagination-ellipsis>
+                </ui-pagination-item>
+                <ui-pagination-item>
+                  <ui-pagination-link [href]="['/habits', 'page', 16]">16</ui-pagination-link>
+                </ui-pagination-item>
+                <ui-pagination-item>
+                  <ui-pagination-next [href]="['/habits', 'page', 3]"></ui-pagination-next>
+                </ui-pagination-item>
+              </ui-pagination-content>
+            </ui-pagination>
+          </ui-card-footer>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Simple (Few Pages)</h3>
+        <p class="text-sm text-muted-foreground mb-3">Pagination for small datasets</p>
+        <ui-pagination>
+          <ui-pagination-content>
+            <ui-pagination-item>
+              <ui-pagination-previous [href]="['/page', 1]"></ui-pagination-previous>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 1]">1</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 2]" [isActive]="true">2</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 3]">3</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 4]">4</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-link [href]="['/page', 5]">5</ui-pagination-link>
+            </ui-pagination-item>
+            <ui-pagination-item>
+              <ui-pagination-next [href]="['/page', 3]"></ui-pagination-next>
+            </ui-pagination-item>
+          </ui-pagination-content>
+        </ui-pagination>
+      </div>
+    </div>
+  </section>
 </div>
