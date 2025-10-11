@@ -716,7 +716,7 @@
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">With Label</h3>
         <p class="text-sm text-muted-foreground mb-3">Input with associated label</p>
         <div class="space-y-2">
-          <label for="name-input" class="text-sm font-medium" style="color: var(--tw-text-foreground);">Full Name</label>
+          <ui-label for="name-input">Full Name</ui-label>
           <ui-input type="text" placeholder="John Doe"></ui-input>
         </div>
       </div>
@@ -727,20 +727,20 @@
         <div class="border rounded-lg p-6" style="background-color: var(--tw-bg-card); border-color: var(--tw-border-border);">
           <div class="space-y-4">
             <div class="space-y-2">
-              <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Name</label>
+              <ui-label>Name</ui-label>
               <ui-input type="text" placeholder="Enter your name"></ui-input>
             </div>
             <div class="space-y-2">
-              <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Email</label>
+              <ui-label>Email</ui-label>
               <ui-input type="email" placeholder="your.email@example.com"></ui-input>
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-2">
-                <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Username</label>
+                <ui-label>Username</ui-label>
                 <ui-input type="text" placeholder="@username"></ui-input>
               </div>
               <div class="space-y-2">
-                <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Phone</label>
+                <ui-label>Phone</ui-label>
                 <ui-input type="tel" placeholder="+1 (555) 000-0000"></ui-input>
               </div>
             </div>
@@ -763,11 +763,11 @@
               <p class="text-sm text-muted-foreground">Enter your credentials to continue</p>
             </div>
             <div class="space-y-2">
-              <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Email</label>
+              <ui-label>Email</ui-label>
               <ui-input type="email" placeholder="name@example.com"></ui-input>
             </div>
             <div class="space-y-2">
-              <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Password</label>
+              <ui-label>Password</ui-label>
               <ui-input type="password" placeholder="Enter your password"></ui-input>
             </div>
             <ui-button variant="primary" [block]="true">Sign In</ui-button>

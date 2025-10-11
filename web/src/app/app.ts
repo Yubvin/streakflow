@@ -8,6 +8,7 @@ import { UiSkeletonComponent } from '@streakflow/ui/skeleton';
 import { UiInputComponent } from '@streakflow/ui/input';
 import { UiProgressComponent } from '@streakflow/ui/progress';
 import { UiProgressStepsComponent } from '@streakflow/ui/progress-steps';
+import { UiLabelComponent } from '@streakflow/ui/label';
 
 @Component({
   selector: 'app-icon',
@@ -28,7 +29,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent],
+  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',

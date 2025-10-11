@@ -24,7 +24,8 @@
       "@streakflow/ui/skeleton": ["libs/ui/skeleton/src/index.ts"],
       "@streakflow/ui/input": ["libs/ui/input/src/index.ts"],
       "@streakflow/ui/progress": ["libs/ui/progress/src/index.ts"],
-      "@streakflow/ui/progress-steps": ["libs/ui/progress-steps/src/index.ts"]
+      "@streakflow/ui/progress-steps": ["libs/ui/progress-steps/src/index.ts"],
+      "@streakflow/ui/label": ["libs/ui/label/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
