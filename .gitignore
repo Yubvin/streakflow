@@ -8,6 +8,8 @@
 .angular
 
 /прототип.zip
+/прототип_temp/
+/прototип*/
 
 # Build outputs
 **/dist/
