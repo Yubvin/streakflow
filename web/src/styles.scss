@@ -2,3 +2,7 @@
 
 @import '../../libs/shared-theme/src/lib/index.css';
 @import 'tailwindcss';
+
+/* CDK Overlay styles (global, not scoped to components) */
+@import '../../libs/ui/tooltip/src/lib/ui-tooltip.component.scss';
+@import '../../libs/ui/hover-card/src/lib/ui-hover-card.component.scss';
