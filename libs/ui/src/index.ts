@@ -8,3 +8,4 @@ export * from '../progress/src/lib/ui-progress.component';
 export * from '../progress-steps/src/lib/ui-progress-steps.component';
 export * from '../label/src/lib/ui-label.component';
 export * from '../card/src/index';
+export * from '../aspect-ratio/src/lib/ui-aspect-ratio.component';

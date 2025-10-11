@@ -10,6 +10,7 @@ import { UiProgressComponent } from '@streakflow/ui/progress';
 import { UiProgressStepsComponent } from '@streakflow/ui/progress-steps';
 import { UiLabelComponent } from '@streakflow/ui/label';
 import { UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent } from '@streakflow/ui/card';
+import { UiAspectRatioComponent } from '@streakflow/ui/aspect-ratio';
 
 @Component({
   selector: 'app-icon',
@@ -30,7 +31,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent],
+  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',

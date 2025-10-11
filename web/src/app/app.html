@@ -1252,4 +1252,151 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Aspect Ratio — Responsive Containers</h2>
+    <p class="text-muted-foreground mb-6">Maintain consistent aspect ratios for images, videos, and embedded content.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Common Ratios</h3>
+        <p class="text-sm text-muted-foreground mb-3">Popular aspect ratios for different use cases</p>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs text-muted-foreground mb-2">16:9 (Video)</p>
+            <ui-aspect-ratio [ratio]="16/9">
+              <div class="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex flex-col items-center justify-center p-4">
+                <span class="text-white text-2xl mb-2">📺</span>
+                <span class="text-white text-sm font-medium">16:9</span>
+                <span class="text-white/70 text-xs">YouTube, Movies</span>
+              </div>
+            </ui-aspect-ratio>
+          </div>
+          <div>
+            <p class="text-xs text-muted-foreground mb-2">4:3 (Classic)</p>
+            <ui-aspect-ratio [ratio]="4/3">
+              <div class="w-full h-full bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex flex-col items-center justify-center p-4">
+                <span class="text-white text-2xl mb-2">📷</span>
+                <span class="text-white text-sm font-medium">4:3</span>
+                <span class="text-white/70 text-xs">Classic Photos</span>
+              </div>
+            </ui-aspect-ratio>
+          </div>
+          <div>
+            <p class="text-xs text-muted-foreground mb-2">1:1 (Square)</p>
+            <ui-aspect-ratio [ratio]="1">
+              <div class="w-full h-full bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex flex-col items-center justify-center p-4">
+                <span class="text-white text-2xl mb-2">📸</span>
+                <span class="text-white text-sm font-medium">1:1</span>
+                <span class="text-white/70 text-xs">Instagram, Avatars</span>
+              </div>
+            </ui-aspect-ratio>
+          </div>
+          <div>
+            <p class="text-xs text-muted-foreground mb-2">21:9 (Ultrawide)</p>
+            <ui-aspect-ratio [ratio]="21/9">
+              <div class="w-full h-full bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex flex-col items-center justify-center p-4">
+                <span class="text-white text-2xl mb-2">🖥️</span>
+                <span class="text-white text-sm font-medium">21:9</span>
+                <span class="text-white/70 text-xs">Ultrawide Screens</span>
+              </div>
+            </ui-aspect-ratio>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Image Container</h3>
+        <p class="text-sm text-muted-foreground mb-3">Maintain consistent image display regardless of source dimensions</p>
+        <div class="max-w-md">
+          <ui-aspect-ratio [ratio]="16/9">
+            <img 
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop"
+              alt="Mountain landscape"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </ui-aspect-ratio>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Video Embed</h3>
+        <p class="text-sm text-muted-foreground mb-3">Responsive video container (16:9)</p>
+        <div class="max-w-2xl">
+          <ui-aspect-ratio [ratio]="16/9">
+            <div class="w-full h-full bg-black rounded-lg flex items-center justify-center">
+              <div class="text-center">
+                <div class="text-white text-4xl mb-2">▶️</div>
+                <p class="text-white text-sm">Video Player</p>
+              </div>
+            </div>
+          </ui-aspect-ratio>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Gallery Cards</h3>
+        <p class="text-sm text-muted-foreground mb-3">Image gallery with consistent aspect ratios</p>
+        <div class="grid grid-cols-3 gap-4">
+          <ui-card customClass="overflow-hidden">
+            <ui-aspect-ratio [ratio]="1">
+              <img 
+                src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=400&h=400&fit=crop"
+                alt="Gallery 1"
+                class="w-full h-full object-cover"
+              />
+            </ui-aspect-ratio>
+            <ui-card-content customClass="py-3">
+              <p class="text-xs font-medium">Image 1</p>
+            </ui-card-content>
+          </ui-card>
+          <ui-card customClass="overflow-hidden">
+            <ui-aspect-ratio [ratio]="1">
+              <img 
+                src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=400&h=400&fit=crop"
+                alt="Gallery 2"
+                class="w-full h-full object-cover"
+              />
+            </ui-aspect-ratio>
+            <ui-card-content customClass="py-3">
+              <p class="text-xs font-medium">Image 2</p>
+            </ui-card-content>
+          </ui-card>
+          <ui-card customClass="overflow-hidden">
+            <ui-aspect-ratio [ratio]="1">
+              <img 
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop"
+                alt="Gallery 3"
+                class="w-full h-full object-cover"
+              />
+            </ui-aspect-ratio>
+            <ui-card-content customClass="py-3">
+              <p class="text-xs font-medium">Image 3</p>
+            </ui-card-content>
+          </ui-card>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Profile Banner</h3>
+        <p class="text-sm text-muted-foreground mb-3">Wide banner for profile header (3:1)</p>
+        <ui-card customClass="overflow-hidden">
+          <ui-aspect-ratio [ratio]="3">
+            <div class="w-full h-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+              <h3 class="text-white text-2xl font-bold">Profile Banner</h3>
+            </div>
+          </ui-aspect-ratio>
+          <ui-card-content>
+            <div class="flex items-center gap-4 -mt-8">
+              <ui-avatar size="xl" fallback="AJ" customClass="ring-4 ring-card"></ui-avatar>
+              <div>
+                <h4 class="font-semibold">Alex Johnson</h4>
+                <p class="text-sm text-muted-foreground">@alexjohnson</p>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+    </div>
+  </section>
 </div>
