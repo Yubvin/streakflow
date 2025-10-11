@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'ui-breadcrumb-item',
   standalone: true,
-  template: '<li [attr.data-slot]="\'breadcrumb-item\'" class="ui-breadcrumb-item"><ng-content></ng-content></li>',
+  templateUrl: './ui-breadcrumb-item.component.html',
   styleUrls: ['./ui-breadcrumb.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

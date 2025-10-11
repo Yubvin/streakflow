@@ -3,16 +3,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'ui-breadcrumb-separator',
   standalone: true,
-  template: `
-    <li [attr.data-slot]="'breadcrumb-separator'" role="presentation" aria-hidden="true" class="ui-breadcrumb-separator">
-      <span class="custom-separator">
-        <ng-content></ng-content>
-      </span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 default-separator">
-        <path d="m9 18 6-6-6-6"/>
-      </svg>
-    </li>
-  `,
+  templateUrl: './ui-breadcrumb-separator.component.html',
   styleUrls: ['./ui-breadcrumb.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

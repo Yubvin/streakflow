@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'ui-breadcrumb',
   standalone: true,
-  template: '<nav aria-label="breadcrumb" [attr.data-slot]="\'breadcrumb\'"><ng-content></ng-content></nav>',
+  templateUrl: './ui-breadcrumb.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class]': 'customClass()',

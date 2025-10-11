@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
   selector: 'ui-breadcrumb-link',
   standalone: true,
   imports: [RouterModule],
-  template: '<a [attr.data-slot]="\'breadcrumb-link\'" [routerLink]="href()" class="ui-breadcrumb-link"><ng-content></ng-content></a>',
+  templateUrl: './ui-breadcrumb-link.component.html',
   styleUrls: ['./ui-breadcrumb.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
