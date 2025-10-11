@@ -24,6 +24,7 @@
       "@streakflow/ui/button": ["libs/ui/button/src/index.ts"],
       "@streakflow/ui/card": ["libs/ui/card/src/index.ts"],
       "@streakflow/ui/checkbox": ["libs/ui/checkbox/src/index.ts"],
+      "@streakflow/ui/context-menu": ["libs/ui/context-menu/src/index.ts"],
       "@streakflow/ui/dropdown-menu": ["libs/ui/dropdown-menu/src/index.ts"],
       "@streakflow/ui/hover-card": ["libs/ui/hover-card/src/index.ts"],
       "@streakflow/ui/input": ["libs/ui/input/src/index.ts"],
