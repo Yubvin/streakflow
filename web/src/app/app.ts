@@ -28,6 +28,7 @@ import { UiPopoverTriggerDirective, UiPopoverContentComponent } from '@streakflo
 import { UiDropdownMenuTriggerDirective, UiDropdownMenuContentComponent, UiDropdownMenuItemComponent, UiDropdownMenuSeparatorComponent, UiDropdownMenuLabelComponent } from '@streakflow/ui/dropdown-menu';
 import { UiContextMenuTriggerDirective, UiContextMenuContentComponent, UiContextMenuItemComponent, UiContextMenuSeparatorComponent, UiContextMenuLabelComponent } from '@streakflow/ui/context-menu';
 import { UiSelectTriggerDirective, UiSelectContentComponent, UiSelectItemComponent, UiSelectGroupComponent, UiSelectLabelComponent } from '@streakflow/ui/select';
+import { UiMenubarComponent, UiMenubarMenuComponent, UiMenubarTriggerDirective, UiMenubarContentComponent, UiMenubarItemComponent, UiMenubarSeparatorComponent, UiMenubarLabelComponent, UiMenubarShortcutComponent, UiMenubarCheckboxItemComponent, UiMenubarRadioGroupComponent, UiMenubarRadioItemComponent, UiMenubarSubComponent, UiMenubarSubTriggerDirective, UiMenubarSubContentComponent } from '@streakflow/ui/menubar';
 
 @Component({
   selector: 'app-icon',
@@ -48,7 +49,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [FormsModule, RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent, UiBreadcrumbComponent, UiBreadcrumbListComponent, UiBreadcrumbItemComponent, UiBreadcrumbLinkComponent, UiBreadcrumbPageComponent, UiBreadcrumbSeparatorComponent, UiBreadcrumbEllipsisComponent, UiPaginationComponent, UiPaginationContentComponent, UiPaginationItemComponent, UiPaginationLinkComponent, UiPaginationPreviousComponent, UiPaginationNextComponent, UiPaginationEllipsisComponent, UiTooltipTriggerDirective, UiHoverCardTriggerDirective, UiPopoverTriggerDirective, UiPopoverContentComponent, UiDropdownMenuTriggerDirective, UiDropdownMenuContentComponent, UiDropdownMenuItemComponent, UiDropdownMenuSeparatorComponent, UiDropdownMenuLabelComponent, UiContextMenuTriggerDirective, UiContextMenuContentComponent, UiContextMenuItemComponent, UiContextMenuSeparatorComponent, UiContextMenuLabelComponent, UiSelectTriggerDirective, UiSelectContentComponent, UiSelectItemComponent, UiSelectGroupComponent, UiSelectLabelComponent],
+  imports: [FormsModule, RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent, UiBreadcrumbComponent, UiBreadcrumbListComponent, UiBreadcrumbItemComponent, UiBreadcrumbLinkComponent, UiBreadcrumbPageComponent, UiBreadcrumbSeparatorComponent, UiBreadcrumbEllipsisComponent, UiPaginationComponent, UiPaginationContentComponent, UiPaginationItemComponent, UiPaginationLinkComponent, UiPaginationPreviousComponent, UiPaginationNextComponent, UiPaginationEllipsisComponent, UiTooltipTriggerDirective, UiHoverCardTriggerDirective, UiPopoverTriggerDirective, UiPopoverContentComponent, UiDropdownMenuTriggerDirective, UiDropdownMenuContentComponent, UiDropdownMenuItemComponent, UiDropdownMenuSeparatorComponent, UiDropdownMenuLabelComponent, UiContextMenuTriggerDirective, UiContextMenuContentComponent, UiContextMenuItemComponent, UiContextMenuSeparatorComponent, UiContextMenuLabelComponent, UiSelectTriggerDirective, UiSelectContentComponent, UiSelectItemComponent, UiSelectGroupComponent, UiSelectLabelComponent, UiMenubarComponent, UiMenubarMenuComponent, UiMenubarTriggerDirective, UiMenubarContentComponent, UiMenubarItemComponent, UiMenubarSeparatorComponent, UiMenubarLabelComponent, UiMenubarShortcutComponent, UiMenubarCheckboxItemComponent, UiMenubarRadioGroupComponent, UiMenubarRadioItemComponent, UiMenubarSubComponent, UiMenubarSubTriggerDirective, UiMenubarSubContentComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -143,5 +144,19 @@ export class App {
       root.classList.remove('dark');
       root.removeAttribute('data-theme');
     }
+  }
+
+  // Menubar state
+  showSidebar = signal<boolean>(true);
+  showStatusBar = signal<boolean>(true);
+  viewMode = signal<'default' | 'compact' | 'expanded'>('default');
+
+  onMenubarAction(action: string) {
+    console.log(`Menubar action:`, action);
+  }
+
+  setViewMode(mode: string) {
+    this.viewMode.set(mode as 'default' | 'compact' | 'expanded');
+    console.log(`View mode changed to:`, mode);
   }
 }
