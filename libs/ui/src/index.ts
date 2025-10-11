@@ -16,3 +16,4 @@ export * from '../switch/src/lib/ui-switch.component';
 export * from '../slider/src/lib/ui-slider.component';
 export * from '../toggle/src/lib/ui-toggle.component';
 export * from '../toggle-group/src/index';
+export * from '../tabs/src/index';
