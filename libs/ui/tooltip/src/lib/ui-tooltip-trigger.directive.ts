@@ -24,17 +24,40 @@ export class UiTooltipTriggerDirective {
   show(): void {
     if (this.overlayRef) return;
 
+    const side = this.tooltipSide();
+    const offset = this.sideOffset() || 8; // Увеличил default offset до 8px
+
+    // Определяем позицию в зависимости от side
+    let positions;
+    if (side === 'top') {
+      positions = [{
+        originX: 'center', originY: 'top',
+        overlayX: 'center', overlayY: 'bottom',
+        offsetY: -offset,
+      }];
+    } else if (side === 'bottom') {
+      positions = [{
+        originX: 'center', originY: 'bottom',
+        overlayX: 'center', overlayY: 'top',
+        offsetY: offset,
+      }];
+    } else if (side === 'left') {
+      positions = [{
+        originX: 'start', originY: 'center',
+        overlayX: 'end', overlayY: 'center',
+        offsetX: -offset,
+      }];
+    } else { // right
+      positions = [{
+        originX: 'end', originY: 'center',
+        overlayX: 'start', overlayY: 'center',
+        offsetX: offset,
+      }];
+    }
+
     const positionStrategy = this.positionBuilder
       .flexibleConnectedTo(this.elementRef)
-      .withPositions([
-        {
-          originX: 'center',
-          originY: this.tooltipSide() === 'bottom' ? 'bottom' : 'top',
-          overlayX: 'center',
-          overlayY: this.tooltipSide() === 'bottom' ? 'top' : 'bottom',
-          offsetY: this.tooltipSide() === 'bottom' ? this.sideOffset() : -this.sideOffset(),
-        },
-      ]);
+      .withPositions(positions);
 
     this.overlayRef = this.overlay.create({
       positionStrategy,
@@ -44,7 +67,7 @@ export class UiTooltipTriggerDirective {
     const portal = new ComponentPortal(UiTooltipContentComponent);
     const componentRef = this.overlayRef.attach(portal);
     componentRef.instance.content = this.tooltipText();
-    componentRef.instance.side = this.tooltipSide();
+    componentRef.instance.side = side;
   }
 
   @HostListener('mouseleave')

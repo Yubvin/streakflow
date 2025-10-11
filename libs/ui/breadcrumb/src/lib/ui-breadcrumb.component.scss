@@ -35,10 +35,20 @@
 
 .ui-breadcrumb-separator {
   user-select: none;
+  display: flex;
+  align-items: center;
 
-  svg {
+  .custom-separator {
+    display: contents;
+  }
+
+  .default-separator {
     width: 0.875rem;
     height: 0.875rem;
+  }
+
+  .custom-separator:not(:empty) ~ .default-separator {
+    display: none;
   }
 }
 
