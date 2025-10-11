@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, forwardRef, inject, input, output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -34,16 +34,18 @@ export class UiSliderComponent implements ControlValueAccessor {
   
   private onChange: (value: number) => void = () => {};
   private onTouched: () => void = () => {};
+  private cdr = inject(ChangeDetectorRef);
 
-  readonly percentage = computed(() => {
+  get percentage(): number {
     const min = this.min();
     const max = this.max();
     const val = this.value;
     return ((val - min) / (max - min)) * 100;
-  });
+  }
 
   writeValue(value: number): void {
     this.value = value ?? this.min();
+    this.cdr.markForCheck();
   }
 
   registerOnChange(fn: (value: number) => void): void {
@@ -63,6 +65,7 @@ export class UiSliderComponent implements ControlValueAccessor {
     this.value = Number(target.value);
     this.onChange(this.value);
     this.valueChange.emit(this.value);
+    this.cdr.markForCheck();
   }
 
   onBlur(): void {

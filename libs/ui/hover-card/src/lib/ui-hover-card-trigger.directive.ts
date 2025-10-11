@@ -21,6 +21,7 @@ export class UiHoverCardTriggerDirective {
   private viewContainerRef = inject(ViewContainerRef);
   private overlayRef: OverlayRef | null = null;
   private hideTimeout: any;
+  private showTimeout: any;
 
   @HostListener('mouseenter')
   show(): void {
@@ -30,6 +31,14 @@ export class UiHoverCardTriggerDirective {
     }
 
     if (this.overlayRef) return;
+
+    // Debounce показ чтобы избежать мигания
+    if (this.showTimeout) {
+      clearTimeout(this.showTimeout);
+    }
+
+    this.showTimeout = setTimeout(() => {
+      if (this.overlayRef) return;
 
     const side = this.side();
     const align = this.align();
@@ -80,18 +89,24 @@ export class UiHoverCardTriggerDirective {
       hasBackdrop: false,
     });
 
-    const portal = new TemplatePortal(this.contentTemplate(), this.viewContainerRef);
-    this.overlayRef.attach(portal);
+      const portal = new TemplatePortal(this.contentTemplate(), this.viewContainerRef);
+      this.overlayRef.attach(portal);
+    }, 200); // Задержка 200ms перед показом
   }
 
   @HostListener('mouseleave')
   hide(): void {
+    if (this.showTimeout) {
+      clearTimeout(this.showTimeout);
+      this.showTimeout = null;
+    }
+
     this.hideTimeout = setTimeout(() => {
       if (this.overlayRef) {
         this.overlayRef.dispose();
         this.overlayRef = null;
       }
-    }, 100);
+    }, 200);
   }
 }
 

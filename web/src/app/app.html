@@ -2885,6 +2885,83 @@
   </section>
 
   <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Select — Dropdown Selection</h2>
+    <p class="text-muted-foreground mb-6">Select components for choosing options from a dropdown list.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Select</h3>
+        <p class="text-sm text-muted-foreground mb-3">Click to open select dropdown</p>
+        <div class="p-6 border rounded-lg" style="border-color: var(--tw-border-border);">
+          <div class="space-y-4">
+            <div>
+              <ui-label>Country</ui-label>
+              <div 
+                class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
+                [uiSelectTrigger]="countrySelectTemplate"
+                [placeholder]="'Select country...'"
+                [value]="selectedCountry()"
+                (valueChange)="onCountryChange($event)"
+                tabindex="0"
+              >
+                <span [class.text-muted-foreground]="!selectedCountry()">{{ selectedCountry() || 'Select country...' }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 opacity-50">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Grouped Select</h3>
+        <p class="text-sm text-muted-foreground mb-3">Select with grouped options</p>
+        <div class="p-6 border rounded-lg" style="border-color: var(--tw-border-border);">
+          <div class="space-y-4">
+            <div>
+              <ui-label>Framework</ui-label>
+              <div 
+                class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
+                [uiSelectTrigger]="frameworkSelectTemplate"
+                [placeholder]="'Select framework...'"
+                [value]="selectedFramework()"
+                (valueChange)="onFrameworkChange($event)"
+                tabindex="0"
+              >
+                <span [class.text-muted-foreground]="!selectedFramework()">{{ selectedFramework() || 'Select framework...' }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 opacity-50">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Disabled Select</h3>
+        <p class="text-sm text-muted-foreground mb-3">Select in disabled state</p>
+        <div class="p-6 border rounded-lg" style="border-color: var(--tw-border-border);">
+          <div class="space-y-4">
+            <div>
+              <ui-label>Disabled Option</ui-label>
+              <div 
+                class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm opacity-50 cursor-not-allowed"
+              >
+                <span class="text-muted-foreground">Select option...</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 opacity-50">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Context Menu — Right-Click Actions</h2>
     
     <div class="space-y-8 max-w-2xl">
