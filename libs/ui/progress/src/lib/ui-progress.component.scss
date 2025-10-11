@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.ui-progress {
+  position: relative;
+  height: var(--progress-height);
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--progress-radius);
+  background-color: var(--progress-bg);
+}
+
+.ui-progress-indicator {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  background-color: var(--progress-indicator-bg);
+  transition: transform 300ms ease-in-out;
+}
+

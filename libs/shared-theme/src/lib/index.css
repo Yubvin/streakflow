@@ -14,6 +14,8 @@
 @import './tokens/components/separator.tokens.css';
 @import './tokens/components/avatar.tokens.css';
 @import './tokens/components/skeleton.tokens.css';
+@import './tokens/components/input.tokens.css';
+@import './tokens/components/progress.tokens.css';
 
 :root {
   --focus-ring-shadow: 0 0 0 2px var(--color-ring);

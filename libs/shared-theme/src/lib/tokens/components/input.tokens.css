@@ -1,0 +1,18 @@
+:root {
+  --input-height: 2.25rem;
+  --input-padding-x: 0.75rem;
+  --input-padding-y: 0.25rem;
+  --input-radius: var(--radius-md);
+  --input-font-size: 0.875rem;
+
+  --input-bg: hsl(var(--background));
+  --input-fg: hsl(var(--foreground));
+  --input-border: hsl(var(--input));
+  --input-placeholder: hsl(var(--muted-foreground));
+}
+
+:root.dark,
+:root[data-theme='dark'] {
+  --input-bg: hsl(var(--input) / 0.3);
+}
+

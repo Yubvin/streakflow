@@ -676,4 +676,438 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Inputs — Form Fields</h2>
+    <p class="text-muted-foreground mb-6">Input components for forms with validation states and different types.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Input</h3>
+        <p class="text-sm text-muted-foreground mb-3">Standard text input field</p>
+        <ui-input type="text" placeholder="Enter your name"></ui-input>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Email Input</h3>
+        <p class="text-sm text-muted-foreground mb-3">Input with email type for proper validation</p>
+        <ui-input type="email" placeholder="your.email@example.com"></ui-input>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Password Input</h3>
+        <p class="text-sm text-muted-foreground mb-3">Masked input for passwords</p>
+        <ui-input type="password" placeholder="Enter password"></ui-input>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Number Input</h3>
+        <p class="text-sm text-muted-foreground mb-3">Input for numeric values</p>
+        <ui-input type="number" placeholder="0"></ui-input>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Disabled Input</h3>
+        <p class="text-sm text-muted-foreground mb-3">Input in disabled state</p>
+        <ui-input type="text" placeholder="Cannot edit" [disabled]="true"></ui-input>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">With Label</h3>
+        <p class="text-sm text-muted-foreground mb-3">Input with associated label</p>
+        <div class="space-y-2">
+          <label for="name-input" class="text-sm font-medium" style="color: var(--tw-text-foreground);">Full Name</label>
+          <ui-input type="text" placeholder="John Doe"></ui-input>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Profile Form Example</h3>
+        <p class="text-sm text-muted-foreground mb-3">Real-world form with multiple inputs</p>
+        <div class="border rounded-lg p-6" style="background-color: var(--tw-bg-card); border-color: var(--tw-border-border);">
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Name</label>
+              <ui-input type="text" placeholder="Enter your name"></ui-input>
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Email</label>
+              <ui-input type="email" placeholder="your.email@example.com"></ui-input>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Username</label>
+                <ui-input type="text" placeholder="@username"></ui-input>
+              </div>
+              <div class="space-y-2">
+                <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Phone</label>
+                <ui-input type="tel" placeholder="+1 (555) 000-0000"></ui-input>
+              </div>
+            </div>
+            <ui-separator></ui-separator>
+            <div class="flex justify-end gap-3">
+              <ui-button variant="ghost">Cancel</ui-button>
+              <ui-button variant="primary">Save Changes</ui-button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Login Form Example</h3>
+        <p class="text-sm text-muted-foreground mb-3">Authentication form with email and password</p>
+        <div class="border rounded-lg p-6 max-w-md" style="background-color: var(--tw-bg-card); border-color: var(--tw-border-border);">
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-xl font-semibold mb-1" style="color: var(--tw-text-foreground);">Welcome back</h3>
+              <p class="text-sm text-muted-foreground">Enter your credentials to continue</p>
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Email</label>
+              <ui-input type="email" placeholder="name@example.com"></ui-input>
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium" style="color: var(--tw-text-foreground);">Password</label>
+              <ui-input type="password" placeholder="Enter your password"></ui-input>
+            </div>
+            <ui-button variant="primary" [block]="true">Sign In</ui-button>
+            <div class="text-center">
+              <ui-button variant="link" size="sm">Forgot password?</ui-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Progress — Loading & Completion States</h2>
+    <p class="text-muted-foreground mb-6">Progress bars for showing completion status, loading states, and goal tracking.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Different Values</h3>
+        <p class="text-sm text-muted-foreground mb-3">Progress bars showing various completion percentages</p>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-muted-foreground">Starting (0%)</span>
+              <span class="font-medium">0%</span>
+            </div>
+            <ui-progress [value]="0"></ui-progress>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-muted-foreground">In Progress (25%)</span>
+              <span class="font-medium">25%</span>
+            </div>
+            <ui-progress [value]="25"></ui-progress>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-muted-foreground">Half Way (50%)</span>
+              <span class="font-medium">50%</span>
+            </div>
+            <ui-progress [value]="50"></ui-progress>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-muted-foreground">Almost There (75%)</span>
+              <span class="font-medium">75%</span>
+            </div>
+            <ui-progress [value]="75"></ui-progress>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-muted-foreground">Complete (100%)</span>
+              <span class="font-medium">100%</span>
+            </div>
+            <ui-progress [value]="100"></ui-progress>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Habit Progress Card</h3>
+        <p class="text-sm text-muted-foreground mb-3">Real-world example showing daily habit progress</p>
+        <div class="border rounded-lg p-4 max-w-md shadow-sm" style="background-color: var(--tw-bg-card); border-color: var(--tw-border-border);">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <span class="text-xl">🧘</span>
+              <div>
+                <h3 class="font-medium">Morning Meditation</h3>
+                <div class="flex items-center gap-1 text-sm text-muted-foreground mt-1">
+                  <span>🔥</span>
+                  <span>7 day streak</span>
+                </div>
+              </div>
+            </div>
+            <ui-button variant="secondary" size="sm">Done</ui-button>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm">
+              <span class="text-muted-foreground">Today's Progress</span>
+              <span class="font-medium">100%</span>
+            </div>
+            <ui-progress [value]="100"></ui-progress>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Multiple Progress Bars</h3>
+        <p class="text-sm text-muted-foreground mb-3">Tracking multiple goals simultaneously</p>
+        <div class="border rounded-lg p-4" style="background-color: var(--tw-bg-card); border-color: var(--tw-border-border);">
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-muted-foreground">🚶 Steps Today</span>
+                <span class="font-medium">7,500 / 10,000</span>
+              </div>
+              <ui-progress [value]="75"></ui-progress>
+            </div>
+            <ui-separator></ui-separator>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-muted-foreground">💧 Water Intake</span>
+                <span class="font-medium">6 / 8 glasses</span>
+              </div>
+              <ui-progress [value]="75"></ui-progress>
+            </div>
+            <ui-separator></ui-separator>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-muted-foreground">📚 Reading Time</span>
+                <span class="font-medium">20 / 30 minutes</span>
+              </div>
+              <ui-progress [value]="66"></ui-progress>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Custom Sized Progress</h3>
+        <p class="text-sm text-muted-foreground mb-3">Progress bars with different heights</p>
+        <div class="space-y-4">
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">Thin (h-1)</div>
+            <ui-progress [value]="60" customClass="h-1"></ui-progress>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">Default (h-2)</div>
+            <ui-progress [value]="60"></ui-progress>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">Medium (h-3)</div>
+            <ui-progress [value]="60" customClass="h-3"></ui-progress>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">Thick (h-4)</div>
+            <ui-progress [value]="60" customClass="h-4"></ui-progress>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Weekly Goal Tracker</h3>
+        <p class="text-sm text-muted-foreground mb-3">Track weekly habit completion</p>
+        <div class="border rounded-lg p-6" style="background-color: var(--tw-bg-card); border-color: var(--tw-border-border);">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold">Weekly Goals</h4>
+              <ui-badge variant="secondary">4 / 7 days</ui-badge>
+            </div>
+            <ui-progress [value]="57"></ui-progress>
+            <div class="grid grid-cols-7 gap-2 mt-4">
+              <div class="text-center">
+                <div class="text-xs text-muted-foreground mb-1">Mon</div>
+                <div class="w-8 h-8 rounded-full bg-primary mx-auto flex items-center justify-center text-white text-xs">✓</div>
+              </div>
+              <div class="text-center">
+                <div class="text-xs text-muted-foreground mb-1">Tue</div>
+                <div class="w-8 h-8 rounded-full bg-primary mx-auto flex items-center justify-center text-white text-xs">✓</div>
+              </div>
+              <div class="text-center">
+                <div class="text-xs text-muted-foreground mb-1">Wed</div>
+                <div class="w-8 h-8 rounded-full bg-muted mx-auto flex items-center justify-center text-muted-foreground text-xs">○</div>
+              </div>
+              <div class="text-center">
+                <div class="text-xs text-muted-foreground mb-1">Thu</div>
+                <div class="w-8 h-8 rounded-full bg-primary mx-auto flex items-center justify-center text-white text-xs">✓</div>
+              </div>
+              <div class="text-center">
+                <div class="text-xs text-muted-foreground mb-1">Fri</div>
+                <div class="w-8 h-8 rounded-full bg-primary mx-auto flex items-center justify-center text-white text-xs">✓</div>
+              </div>
+              <div class="text-center">
+                <div class="text-xs text-muted-foreground mb-1">Sat</div>
+                <div class="w-8 h-8 rounded-full bg-muted mx-auto flex items-center justify-center text-muted-foreground text-xs">○</div>
+              </div>
+              <div class="text-center">
+                <div class="text-xs text-muted-foreground mb-1">Sun</div>
+                <div class="w-8 h-8 rounded-full bg-muted mx-auto flex items-center justify-center text-muted-foreground text-xs">○</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Progress Steps — Multi-Step Goals</h2>
+    <p class="text-muted-foreground mb-6">Step indicators for habits with multiple daily goals (e.g., drink 8 glasses of water).</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Progress Steps</h3>
+        <p class="text-sm text-muted-foreground mb-3">Different completion states</p>
+        <div class="space-y-4">
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">None completed (0 / 5)</div>
+            <ui-progress-steps [steps]="5" [current]="0"></ui-progress-steps>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">Partially completed (2 / 5)</div>
+            <ui-progress-steps [steps]="5" [current]="2"></ui-progress-steps>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">Almost done (4 / 5)</div>
+            <ui-progress-steps [steps]="5" [current]="4"></ui-progress-steps>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">All completed (5 / 5)</div>
+            <ui-progress-steps [steps]="5" [current]="5"></ui-progress-steps>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Water Intake Tracker</h3>
+        <p class="text-sm text-muted-foreground mb-3">Track daily water consumption (8 glasses)</p>
+        <div class="border rounded-lg p-4 max-w-md shadow-sm" style="background-color: var(--tw-bg-card); border-color: var(--tw-border-border);">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <span class="text-xl">💧</span>
+              <div>
+                <h3 class="font-medium">Water Intake</h3>
+                <div class="text-sm text-muted-foreground mt-1">Goal: 8 glasses/day</div>
+              </div>
+            </div>
+            <ui-button variant="secondary" size="sm">Add Glass</ui-button>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm">
+              <span class="text-muted-foreground">Today's Progress</span>
+              <span class="font-medium">6 / 8</span>
+            </div>
+            <ui-progress-steps [steps]="8" [current]="6"></ui-progress-steps>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Exercise Reps</h3>
+        <p class="text-sm text-muted-foreground mb-3">Track sets during workout</p>
+        <div class="border rounded-lg p-4 max-w-md shadow-sm" style="background-color: var(--tw-bg-card); border-color: var(--tw-border-border);">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <span class="text-xl">💪</span>
+              <div>
+                <h3 class="font-medium">Push-ups</h3>
+                <div class="text-sm text-muted-foreground mt-1">Goal: 3 sets/day</div>
+              </div>
+            </div>
+            <ui-button variant="secondary" size="sm">Complete Set</ui-button>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm">
+              <span class="text-muted-foreground">Sets Today</span>
+              <span class="font-medium">2 / 3</span>
+            </div>
+            <ui-progress-steps [steps]="3" [current]="2"></ui-progress-steps>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Multiple Habits with Steps</h3>
+        <p class="text-sm text-muted-foreground mb-3">Compare progress across different multi-goal habits</p>
+        <div class="border rounded-lg p-4" style="background-color: var(--tw-bg-card); border-color: var(--tw-border-border);">
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-muted-foreground">💧 Water (8 glasses)</span>
+                <span class="font-medium">6 / 8</span>
+              </div>
+              <ui-progress-steps [steps]="8" [current]="6"></ui-progress-steps>
+            </div>
+            <ui-separator></ui-separator>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-muted-foreground">🥗 Meals (3 healthy meals)</span>
+                <span class="font-medium">2 / 3</span>
+              </div>
+              <ui-progress-steps [steps]="3" [current]="2"></ui-progress-steps>
+            </div>
+            <ui-separator></ui-separator>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-muted-foreground">💊 Vitamins (2 pills)</span>
+                <span class="font-medium">1 / 2</span>
+              </div>
+              <ui-progress-steps [steps]="2" [current]="1"></ui-progress-steps>
+            </div>
+            <ui-separator></ui-separator>
+            <div>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="text-muted-foreground">🚶 Steps (10k steps in 5 check-ins)</span>
+                <span class="font-medium">3 / 5</span>
+              </div>
+              <ui-progress-steps [steps]="5" [current]="3"></ui-progress-steps>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Animating State</h3>
+        <p class="text-sm text-muted-foreground mb-3">Shows visual feedback during step completion</p>
+        <div class="space-y-4">
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">Normal state</div>
+            <ui-progress-steps [steps]="5" [current]="2" [animating]="false"></ui-progress-steps>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">Animating next step</div>
+            <ui-progress-steps [steps]="5" [current]="2" [animating]="true"></ui-progress-steps>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Different Step Counts</h3>
+        <p class="text-sm text-muted-foreground mb-3">Works with any number of steps</p>
+        <div class="space-y-4">
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">2 steps (1 / 2)</div>
+            <ui-progress-steps [steps]="2" [current]="1"></ui-progress-steps>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">3 steps (2 / 3)</div>
+            <ui-progress-steps [steps]="3" [current]="2"></ui-progress-steps>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">4 steps (2 / 4)</div>
+            <ui-progress-steps [steps]="4" [current]="2"></ui-progress-steps>
+          </div>
+          <div>
+            <div class="text-sm text-muted-foreground mb-2">10 steps (7 / 10)</div>
+            <ui-progress-steps [steps]="10" [current]="7"></ui-progress-steps>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

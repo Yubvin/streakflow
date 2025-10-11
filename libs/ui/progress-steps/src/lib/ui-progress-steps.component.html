@@ -1,0 +1,9 @@
+<div class="ui-progress-steps">
+  @for (step of stepsArray(); track step) {
+    <div 
+      class="ui-progress-step"
+      [attr.data-state]="getStepClass(step)"
+    ></div>
+  }
+</div>
+

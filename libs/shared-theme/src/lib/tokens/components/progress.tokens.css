@@ -1,0 +1,7 @@
+:root {
+  --progress-height: 0.5rem;
+  --progress-radius: var(--radius-full);
+  --progress-bg: hsl(var(--primary) / 0.2);
+  --progress-indicator-bg: hsl(var(--primary));
+}
+
