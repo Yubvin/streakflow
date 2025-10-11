@@ -1977,4 +1977,31 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Slider — Range Input</h2>
+    <p class="text-muted-foreground mb-6">Slider components for selecting values from a range.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Slider</h3>
+        <ui-slider [min]="0" [max]="100"></ui-slider>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Volume Control</h3>
+        <ui-card>
+          <ui-card-content>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <ui-label>Volume</ui-label>
+                <span class="text-sm text-muted-foreground">50%</span>
+              </div>
+              <ui-slider [min]="0" [max]="100"></ui-slider>
+            </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+    </div>
+  </section>
 </div>

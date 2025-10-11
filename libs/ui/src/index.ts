@@ -13,3 +13,4 @@ export * from '../textarea/src/lib/ui-textarea.component';
 export * from '../checkbox/src/lib/ui-checkbox.component';
 export * from '../radio-group/src/index';
 export * from '../switch/src/lib/ui-switch.component';
+export * from '../slider/src/lib/ui-slider.component';

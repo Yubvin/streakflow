@@ -15,6 +15,7 @@ import { UiTextareaComponent } from '@streakflow/ui/textarea';
 import { UiCheckboxComponent } from '@streakflow/ui/checkbox';
 import { UiRadioGroupComponent, UiRadioItemComponent } from '@streakflow/ui/radio-group';
 import { UiSwitchComponent } from '@streakflow/ui/switch';
+import { UiSliderComponent } from '@streakflow/ui/slider';
 
 @Component({
   selector: 'app-icon',
@@ -35,7 +36,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent],
+  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
