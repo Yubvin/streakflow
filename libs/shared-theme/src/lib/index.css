@@ -11,6 +11,7 @@
 
 @import './tokens/components/button.tokens.css';
 @import './tokens/components/badge.tokens.css';
+@import './tokens/components/separator.tokens.css';
 
 :root {
   --focus-ring-shadow: 0 0 0 2px var(--color-ring);

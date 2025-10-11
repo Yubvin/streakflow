@@ -1,0 +1,4 @@
+:root {
+    --separator-color: hsl(var(--border));
+    --separator-thickness: 1px;
+}

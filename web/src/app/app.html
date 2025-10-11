@@ -4,8 +4,10 @@
     <div class="flex flex-wrap gap-3">
       <ui-button variant="primary">Save Changes</ui-button>
       <ui-button variant="secondary">Cancel</ui-button>
+      <ui-separator orientation="vertical"></ui-separator>
       <ui-button variant="destructive">Delete Account</ui-button>
       <ui-button variant="outline">View Details</ui-button>
+      <ui-separator orientation="vertical"></ui-separator>
       <ui-button variant="ghost">Skip</ui-button>
       <ui-button variant="link">Learn More</ui-button>
     </div>
@@ -38,6 +40,7 @@
           <app-icon name="gear" [size]="16"></app-icon>
         </span>
       </ui-button>
+      <ui-separator orientation="vertical"></ui-separator>
       <ui-button variant="outline">
         <span icon-left>
           <app-icon name="gear" [size]="16"></app-icon>
@@ -58,6 +61,7 @@
     <div class="flex flex-wrap gap-3">
       <ui-button>Active Button</ui-button>
       <ui-button disabled>Disabled Button</ui-button>
+      <ui-separator orientation="vertical"></ui-separator>
       <ui-button loading>Saving...</ui-button>
       <ui-button variant="destructive" loading>Deleting...</ui-button>
     </div>
@@ -67,6 +71,7 @@
     <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Buttons — Full Width</h2>
     <div class="space-y-3">
       <ui-button block>Continue to Payment</ui-button>
+      <ui-separator></ui-separator>
       <ui-button variant="outline" block>Go Back</ui-button>
     </div>
   </section>
@@ -81,6 +86,8 @@
           <ui-button variant="outline">Reset</ui-button>
           <ui-button variant="ghost">Cancel</ui-button>
         </div>
+        <ui-separator class="my-4"></ui-separator>
+        <div class="text-xs text-muted-foreground">Form completed successfully</div>
       </div>
 
       <div>
@@ -96,15 +103,16 @@
         <div class="flex gap-3">
           <ui-button variant="primary">Next Step</ui-button>
           <ui-button variant="secondary">Previous</ui-button>
+          <ui-separator orientation="vertical"></ui-separator>
           <ui-button variant="link">Skip Tutorial</ui-button>
         </div>
       </div>
 
       <div>
         <p class="text-sm text-muted-foreground mb-3">Loading States</p>
-        <ui-button [loading]="loading()" (click)="toggleLoading()">
+    <ui-button [loading]="loading()" (click)="toggleLoading()">
           Toggle Loading Demo
-        </ui-button>
+    </ui-button>
       </div>
     </div>
   </section>
@@ -161,8 +169,10 @@
     <div class="flex flex-wrap items-center gap-3">
       <ui-badge variant="outline">Health</ui-badge>
       <ui-badge variant="outline">Productivity</ui-badge>
+      <ui-separator orientation="vertical"></ui-separator>
       <ui-badge variant="outline">Fitness</ui-badge>
       <ui-badge variant="outline">Learning</ui-badge>
+      <ui-separator orientation="vertical"></ui-separator>
       <ui-badge variant="outline">Mindfulness</ui-badge>
     </div>
   </section>
@@ -190,6 +200,7 @@
     <div class="flex flex-wrap items-center gap-3">
       <ui-badge [interactive]="true">Filter: All</ui-badge>
       <ui-badge variant="outline" [interactive]="true">Filter: Active</ui-badge>
+      <ui-separator orientation="vertical"></ui-separator>
       <ui-badge variant="secondary" [interactive]="true">Sort by Date</ui-badge>
       <ui-badge variant="destructive" [interactive]="true">Clear Filters</ui-badge>
     </div>
@@ -201,6 +212,93 @@
       <ui-badge variant="secondary" customClass="capitalize">daily</ui-badge>
       <ui-badge variant="secondary" customClass="capitalize">weekly</ui-badge>
       <ui-badge variant="secondary" customClass="capitalize">daily</ui-badge>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Separators — All Variants</h2>
+    <div class="space-y-6">
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">Horizontal Separator</p>
+        <div class="space-y-4">
+          <div class="text-sm">Content above</div>
+          <ui-separator></ui-separator>
+          <div class="text-sm">Content below</div>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">Vertical Separator</p>
+        <div class="flex items-center gap-4 h-8">
+          <div class="text-sm">Left content</div>
+          <ui-separator orientation="vertical"></ui-separator>
+          <div class="text-sm">Right content</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Separators — Real Use Cases</h2>
+    <div class="space-y-6">
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">Form Sections</p>
+        <div class="border rounded-lg p-4 max-w-md" style="background-color: var(--tw-bg-card);">
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-medium text-sm mb-2">Personal Information</h4>
+              <div class="text-xs text-muted-foreground">Enter your basic details</div>
+            </div>
+            <ui-separator></ui-separator>
+            <div>
+              <h4 class="font-medium text-sm mb-2">Account Settings</h4>
+              <div class="text-xs text-muted-foreground">Configure your preferences</div>
+            </div>
+            <ui-separator></ui-separator>
+            <div>
+              <h4 class="font-medium text-sm mb-2">Notifications</h4>
+              <div class="text-xs text-muted-foreground">Manage your alerts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">Navigation Breadcrumbs</p>
+        <div class="flex items-center gap-2 text-sm">
+          <span class="text-muted-foreground">Home</span>
+          <ui-separator orientation="vertical"></ui-separator>
+          <span class="text-muted-foreground">Dashboard</span>
+          <ui-separator orientation="vertical"></ui-separator>
+          <span style="color: var(--tw-text-foreground);">Habits</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">List Items</p>
+        <div class="border rounded-lg max-w-md" style="background-color: var(--tw-bg-card);">
+          <div class="p-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm">Morning Meditation</span>
+              <ui-badge variant="secondary" size="sm">Active</ui-badge>
+            </div>
+          </div>
+          <ui-separator></ui-separator>
+          <div class="p-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm">Gym Workout</span>
+              <ui-badge variant="secondary" size="sm">Active</ui-badge>
+            </div>
+          </div>
+          <ui-separator></ui-separator>
+          <div class="p-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm">Read 30 Minutes</span>
+              <ui-badge variant="secondary" size="sm">Active</ui-badge>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

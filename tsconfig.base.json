@@ -18,7 +18,8 @@
       "@streakflow/shared-theme": ["libs/shared-theme/src/index.ts"],
       "@streakflow/ui": ["libs/ui/src/index.ts"],
       "@streakflow/ui/badge": ["libs/ui/badge/src/index.ts"],
-      "@streakflow/ui/button": ["libs/ui/button/src/index.ts"]
+      "@streakflow/ui/button": ["libs/ui/button/src/index.ts"],
+      "@streakflow/ui/separator": ["libs/ui/separator/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

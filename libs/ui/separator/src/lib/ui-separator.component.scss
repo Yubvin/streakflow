@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  flex-shrink: 0;
+}
+
+.ui-separator {
+  display: block;
+  background-color: var(--separator-color, hsl(var(--border)));
+  flex-shrink: 0;
+}
+
+:host([data-orientation='horizontal']) .ui-separator {
+  width: 100%;
+  height: 1px;
+}
+
+:host([data-orientation='vertical']) {
+  display: inline-block;
+}
+
+:host([data-orientation='vertical']) .ui-separator {
+  width: 1px;
+  height: 100%;
+}
