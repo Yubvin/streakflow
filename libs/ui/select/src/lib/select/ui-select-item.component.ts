@@ -3,21 +3,7 @@ import { ChangeDetectionStrategy, Component, input, output, HostListener } from 
 @Component({
   selector: 'ui-select-item',
   standalone: true,
-  template: `
-    <div 
-      class="ui-select-item" 
-      data-slot="select-item"
-      [class.ui-select-item--selected]="selected()"
-      [class.ui-select-item--disabled]="disabled()"
-      role="option"
-      [attr.tabindex]="disabled() ? -1 : 0"
-      [attr.aria-selected]="selected()"
-      [attr.aria-disabled]="disabled()"
-      [attr.data-value]="value()"
-    >
-      <ng-content></ng-content>
-    </div>
-  `,
+  templateUrl: './ui-select-item.component.html',
   styleUrls: ['./ui-select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

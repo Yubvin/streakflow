@@ -4,18 +4,7 @@ import { FocusTrap, FocusTrapFactory } from '@angular/cdk/a11y';
 @Component({
   selector: 'ui-context-menu-content',
   standalone: true,
-  template: `
-    <div 
-      class="ui-context-menu-content" 
-      data-slot="context-menu-content"
-      [attr.data-state]="state"
-      #content
-      role="menu"
-      tabindex="-1"
-    >
-      <ng-content></ng-content>
-    </div>
-  `,
+  templateUrl: './ui-context-menu-content.component.html',
   styleUrls: ['./ui-context-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

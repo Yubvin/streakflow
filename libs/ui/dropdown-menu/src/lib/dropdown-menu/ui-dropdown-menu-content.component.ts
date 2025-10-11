@@ -4,18 +4,7 @@ import { FocusTrap, FocusTrapFactory } from '@angular/cdk/a11y';
 @Component({
   selector: 'ui-dropdown-menu-content',
   standalone: true,
-  template: `
-    <div 
-      class="ui-dropdown-menu-content" 
-      data-slot="dropdown-menu-content"
-      [attr.data-state]="state"
-      #content
-      role="menu"
-      tabindex="-1"
-    >
-      <ng-content></ng-content>
-    </div>
-  `,
+  templateUrl: './ui-dropdown-menu-content.component.html',
   styleUrls: ['./ui-dropdown-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

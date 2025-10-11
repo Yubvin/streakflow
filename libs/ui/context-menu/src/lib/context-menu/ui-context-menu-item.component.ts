@@ -3,18 +3,7 @@ import { ChangeDetectionStrategy, Component, input, output, HostListener } from 
 @Component({
   selector: 'ui-context-menu-item',
   standalone: true,
-  template: `
-    <div 
-      class="ui-context-menu-item" 
-      data-slot="context-menu-item"
-      [class.ui-context-menu-item--disabled]="disabled()"
-      role="menuitem"
-      [attr.tabindex]="disabled() ? -1 : 0"
-      [attr.aria-disabled]="disabled()"
-    >
-      <ng-content></ng-content>
-    </div>
-  `,
+  templateUrl: './ui-context-menu-item.component.html',
   styleUrls: ['./ui-context-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

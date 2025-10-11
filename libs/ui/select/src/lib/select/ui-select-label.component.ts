@@ -3,15 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'ui-select-label',
   standalone: true,
-  template: `
-    <div 
-      class="ui-select-label" 
-      data-slot="select-label"
-      role="group"
-    >
-      <ng-content></ng-content>
-    </div>
-  `,
+  templateUrl: './ui-select-label.component.html',
   styleUrls: ['./ui-select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

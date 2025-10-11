@@ -4,17 +4,7 @@ import { OverlayRef } from '@angular/cdk/overlay';
 @Component({
   selector: 'ui-popover-content',
   standalone: true,
-  template: `
-    <div 
-      class="ui-popover-content" 
-      data-slot="popover-content"
-      [attr.data-side]="side()"
-      [attr.data-state]="state()"
-      #content
-    >
-      <ng-content></ng-content>
-    </div>
-  `,
+  templateUrl: './ui-popover-content.component.html',
   styleUrls: ['./ui-popover.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

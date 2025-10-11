@@ -1,0 +1,11 @@
+<div 
+  class="ui-dropdown-menu-item" 
+  data-slot="dropdown-menu-item"
+  [class.ui-dropdown-menu-item--disabled]="disabled()"
+  role="menuitem"
+  [attr.tabindex]="disabled() ? -1 : 0"
+  [attr.aria-disabled]="disabled()"
+>
+  <ng-content></ng-content>
+</div>
+

@@ -4,18 +4,7 @@ import { FocusTrap, FocusTrapFactory } from '@angular/cdk/a11y';
 @Component({
   selector: 'ui-select-content',
   standalone: true,
-  template: `
-    <div 
-      class="ui-select-content" 
-      data-slot="select-content"
-      [attr.data-state]="state"
-      #content
-      role="listbox"
-      tabindex="-1"
-    >
-      <ng-content></ng-content>
-    </div>
-  `,
+  templateUrl: './ui-select-content.component.html',
   styleUrls: ['./ui-select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

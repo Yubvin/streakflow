@@ -3,18 +3,7 @@ import { ChangeDetectionStrategy, Component, input, output, HostListener } from 
 @Component({
   selector: 'ui-dropdown-menu-item',
   standalone: true,
-  template: `
-    <div 
-      class="ui-dropdown-menu-item" 
-      data-slot="dropdown-menu-item"
-      [class.ui-dropdown-menu-item--disabled]="disabled()"
-      role="menuitem"
-      [attr.tabindex]="disabled() ? -1 : 0"
-      [attr.aria-disabled]="disabled()"
-    >
-      <ng-content></ng-content>
-    </div>
-  `,
+  templateUrl: './ui-dropdown-menu-item.component.html',
   styleUrls: ['./ui-dropdown-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
