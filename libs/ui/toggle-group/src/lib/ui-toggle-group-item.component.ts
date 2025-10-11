@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, computed } from '@angular/core';
 import { UiToggleGroupComponent } from './ui-toggle-group.component';
 
 @Component({
@@ -19,25 +19,20 @@ export class UiToggleGroupItemComponent {
 
   private toggleGroup = inject(UiToggleGroupComponent, { optional: true });
 
-  get isPressed(): boolean {
+  readonly isPressed = computed(() => {
     if (!this.toggleGroup) return false;
-    const groupValue = this.toggleGroup.value;
+    const groupValue = this.toggleGroup.value();
     return Array.isArray(groupValue)
       ? groupValue.includes(this.value())
       : groupValue === this.value();
-  }
+  });
 
   toggle(): void {
     if (this.disabled() || !this.toggleGroup) return;
     this.toggleGroup.selectValue(this.value());
   }
 
-  get variant() {
-    return this.toggleGroup?.variant() || 'default';
-  }
-
-  get size() {
-    return this.toggleGroup?.size() || 'default';
-  }
+  readonly variant = computed(() => this.toggleGroup?.variant() || 'default');
+  readonly size = computed(() => this.toggleGroup?.size() || 'default');
 }
 

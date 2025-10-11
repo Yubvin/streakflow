@@ -1,9 +1,14 @@
 /node_modules/
 /.nx/
 /.angular/
+/dist/
 
 .idea
 
 .angular
 
 /прототип.zip
+
+# Build outputs
+**/dist/
+*.tsbuildinfo

@@ -2006,7 +2006,7 @@
             <span class="text-sm text-muted-foreground">Value:</span>
             <span class="text-sm font-medium">{{ sliderStates.basic }}</span>
           </div>
-          <ui-slider [min]="0" [max]="100" [(value)]="sliderStates.basic"></ui-slider>
+          <ui-slider [min]="0" [max]="100" [(ngModel)]="sliderStates.basic"></ui-slider>
         </div>
       </div>
 
@@ -2023,7 +2023,7 @@
                 </div>
                 <span class="text-sm font-medium">{{ sliderStates.volume }}%</span>
               </div>
-              <ui-slider [min]="0" [max]="100" [(value)]="sliderStates.volume"></ui-slider>
+              <ui-slider [min]="0" [max]="100" [(ngModel)]="sliderStates.volume"></ui-slider>
             </div>
           </ui-card-content>
         </ui-card>
@@ -2043,7 +2043,7 @@
                 <div class="text-4xl font-bold">{{ sliderStates.steps }}</div>
                 <p class="text-sm text-muted-foreground">steps</p>
               </div>
-              <ui-slider [min]="1000" [max]="20000" [step]="500" [(value)]="sliderStates.steps"></ui-slider>
+              <ui-slider [min]="1000" [max]="20000" [step]="500" [(ngModel)]="sliderStates.steps"></ui-slider>
               <div class="flex justify-between text-xs text-muted-foreground">
                 <span>1,000</span>
                 <span>20,000</span>
@@ -2062,21 +2062,21 @@
               <ui-label>Brightness</ui-label>
               <span class="text-sm font-medium">{{ sliderStates.brightness }}%</span>
             </div>
-            <ui-slider [min]="0" [max]="100" [(value)]="sliderStates.brightness"></ui-slider>
+            <ui-slider [min]="0" [max]="100" [(ngModel)]="sliderStates.brightness"></ui-slider>
           </div>
           <div class="p-4 border rounded-lg" style="border-color: var(--tw-border-border);">
             <div class="flex items-center justify-between mb-3">
               <ui-label>Difficulty</ui-label>
               <span class="text-sm font-medium">{{ sliderStates.difficulty === 1 ? 'Easy' : sliderStates.difficulty === 2 ? 'Medium' : 'Hard' }}</span>
             </div>
-            <ui-slider [min]="1" [max]="3" [step]="1" [(value)]="sliderStates.difficulty"></ui-slider>
+            <ui-slider [min]="1" [max]="3" [step]="1" [(ngModel)]="sliderStates.difficulty"></ui-slider>
           </div>
           <div class="p-4 border rounded-lg" style="border-color: var(--tw-border-border);">
             <div class="flex items-center justify-between mb-3">
               <ui-label>Duration (minutes)</ui-label>
               <span class="text-sm font-medium">{{ sliderStates.duration }} min</span>
             </div>
-            <ui-slider [min]="5" [max]="120" [step]="5" [(value)]="sliderStates.duration"></ui-slider>
+            <ui-slider [min]="5" [max]="120" [step]="5" [(ngModel)]="sliderStates.duration"></ui-slider>
           </div>
         </div>
       </div>
@@ -2161,7 +2161,7 @@
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Text Alignment (Single Selection)</h3>
         <p class="text-sm text-muted-foreground mb-3">Only one option can be active at a time</p>
         <div class="space-y-4">
-          <ui-toggle-group type="single" variant="outline" [(value)]="toggleGroupStates.alignment">
+          <ui-toggle-group type="single" variant="outline" [(ngModel)]="toggleGroupStates.alignment">
             <ui-toggle-group-item value="left">Left</ui-toggle-group-item>
             <ui-toggle-group-item value="center">Center</ui-toggle-group-item>
             <ui-toggle-group-item value="right">Right</ui-toggle-group-item>
@@ -2176,7 +2176,7 @@
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">View Mode</h3>
         <p class="text-sm text-muted-foreground mb-3">Different view options</p>
         <div class="space-y-4">
-          <ui-toggle-group type="single" variant="outline" [(value)]="toggleGroupStates.view">
+          <ui-toggle-group type="single" variant="outline" [(ngModel)]="toggleGroupStates.view">
             <ui-toggle-group-item value="list">📋 List</ui-toggle-group-item>
             <ui-toggle-group-item value="grid">🔲 Grid</ui-toggle-group-item>
             <ui-toggle-group-item value="calendar">📅 Calendar</ui-toggle-group-item>
@@ -2190,7 +2190,7 @@
       <div>
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Font Size</h3>
         <p class="text-sm text-muted-foreground mb-3">Control text size</p>
-        <ui-toggle-group type="single" variant="outline" size="sm" [(value)]="toggleGroupStates.fontSize">
+        <ui-toggle-group type="single" variant="outline" size="sm" [(ngModel)]="toggleGroupStates.fontSize">
           <ui-toggle-group-item value="sm">Small</ui-toggle-group-item>
           <ui-toggle-group-item value="md">Medium</ui-toggle-group-item>
           <ui-toggle-group-item value="lg">Large</ui-toggle-group-item>
@@ -2207,7 +2207,7 @@
       <div>
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Tabs</h3>
         <p class="text-sm text-muted-foreground mb-3">Simple tab navigation</p>
-        <ui-tabs [(value)]="tabStates.basic">
+        <ui-tabs [(ngModel)]="tabStates.basic">
           <ui-tabs-list>
             <ui-tabs-trigger value="account">Account</ui-tabs-trigger>
             <ui-tabs-trigger value="password">Password</ui-tabs-trigger>
@@ -2302,7 +2302,7 @@
       <div>
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Stats Dashboard</h3>
         <p class="text-sm text-muted-foreground mb-3">View different metrics</p>
-        <ui-tabs [(value)]="tabStates.stats">
+        <ui-tabs [(ngModel)]="tabStates.stats">
           <ui-tabs-list>
             <ui-tabs-trigger value="overview">Overview</ui-tabs-trigger>
             <ui-tabs-trigger value="habits">Habits</ui-tabs-trigger>

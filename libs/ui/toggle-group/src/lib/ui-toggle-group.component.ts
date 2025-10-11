@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, input, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export type UiToggleGroupType = 'single' | 'multiple';
@@ -31,13 +31,13 @@ export class UiToggleGroupComponent implements ControlValueAccessor {
   readonly size = input<UiToggleGroupSize>('default');
   readonly customClass = input<string>('');
 
-  value: string | string[] = '';
+  readonly value = signal<string | string[]>('');
   
   private onChange: (value: string | string[]) => void = () => {};
   private onTouched: () => void = () => {};
 
   writeValue(value: string | string[]): void {
-    this.value = value || (this.type() === 'multiple' ? [] : '');
+    this.value.set(value || (this.type() === 'multiple' ? [] : ''));
   }
 
   registerOnChange(fn: (value: string | string[]) => void): void {
@@ -49,18 +49,20 @@ export class UiToggleGroupComponent implements ControlValueAccessor {
   }
 
   selectValue(itemValue: string): void {
+    const currentValue = this.value();
     if (this.type() === 'single') {
-      this.value = this.value === itemValue ? '' : itemValue;
+      const newValue = currentValue === itemValue ? '' : itemValue;
+      this.value.set(newValue);
+      this.onChange(newValue);
     } else {
-      const values = Array.isArray(this.value) ? this.value : [];
+      const values = Array.isArray(currentValue) ? currentValue : [];
       const index = values.indexOf(itemValue);
-      if (index > -1) {
-        this.value = values.filter(v => v !== itemValue);
-      } else {
-        this.value = [...values, itemValue];
-      }
+      const newValue = index > -1 
+        ? values.filter(v => v !== itemValue)
+        : [...values, itemValue];
+      this.value.set(newValue);
+      this.onChange(newValue);
     }
-    this.onChange(this.value);
     this.onTouched();
   }
 }

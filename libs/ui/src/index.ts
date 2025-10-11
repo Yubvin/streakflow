@@ -1,19 +1,2 @@
-export * from './lib/ui-button/ui-button.component';
-export * from './lib/ui-badge/ui-badge.component';
-export * from '../separator/src/lib/ui-separator.component';
-export * from '../avatar/src/lib/ui-avatar.component';
-export * from '../skeleton/src/lib/ui-skeleton.component';
-export * from '../input/src/lib/ui-input.component';
-export * from '../progress/src/lib/ui-progress.component';
-export * from '../progress-steps/src/lib/ui-progress-steps.component';
-export * from '../label/src/lib/ui-label.component';
-export * from '../card/src/index';
-export * from '../aspect-ratio/src/lib/ui-aspect-ratio.component';
-export * from '../textarea/src/lib/ui-textarea.component';
-export * from '../checkbox/src/lib/ui-checkbox.component';
-export * from '../radio-group/src/index';
-export * from '../switch/src/lib/ui-switch.component';
-export * from '../slider/src/lib/ui-slider.component';
-export * from '../toggle/src/lib/ui-toggle.component';
-export * from '../toggle-group/src/index';
-export * from '../tabs/src/index';
+// This is a barrel file that re-exports everything from secondary entry points
+// Import directly from @streakflow/ui/button, @streakflow/ui/badge, etc. in your apps
