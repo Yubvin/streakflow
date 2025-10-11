@@ -1,6 +1,7 @@
 .ui-dropdown-menu-content {
   z-index: 50;
   min-width: 8rem; /* min-w-[8rem] */
+  width: 100%; /* Stretch to match overlay minWidth (trigger width) */
   overflow-x: hidden;
   overflow-y: auto;
   border-radius: var(--radius-md);

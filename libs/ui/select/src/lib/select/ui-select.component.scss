@@ -2,6 +2,7 @@
   z-index: 50;
   max-height: 20rem;
   min-width: 8rem;
+  width: 100%; /* Stretch to match overlay minWidth (trigger width) */
   overflow-x: hidden;
   overflow-y: auto;
   border-radius: var(--radius-md);
