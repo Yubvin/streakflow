@@ -3,7 +3,7 @@ import { UiTabsComponent } from './ui-tabs.component';
 @Component({
   selector: 'ui-tabs-content',
   standalone: true,
-  template: '@if (isActive()) { <div class="ui-tabs-content" [attr.data-slot]="\'tabs-content\'" [attr.data-state]="\'active\'"><ng-content></ng-content></div> }',
+  templateUrl: './ui-tabs-content.component.html',
   styleUrls: ['./ui-tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {'[class]': 'customClass()'},

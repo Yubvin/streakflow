@@ -1,0 +1,10 @@
+@if (isActive()) {
+  <div 
+    class="ui-tabs-content" 
+    [attr.data-slot]="'tabs-content'" 
+    [attr.data-state]="'active'"
+  >
+    <ng-content></ng-content>
+  </div>
+}
+

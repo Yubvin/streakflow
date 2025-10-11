@@ -1,0 +1,11 @@
+<button 
+  type="button" 
+  [attr.data-state]="isActive() ? 'active' : 'inactive'" 
+  [attr.data-slot]="'tabs-trigger'" 
+  [disabled]="disabled()" 
+  (click)="select()" 
+  class="ui-tabs-trigger"
+>
+  <ng-content></ng-content>
+</button>
+

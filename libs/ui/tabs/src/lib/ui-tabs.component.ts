@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'ui-tabs',
   standalone: true,
-  template: '<div class="ui-tabs" [attr.data-slot]="\'tabs\'"><ng-content></ng-content></div>',
+  templateUrl: './ui-tabs.component.html',
   styleUrls: ['./ui-tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {'[class]': 'customClass()'},

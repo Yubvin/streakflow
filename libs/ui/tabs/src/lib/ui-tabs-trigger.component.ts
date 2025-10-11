@@ -3,7 +3,7 @@ import { UiTabsComponent } from './ui-tabs.component';
 @Component({
   selector: 'ui-tabs-trigger',
   standalone: true,
-  template: '<button type="button" [attr.data-state]="isActive() ? \'active\' : \'inactive\'" [attr.data-slot]="\'tabs-trigger\'" [disabled]="disabled()" (click)="select()" class="ui-tabs-trigger"><ng-content></ng-content></button>',
+  templateUrl: './ui-tabs-trigger.component.html',
   styleUrls: ['./ui-tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {'[class]': 'customClass()'},
