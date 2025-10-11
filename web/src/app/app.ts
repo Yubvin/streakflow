@@ -12,6 +12,7 @@ import { UiLabelComponent } from '@streakflow/ui/label';
 import { UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent } from '@streakflow/ui/card';
 import { UiAspectRatioComponent } from '@streakflow/ui/aspect-ratio';
 import { UiTextareaComponent } from '@streakflow/ui/textarea';
+import { UiCheckboxComponent } from '@streakflow/ui/checkbox';
 
 @Component({
   selector: 'app-icon',
@@ -32,7 +33,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent],
+  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
