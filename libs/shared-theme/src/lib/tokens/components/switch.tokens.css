@@ -5,9 +5,15 @@
   --switch-thumb-size: 1rem;
   --switch-thumb-radius: var(--radius-full);
 
-  --switch-bg-unchecked: hsl(var(--muted));
+  --switch-background: #CBD5E1;
+  --switch-bg-unchecked: var(--switch-background);
   --switch-bg-checked: hsl(var(--primary));
   --switch-thumb-bg: hsl(var(--card));
   --switch-thumb-bg-checked: hsl(var(--primary-foreground));
+}
+
+:root.dark,
+:root[data-theme='dark'] {
+  --switch-background: #475569;
 }
 
