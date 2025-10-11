@@ -7,19 +7,7 @@ export type UiPaginationLinkSize = 'default' | 'icon';
   selector: 'ui-pagination-link',
   standalone: true,
   imports: [RouterModule],
-  template: `
-    <a 
-      [routerLink]="href()"
-      [attr.data-slot]="'pagination-link'"
-      [attr.data-active]="isActive()"
-      [attr.aria-current]="isActive() ? 'page' : null"
-      [attr.data-variant]="variant()"
-      [attr.data-size]="size()"
-      class="ui-pagination-link"
-    >
-      <ng-content></ng-content>
-    </a>
-  `,
+  templateUrl: './ui-pagination-link.component.html',
   styleUrls: ['./ui-pagination.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

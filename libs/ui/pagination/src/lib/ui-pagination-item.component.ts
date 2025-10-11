@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'ui-pagination-item',
   standalone: true,
-  template: '<li [attr.data-slot]="\'pagination-item\'"><ng-content></ng-content></li>',
+  templateUrl: './ui-pagination-item.component.html',
   styleUrls: ['./ui-pagination.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

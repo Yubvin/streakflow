@@ -1,0 +1,12 @@
+<a 
+  [routerLink]="href()"
+  [attr.data-slot]="'pagination-link'"
+  [attr.data-active]="isActive()"
+  [attr.aria-current]="isActive() ? 'page' : null"
+  [attr.data-variant]="variant()"
+  [attr.data-size]="size()"
+  class="ui-pagination-link"
+>
+  <ng-content></ng-content>
+</a>
+
