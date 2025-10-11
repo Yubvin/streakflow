@@ -1,0 +1,15 @@
+:root {
+  --avatar-bg: hsl(var(--muted));
+  --avatar-fg: hsl(var(--muted-foreground));
+  --avatar-font-weight: 500;
+  
+  --avatar-size-sm: 2rem;
+  --avatar-size-md: 2.5rem;
+  --avatar-size-lg: 3rem;
+  --avatar-size-xl: 4rem;
+  
+  --avatar-font-size-sm: 0.75rem;
+  --avatar-font-size-md: 0.875rem;
+  --avatar-font-size-lg: 1rem;
+  --avatar-font-size-xl: 1.25rem;
+}

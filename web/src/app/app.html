@@ -216,6 +216,25 @@
   </section>
 
   <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Avatars — All Sizes</h2>
+    <div class="flex flex-wrap items-center gap-4">
+      <ui-avatar size="sm" fallback="SM"></ui-avatar>
+      <ui-avatar size="md" fallback="MD"></ui-avatar>
+      <ui-avatar size="lg" fallback="LG"></ui-avatar>
+      <ui-avatar size="xl" fallback="XL"></ui-avatar>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Avatars — With Images</h2>
+    <div class="flex flex-wrap items-center gap-4">
+      <ui-avatar size="md" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face" fallback="JD"></ui-avatar>
+      <ui-avatar size="lg" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face" fallback="AS"></ui-avatar>
+      <ui-avatar size="md" src="https://broken-link.com/image.jpg" fallback="FB"></ui-avatar>
+    </div>
+  </section>
+
+  <section>
     <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Separators — All Variants</h2>
     <div class="space-y-6">
       <div>
@@ -241,6 +260,31 @@
   <section>
     <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Separators — Real Use Cases</h2>
     <div class="space-y-6">
+      <div>
+        <p class="text-sm text-muted-foreground mb-3">User Profile Card</p>
+        <div class="border rounded-lg p-4 max-w-md" style="background-color: var(--tw-bg-card);">
+          <div class="flex items-center gap-4 mb-4">
+            <ui-avatar size="xl" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face" fallback="AJ"></ui-avatar>
+            <div>
+              <h4 class="font-medium text-sm">Alex Johnson</h4>
+              <div class="text-xs text-muted-foreground">alex@example.com</div>
+              <div class="text-xs text-muted-foreground">@alexjohnson</div>
+            </div>
+          </div>
+          <ui-separator></ui-separator>
+          <div class="mt-4 space-y-2">
+            <div class="flex justify-between text-sm">
+              <span class="text-muted-foreground">Member since</span>
+              <span>Jan 2024</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-muted-foreground">Habits completed</span>
+              <span>127</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <p class="text-sm text-muted-foreground mb-3">Form Sections</p>
         <div class="border rounded-lg p-4 max-w-md" style="background-color: var(--tw-bg-card);">
@@ -275,26 +319,38 @@
       </div>
 
       <div>
-        <p class="text-sm text-muted-foreground mb-3">List Items</p>
+        <p class="text-sm text-muted-foreground mb-3">User List</p>
         <div class="border rounded-lg max-w-md" style="background-color: var(--tw-bg-card);">
           <div class="p-4">
-            <div class="flex items-center justify-between">
-              <span class="text-sm">Morning Meditation</span>
+            <div class="flex items-center gap-3">
+              <ui-avatar size="md" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face" fallback="AJ"></ui-avatar>
+              <div class="flex-1">
+                <div class="text-sm font-medium">Alex Johnson</div>
+                <div class="text-xs text-muted-foreground">Product Manager</div>
+              </div>
               <ui-badge variant="secondary" size="sm">Active</ui-badge>
             </div>
           </div>
           <ui-separator></ui-separator>
           <div class="p-4">
-            <div class="flex items-center justify-between">
-              <span class="text-sm">Gym Workout</span>
+            <div class="flex items-center gap-3">
+              <ui-avatar size="md" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face" fallback="SM"></ui-avatar>
+              <div class="flex-1">
+                <div class="text-sm font-medium">Sarah Miller</div>
+                <div class="text-xs text-muted-foreground">UX Designer</div>
+              </div>
               <ui-badge variant="secondary" size="sm">Active</ui-badge>
             </div>
           </div>
           <ui-separator></ui-separator>
           <div class="p-4">
-            <div class="flex items-center justify-between">
-              <span class="text-sm">Read 30 Minutes</span>
-              <ui-badge variant="secondary" size="sm">Active</ui-badge>
+            <div class="flex items-center gap-3">
+              <ui-avatar size="md" fallback="JD"></ui-avatar>
+              <div class="flex-1">
+                <div class="text-sm font-medium">John Doe</div>
+                <div class="text-xs text-muted-foreground">Developer</div>
+              </div>
+              <ui-badge variant="outline" size="sm">Away</ui-badge>
             </div>
           </div>
         </div>
@@ -316,7 +372,7 @@
             </div>
           </div>
         </div>
-        <ui-button variant="secondary" size="sm" customClass="bg-[#DCFCE7] hover:bg-green-200 text-green-800">
+        <ui-button variant="secondary" size="sm">
           Done
         </ui-button>
       </div>

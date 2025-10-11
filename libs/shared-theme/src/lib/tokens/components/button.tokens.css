@@ -1,5 +1,5 @@
 :root {
-  --btn-radius: var(--radius-md);
+  --btn-radius: var(--radius-sm);
   --btn-h-sm: 32px;
   --btn-h-md: 36px;
   --btn-h-lg: 40px;

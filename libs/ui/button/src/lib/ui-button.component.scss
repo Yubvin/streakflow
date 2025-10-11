@@ -15,7 +15,6 @@
 
   height: var(--btn-h-md);
   padding: 0 var(--btn-pad-x-md);
-  border-radius: var(--btn-radius);
   border: none;
   background: transparent;
   color: inherit;
@@ -82,18 +81,21 @@
   height: var(--btn-h-sm);
   padding: 0 var(--btn-pad-x-sm);
   font-size: var(--btn-font-size-sm);
+  border-radius: var(--radius-sm);
 }
 
 :host button[data-size='md'] {
   height: var(--btn-h-md);
   padding: 0 var(--btn-pad-x-md);
   font-size: var(--btn-font-size-md);
+  border-radius: var(--radius-md);
 }
 
 :host button[data-size='lg'] {
   height: var(--btn-h-lg);
   padding: 0 var(--btn-pad-x-lg);
   font-size: var(--btn-font-size-lg);
+  border-radius: var(--radius-md);
 }
 
 :host button[data-size='icon'] {

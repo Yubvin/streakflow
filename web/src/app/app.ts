@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { UiButtonComponent } from '@streakflow/ui/button';
 import { UiBadgeComponent } from '@streakflow/ui/badge';
 import { UiSeparatorComponent } from '@streakflow/ui/separator';
+import { UiAvatarComponent } from '@streakflow/ui/avatar';
 
 @Component({
   selector: 'app-icon',
@@ -23,7 +24,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent],
+  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',

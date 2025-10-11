@@ -1,0 +1,15 @@
+<div class="ui-avatar">
+  <img 
+    *ngIf="src()" 
+    class="ui-avatar__image"
+    [src]="src()" 
+    [alt]="alt()"
+    (error)="onImageError()"
+  />
+  <div 
+    *ngIf="!src() || imageError()" 
+    class="ui-avatar__fallback"
+  >
+    {{ fallback() }}
+  </div>
+</div>
