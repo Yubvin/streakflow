@@ -1,6 +1,7 @@
 :host {
-  display: inline-block;
+  display: inline-flex; /* было inline-block */
   vertical-align: middle;
+  flex-shrink: 0; /* shrink-0 (прототип) */
 }
 
 .ui-badge {
@@ -8,45 +9,64 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  width: fit-content; /* w-fit (прототип) */
+  gap: 0.25rem; /* gap-1 (прототип) */
+  overflow: hidden; /* overflow-hidden (прототип) */
 
-  border-radius: var(--badge-radius, 0.5rem);
-  font-weight: var(--badge-font-weight, 500);
-  letter-spacing: var(--badge-letter-spacing, 0);
-  line-height: var(--badge-line-height, 1);
+  border-radius: var(--radius-md); /* rounded-md всегда */
+  border: 1px solid transparent; /* border всегда есть */
+  font-weight: 500; /* font-medium */
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1;
 
-  transition: background-color var(--badge-transition-duration)
-      var(--badge-transition-ease),
-    color var(--badge-transition-duration) var(--badge-transition-ease),
-    border-color var(--badge-transition-duration) var(--badge-transition-ease);
+  transition: color 0.15s ease, box-shadow 0.15s ease; /* transition-[color,box-shadow] (прототип) */
 
   :host([data-size='sm']) & {
-    font-size: var(--badge-font-size-sm, 0.75rem);
-    padding: var(--badge-pad-y-sm, 0.375rem) var(--badge-pad-x-sm, 0.75rem);
+    padding: 0.125rem 0.5rem; /* py-0.5 px-2 (прототип) */
   }
   :host([data-size='md']) & {
-    font-size: var(--badge-font-size-md, 0.75rem);
-    padding: var(--badge-pad-y-md, 0.375rem) var(--badge-pad-x-md, 0.75rem);
+    padding: 0.125rem 0.5rem; /* py-0.5 px-2 (прототип, одинаковый с sm) */
+  }
+
+  /* SVG sizing из прототипа */
+  :global([&>svg]) {
+    width: 0.75rem; /* size-3 = 12px */
+    height: 0.75rem;
+    pointer-events: none;
   }
 
   :host([data-variant='default']) & {
-    background: var(--badge-default-bg, #F1F5F9) !important;
-    color: var(--badge-default-fg, #0F172A) !important;
-    border: none !important;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-color: transparent; /* border-transparent */
   }
   :host([data-variant='secondary']) & {
-    background: var(--badge-secondary-bg, #F1F5F9) !important;
-    color: var(--badge-secondary-fg, #0F172A) !important;
-    border: none !important;
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    border-color: transparent;
   }
   :host([data-variant='outline']) & {
-    background: var(--badge-outline-bg);
-    color: var(--badge-outline-fg);
-    border: 1px solid var(--badge-outline-border);
+    background-color: transparent;
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border)); /* видимая граница */
   }
   :host([data-variant='destructive']) & {
-    background: var(--badge-destructive-bg);
-    color: var(--badge-destructive-fg);
-    border: none;
+    background-color: hsl(var(--destructive));
+    color: #fff; /* text-white */
+    border-color: transparent;
+  }
+
+  /* Focus visible из прототипа */
+  &:focus-visible {
+    outline: none;
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 3px hsl(var(--ring) / 0.5); /* ring-[3px] */
+  }
+
+  /* Aria-invalid из прототипа */
+  &[aria-invalid='true'] {
+    border-color: hsl(var(--destructive));
+    box-shadow: 0 0 0 3px hsl(var(--destructive) / 0.2);
   }
 }
 
