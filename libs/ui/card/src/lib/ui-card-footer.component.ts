@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'ui-card-footer',
   standalone: true,
-  template: '<div class="ui-card-footer" [attr.data-slot]="\'card-footer\'"><ng-content></ng-content></div>',
+  templateUrl: './ui-card-footer.component.html',
   styleUrls: ['./ui-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'ui-card',
   standalone: true,
-  template: '<div class="ui-card" [attr.data-slot]="\'card\'"><ng-content></ng-content></div>',
+  templateUrl: './ui-card.component.html',
   styleUrls: ['./ui-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
