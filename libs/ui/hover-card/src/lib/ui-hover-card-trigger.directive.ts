@@ -91,6 +91,22 @@ export class UiHoverCardTriggerDirective {
 
       const portal = new TemplatePortal(this.contentTemplate(), this.viewContainerRef);
       this.overlayRef.attach(portal);
+
+      // Добавляем обработку hover на overlay content
+      setTimeout(() => {
+        const overlayElement = this.overlayRef?.overlayElement;
+        if (overlayElement) {
+          overlayElement.addEventListener('mouseenter', () => {
+            if (this.hideTimeout) {
+              clearTimeout(this.hideTimeout);
+              this.hideTimeout = null;
+            }
+          });
+          overlayElement.addEventListener('mouseleave', () => {
+            this.hide();
+          });
+        }
+      }, 0);
     }, 200); // Задержка 200ms перед показом
   }
 
