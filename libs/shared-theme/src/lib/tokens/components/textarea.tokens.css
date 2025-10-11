@@ -1,0 +1,18 @@
+:root {
+  --textarea-min-height: 4rem;
+  --textarea-padding-x: 0.75rem;
+  --textarea-padding-y: 0.5rem;
+  --textarea-radius: var(--radius-md);
+  --textarea-font-size: 0.875rem;
+
+  --textarea-bg: hsl(var(--background));
+  --textarea-fg: hsl(var(--foreground));
+  --textarea-border: hsl(var(--input));
+  --textarea-placeholder: hsl(var(--muted-foreground));
+}
+
+:root.dark,
+:root[data-theme='dark'] {
+  --textarea-bg: hsl(var(--input) / 0.3);
+}
+

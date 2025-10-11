@@ -1,0 +1,11 @@
+<textarea
+  #textarea
+  [placeholder]="placeholder()"
+  [disabled]="disabled()"
+  [rows]="rows()"
+  [value]="value"
+  (input)="onInput($event)"
+  (blur)="onBlur()"
+  class="ui-textarea"
+></textarea>
+

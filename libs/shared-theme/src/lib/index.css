@@ -17,6 +17,7 @@
 @import './tokens/components/input.tokens.css';
 @import './tokens/components/progress.tokens.css';
 @import './tokens/components/card.tokens.css';
+@import './tokens/components/textarea.tokens.css';
 
 :root {
   --focus-ring-shadow: 0 0 0 2px var(--color-ring);

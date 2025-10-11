@@ -1399,4 +1399,110 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Textarea — Multi-line Text Input</h2>
+    <p class="text-muted-foreground mb-6">Textarea components for longer text input with validation states.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Textarea</h3>
+        <p class="text-sm text-muted-foreground mb-3">Standard multi-line text area</p>
+        <ui-textarea placeholder="Enter your message here..."></ui-textarea>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">With Label</h3>
+        <p class="text-sm text-muted-foreground mb-3">Textarea with associated label</p>
+        <div class="space-y-2">
+          <ui-label>Description</ui-label>
+          <ui-textarea placeholder="Tell us more about your habit..."></ui-textarea>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Custom Rows</h3>
+        <p class="text-sm text-muted-foreground mb-3">Different heights for various use cases</p>
+        <div class="space-y-4">
+          <div class="space-y-2">
+            <ui-label>Short (3 rows)</ui-label>
+            <ui-textarea [rows]="3" placeholder="Brief description..."></ui-textarea>
+          </div>
+          <div class="space-y-2">
+            <ui-label>Medium (6 rows)</ui-label>
+            <ui-textarea [rows]="6" placeholder="Detailed explanation..."></ui-textarea>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Disabled Textarea</h3>
+        <p class="text-sm text-muted-foreground mb-3">Textarea in disabled state</p>
+        <ui-textarea placeholder="This field is read-only" [disabled]="true"></ui-textarea>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Feedback Form Example</h3>
+        <p class="text-sm text-muted-foreground mb-3">Real-world feedback form with textarea</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Send Feedback</ui-card-title>
+            <ui-card-description>Help us improve StreakFlow</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <ui-label>Subject</ui-label>
+                <ui-input type="text" placeholder="What's this about?"></ui-input>
+              </div>
+              <div class="space-y-2">
+                <ui-label>Message</ui-label>
+                <ui-textarea [rows]="5" placeholder="Share your thoughts, suggestions, or report issues..."></ui-textarea>
+              </div>
+            </div>
+          </ui-card-content>
+          <ui-card-footer>
+            <div class="flex justify-end gap-3 w-full">
+              <ui-button variant="ghost">Cancel</ui-button>
+              <ui-button variant="primary">Send Feedback</ui-button>
+            </div>
+          </ui-card-footer>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Habit Notes Example</h3>
+        <p class="text-sm text-muted-foreground mb-3">Adding notes to a habit</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Add Notes</ui-card-title>
+            <ui-card-description>Track insights and reflections</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">🧘</span>
+                <div>
+                  <h4 class="font-medium">Morning Meditation</h4>
+                  <p class="text-sm text-muted-foreground">Daily habit</p>
+                </div>
+              </div>
+              <ui-separator></ui-separator>
+              <div class="space-y-2">
+                <ui-label>Today's Notes</ui-label>
+                <ui-textarea [rows]="4" placeholder="How did it go? Any insights or challenges?"></ui-textarea>
+                <p class="text-xs text-muted-foreground">Optional: Add notes about your session</p>
+              </div>
+            </div>
+          </ui-card-content>
+          <ui-card-footer>
+            <div class="flex justify-end gap-3 w-full">
+              <ui-button variant="ghost">Skip</ui-button>
+              <ui-button variant="primary">Save Notes</ui-button>
+            </div>
+          </ui-card-footer>
+        </ui-card>
+      </div>
+    </div>
+  </section>
 </div>
