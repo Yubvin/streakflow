@@ -14,6 +14,7 @@ import { UiAspectRatioComponent } from '@streakflow/ui/aspect-ratio';
 import { UiTextareaComponent } from '@streakflow/ui/textarea';
 import { UiCheckboxComponent } from '@streakflow/ui/checkbox';
 import { UiRadioGroupComponent, UiRadioItemComponent } from '@streakflow/ui/radio-group';
+import { UiSwitchComponent } from '@streakflow/ui/switch';
 
 @Component({
   selector: 'app-icon',
@@ -34,7 +35,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent],
+  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',

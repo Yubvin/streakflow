@@ -1,0 +1,17 @@
+<button
+  type="button"
+  role="switch"
+  [attr.aria-checked]="checked"
+  [attr.aria-disabled]="disabled() ? 'true' : null"
+  [attr.data-state]="checked ? 'checked' : 'unchecked'"
+  [disabled]="disabled()"
+  (click)="toggle()"
+  class="ui-switch"
+>
+  <span 
+    class="ui-switch-thumb" 
+    [attr.data-slot]="'switch-thumb'"
+    [attr.data-state]="checked ? 'checked' : 'unchecked'"
+  ></span>
+</button>
+

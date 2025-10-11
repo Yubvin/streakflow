@@ -20,6 +20,7 @@
 @import './tokens/components/textarea.tokens.css';
 @import './tokens/components/checkbox.tokens.css';
 @import './tokens/components/radio.tokens.css';
+@import './tokens/components/switch.tokens.css';
 
 :root {
   --focus-ring-shadow: 0 0 0 2px var(--color-ring);

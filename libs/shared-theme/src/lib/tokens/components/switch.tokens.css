@@ -1,0 +1,13 @@
+:root {
+  --switch-height: 1.15rem;
+  --switch-width: 2rem;
+  --switch-radius: var(--radius-full);
+  --switch-thumb-size: 1rem;
+  --switch-thumb-radius: var(--radius-full);
+
+  --switch-bg-unchecked: hsl(var(--muted));
+  --switch-bg-checked: hsl(var(--primary));
+  --switch-thumb-bg: hsl(var(--card));
+  --switch-thumb-bg-checked: hsl(var(--primary-foreground));
+}
+

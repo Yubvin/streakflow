@@ -1885,4 +1885,96 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Switch — Toggle Controls</h2>
+    <p class="text-muted-foreground mb-6">Switch components for binary on/off states with smooth animations.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Switches</h3>
+        <p class="text-sm text-muted-foreground mb-3">Simple on/off toggles</p>
+        <div class="flex items-center gap-6">
+          <ui-switch></ui-switch>
+          <ui-switch [disabled]="true"></ui-switch>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">With Labels</h3>
+        <p class="text-sm text-muted-foreground mb-3">Switches with descriptive labels</p>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <ui-label>Dark Mode</ui-label>
+            <ui-switch></ui-switch>
+          </div>
+          <div class="flex items-center justify-between">
+            <ui-label>Notifications</ui-label>
+            <ui-switch></ui-switch>
+          </div>
+          <div class="flex items-center justify-between">
+            <ui-label>Auto-save (disabled)</ui-label>
+            <ui-switch [disabled]="true"></ui-switch>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Settings Panel</h3>
+        <p class="text-sm text-muted-foreground mb-3">Multiple switches in a settings context</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Preferences</ui-card-title>
+            <ui-card-description>Manage your account settings</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="space-y-0.5">
+                  <ui-label customClass="font-medium">Email notifications</ui-label>
+                  <p class="text-sm text-muted-foreground">Receive emails about your activity</p>
+                </div>
+                <ui-switch></ui-switch>
+              </div>
+              <ui-separator></ui-separator>
+              <div class="flex items-center justify-between">
+                <div class="space-y-0.5">
+                  <ui-label customClass="font-medium">Push notifications</ui-label>
+                  <p class="text-sm text-muted-foreground">Receive push notifications</p>
+                </div>
+                <ui-switch></ui-switch>
+              </div>
+              <ui-separator></ui-separator>
+              <div class="flex items-center justify-between">
+                <div class="space-y-0.5">
+                  <ui-label customClass="font-medium">Marketing emails</ui-label>
+                  <p class="text-sm text-muted-foreground">Receive emails about new features</p>
+                </div>
+                <ui-switch></ui-switch>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Privacy Settings</h3>
+        <p class="text-sm text-muted-foreground mb-3">Control your privacy options</p>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between p-3 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <ui-label>Public profile</ui-label>
+            <ui-switch></ui-switch>
+          </div>
+          <div class="flex items-center justify-between p-3 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <ui-label>Show streak count</ui-label>
+            <ui-switch></ui-switch>
+          </div>
+          <div class="flex items-center justify-between p-3 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <ui-label>Allow friend requests</ui-label>
+            <ui-switch></ui-switch>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
