@@ -90,11 +90,15 @@ export class UiSelectTriggerDirective {
       .flexibleConnectedTo(this.elementRef)
       .withPositions(positions);
 
+    // Get trigger width for overlay
+    const triggerWidth = this.elementRef.nativeElement.offsetWidth;
+
     this.overlayRef = this.overlay.create({
       positionStrategy,
       scrollStrategy: this.overlay.scrollStrategies.reposition(),
       hasBackdrop: true,
       backdropClass: 'cdk-overlay-transparent-backdrop',
+      minWidth: triggerWidth, // Match trigger width (прототип)
     });
 
     const portal = new TemplatePortal(this.contentTemplate(), this.viewContainerRef);

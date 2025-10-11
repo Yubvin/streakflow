@@ -11,14 +11,14 @@
 
 .ui-radio-item {
   aspect-ratio: 1;
-  width: var(--radio-size);
-  height: var(--radio-size);
+  width: 1rem; /* size-4 = 16px (прототип) */
+  height: 1rem;
   flex-shrink: 0;
-  border-radius: var(--radio-radius);
-  border: 1px solid var(--radio-border);
-  background-color: var(--radio-bg);
-  color: var(--radio-fg);
-  box-shadow: var(--radio-shadow);
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid hsl(var(--input)); /* border-input (прототип) */
+  background-color: hsl(var(--background)); /* bg-input-background */
+  color: hsl(var(--primary)); /* text-primary */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-xs (прототип) */
   outline: none;
   cursor: pointer;
   transition: color 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
@@ -56,9 +56,9 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0.5rem;
+  width: 0.5rem; /* size-2 = 8px (прототип) */
   height: 0.5rem;
   transform: translate(-50%, -50%);
-  fill: hsl(var(--primary));
+  fill: hsl(var(--primary)); /* fill-primary */
 }
 
