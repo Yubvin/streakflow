@@ -34,6 +34,7 @@
       "@streakflow/ui/progress": ["libs/ui/progress/src/index.ts"],
       "@streakflow/ui/progress-steps": ["libs/ui/progress-steps/src/index.ts"],
       "@streakflow/ui/radio-group": ["libs/ui/radio-group/src/index.ts"],
+      "@streakflow/ui/select": ["libs/ui/select/src/index.ts"],
       "@streakflow/ui/separator": ["libs/ui/separator/src/index.ts"],
       "@streakflow/ui/skeleton": ["libs/ui/skeleton/src/index.ts"],
       "@streakflow/ui/slider": ["libs/ui/slider/src/index.ts"],

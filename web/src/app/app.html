@@ -3518,3 +3518,70 @@
     </ui-context-menu-item>
   </ui-context-menu-content>
 </ng-template>
+
+<!-- Select Templates -->
+<ng-template #countrySelectTemplate>
+  <ui-select-content>
+    <ui-select-item value="us" [selected]="selectedCountry() === 'us'" (selectedChange)="onCountryChange($event)">
+      🇺🇸 United States
+    </ui-select-item>
+    <ui-select-item value="uk" [selected]="selectedCountry() === 'uk'" (selectedChange)="onCountryChange($event)">
+      🇬🇧 United Kingdom
+    </ui-select-item>
+    <ui-select-item value="ca" [selected]="selectedCountry() === 'ca'" (selectedChange)="onCountryChange($event)">
+      🇨🇦 Canada
+    </ui-select-item>
+    <ui-select-item value="de" [selected]="selectedCountry() === 'de'" (selectedChange)="onCountryChange($event)">
+      🇩🇪 Germany
+    </ui-select-item>
+    <ui-select-item value="fr" [selected]="selectedCountry() === 'fr'" (selectedChange)="onCountryChange($event)">
+      🇫🇷 France
+    </ui-select-item>
+    <ui-select-item value="jp" [selected]="selectedCountry() === 'jp'" (selectedChange)="onCountryChange($event)">
+      🇯🇵 Japan
+    </ui-select-item>
+  </ui-select-content>
+</ng-template>
+
+<ng-template #frameworkSelectTemplate>
+  <ui-select-content>
+    <ui-select-group>
+      <ui-select-label>Frontend</ui-select-label>
+      <ui-select-item value="react" [selected]="selectedFramework() === 'react'" (selectedChange)="onFrameworkChange($event)">
+        React
+      </ui-select-item>
+      <ui-select-item value="vue" [selected]="selectedFramework() === 'vue'" (selectedChange)="onFrameworkChange($event)">
+        Vue.js
+      </ui-select-item>
+      <ui-select-item value="angular" [selected]="selectedFramework() === 'angular'" (selectedChange)="onFrameworkChange($event)">
+        Angular
+      </ui-select-item>
+    </ui-select-group>
+    <ui-select-group>
+      <ui-select-label>Backend</ui-select-label>
+      <ui-select-item value="node" [selected]="selectedFramework() === 'node'" (selectedChange)="onFrameworkChange($event)">
+        Node.js
+      </ui-select-item>
+      <ui-select-item value="python" [selected]="selectedFramework() === 'python'" (selectedChange)="onFrameworkChange($event)">
+        Python
+      </ui-select-item>
+      <ui-select-item value="go" [selected]="selectedFramework() === 'go'" (selectedChange)="onFrameworkChange($event)">
+        Go
+      </ui-select-item>
+    </ui-select-group>
+  </ui-select-content>
+</ng-template>
+
+<ng-template #disabledSelectTemplate>
+  <ui-select-content>
+    <ui-select-item value="option1" [disabled]="true">
+      Option 1
+    </ui-select-item>
+    <ui-select-item value="option2" [disabled]="true">
+      Option 2
+    </ui-select-item>
+    <ui-select-item value="option3" [disabled]="true">
+      Option 3
+    </ui-select-item>
+  </ui-select-content>
+</ng-template>

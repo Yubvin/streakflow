@@ -27,6 +27,7 @@ import { UiHoverCardTriggerDirective } from '@streakflow/ui/hover-card';
 import { UiPopoverTriggerDirective, UiPopoverContentComponent } from '@streakflow/ui/popover';
 import { UiDropdownMenuTriggerDirective, UiDropdownMenuContentComponent, UiDropdownMenuItemComponent, UiDropdownMenuSeparatorComponent, UiDropdownMenuLabelComponent } from '@streakflow/ui/dropdown-menu';
 import { UiContextMenuTriggerDirective, UiContextMenuContentComponent, UiContextMenuItemComponent, UiContextMenuSeparatorComponent, UiContextMenuLabelComponent } from '@streakflow/ui/context-menu';
+import { UiSelectTriggerDirective, UiSelectContentComponent, UiSelectItemComponent, UiSelectGroupComponent, UiSelectLabelComponent } from '@streakflow/ui/select';
 
 @Component({
   selector: 'app-icon',
@@ -47,7 +48,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [FormsModule, RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent, UiBreadcrumbComponent, UiBreadcrumbListComponent, UiBreadcrumbItemComponent, UiBreadcrumbLinkComponent, UiBreadcrumbPageComponent, UiBreadcrumbSeparatorComponent, UiBreadcrumbEllipsisComponent, UiPaginationComponent, UiPaginationContentComponent, UiPaginationItemComponent, UiPaginationLinkComponent, UiPaginationPreviousComponent, UiPaginationNextComponent, UiPaginationEllipsisComponent, UiTooltipTriggerDirective, UiHoverCardTriggerDirective, UiPopoverTriggerDirective, UiPopoverContentComponent, UiDropdownMenuTriggerDirective, UiDropdownMenuContentComponent, UiDropdownMenuItemComponent, UiDropdownMenuSeparatorComponent, UiDropdownMenuLabelComponent, UiContextMenuTriggerDirective, UiContextMenuContentComponent, UiContextMenuItemComponent, UiContextMenuSeparatorComponent, UiContextMenuLabelComponent],
+  imports: [FormsModule, RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent, UiBreadcrumbComponent, UiBreadcrumbListComponent, UiBreadcrumbItemComponent, UiBreadcrumbLinkComponent, UiBreadcrumbPageComponent, UiBreadcrumbSeparatorComponent, UiBreadcrumbEllipsisComponent, UiPaginationComponent, UiPaginationContentComponent, UiPaginationItemComponent, UiPaginationLinkComponent, UiPaginationPreviousComponent, UiPaginationNextComponent, UiPaginationEllipsisComponent, UiTooltipTriggerDirective, UiHoverCardTriggerDirective, UiPopoverTriggerDirective, UiPopoverContentComponent, UiDropdownMenuTriggerDirective, UiDropdownMenuContentComponent, UiDropdownMenuItemComponent, UiDropdownMenuSeparatorComponent, UiDropdownMenuLabelComponent, UiContextMenuTriggerDirective, UiContextMenuContentComponent, UiContextMenuItemComponent, UiContextMenuSeparatorComponent, UiContextMenuLabelComponent, UiSelectTriggerDirective, UiSelectContentComponent, UiSelectItemComponent, UiSelectGroupComponent, UiSelectLabelComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -114,5 +115,19 @@ export class App {
 
   onContextAction(action: string) {
     console.log(`Context menu action:`, action);
+  }
+
+  // Select state management
+  selectedCountry = signal<string>('');
+  selectedFramework = signal<string>('');
+
+  onCountryChange(value: string) {
+    this.selectedCountry.set(value);
+    console.log('Country selected:', value);
+  }
+
+  onFrameworkChange(value: string) {
+    this.selectedFramework.set(value);
+    console.log('Framework selected:', value);
   }
 }
