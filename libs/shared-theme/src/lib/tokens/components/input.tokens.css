@@ -1,9 +1,9 @@
 :root {
-  --input-height: 2.25rem;
-  --input-padding-x: 0.75rem;
-  --input-padding-y: 0.25rem;
+  --input-height: 2.25rem; /* h-9 = 36px */
+  --input-padding-x: 0.75rem; /* px-3 = 12px */
+  --input-padding-y: 0.25rem; /* py-1 = 4px (прототип) */
   --input-radius: var(--radius-md);
-  --input-font-size: 0.875rem;
+  --input-font-size: 0.875rem; /* text-sm на desktop */
 
   --input-bg: hsl(var(--background));
   --input-fg: hsl(var(--foreground));
