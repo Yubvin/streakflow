@@ -1,6 +1,8 @@
 .ui-hover-card-content {
   z-index: 50;
-  width: 16rem;
+  min-width: 16rem;
+  max-width: 24rem;
+  width: max-content;
   border-radius: var(--radius-md);
   border: 1px solid hsl(var(--border));
   background-color: hsl(var(--popover));
