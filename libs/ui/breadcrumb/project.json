@@ -1,0 +1,37 @@
+{
+  "name": "breadcrumb",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui/breadcrumb/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/libs/ui/breadcrumb/dist"],
+      "options": {
+        "project": "libs/ui/breadcrumb/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ui/breadcrumb/tsconfig.lib.json"
+        },
+        "development": {
+          "tsConfig": "libs/ui/breadcrumb/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/ui/breadcrumb/jest.config.ts",
+        "tsConfig": "libs/ui/breadcrumb/tsconfig.spec.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

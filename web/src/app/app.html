@@ -2340,4 +2340,186 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Breadcrumb — Navigation Path</h2>
+    <p class="text-muted-foreground mb-6">Breadcrumb navigation to show current page location in hierarchy.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Breadcrumb</h3>
+        <p class="text-sm text-muted-foreground mb-3">Simple navigation path</p>
+        <ui-breadcrumb>
+          <ui-breadcrumb-list>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/']">Home</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/dashboard']">Dashboard</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-page>Habits</ui-breadcrumb-page>
+            </ui-breadcrumb-item>
+          </ui-breadcrumb-list>
+        </ui-breadcrumb>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">With Custom Separator</h3>
+        <p class="text-sm text-muted-foreground mb-3">Using custom separator icon</p>
+        <ui-breadcrumb>
+          <ui-breadcrumb-list>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/']">Home</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator>
+              <span class="text-muted-foreground">/</span>
+            </ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/settings']">Settings</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator>
+              <span class="text-muted-foreground">/</span>
+            </ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-page>Profile</ui-breadcrumb-page>
+            </ui-breadcrumb-item>
+          </ui-breadcrumb-list>
+        </ui-breadcrumb>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">With Ellipsis (Collapsed)</h3>
+        <p class="text-sm text-muted-foreground mb-3">Show ellipsis for long paths</p>
+        <ui-breadcrumb>
+          <ui-breadcrumb-list>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/']">Home</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-ellipsis></ui-breadcrumb-ellipsis>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/habits']">Habits</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-page>Edit Habit</ui-breadcrumb-page>
+            </ui-breadcrumb-item>
+          </ui-breadcrumb-list>
+        </ui-breadcrumb>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Real Example — App Navigation</h3>
+        <p class="text-sm text-muted-foreground mb-3">Breadcrumb in actual app context</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-breadcrumb>
+              <ui-breadcrumb-list>
+                <ui-breadcrumb-item>
+                  <ui-breadcrumb-link [href]="['/']">
+                    <span class="text-lg">🏠</span>
+                  </ui-breadcrumb-link>
+                </ui-breadcrumb-item>
+                <ui-breadcrumb-separator></ui-breadcrumb-separator>
+                <ui-breadcrumb-item>
+                  <ui-breadcrumb-link [href]="['/dashboard']">Dashboard</ui-breadcrumb-link>
+                </ui-breadcrumb-item>
+                <ui-breadcrumb-separator></ui-breadcrumb-separator>
+                <ui-breadcrumb-item>
+                  <ui-breadcrumb-link [href]="['/habits']">My Habits</ui-breadcrumb-link>
+                </ui-breadcrumb-item>
+                <ui-breadcrumb-separator></ui-breadcrumb-separator>
+                <ui-breadcrumb-item>
+                  <ui-breadcrumb-page>Morning Meditation</ui-breadcrumb-page>
+                </ui-breadcrumb-item>
+              </ui-breadcrumb-list>
+            </ui-breadcrumb>
+            <ui-separator customClass="my-4"></ui-separator>
+            <ui-card-title>Morning Meditation</ui-card-title>
+            <ui-card-description>Daily mindfulness practice</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <ui-label>Habit Name</ui-label>
+                <ui-input type="text" placeholder="Morning Meditation"></ui-input>
+              </div>
+              <div class="space-y-2">
+                <ui-label>Goal</ui-label>
+                <ui-input type="number" placeholder="1"></ui-input>
+              </div>
+            </div>
+          </ui-card-content>
+          <ui-card-footer>
+            <div class="flex justify-end gap-3 w-full">
+              <ui-button variant="ghost">Cancel</ui-button>
+              <ui-button variant="primary">Save Changes</ui-button>
+            </div>
+          </ui-card-footer>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Deep Navigation Path</h3>
+        <p class="text-sm text-muted-foreground mb-3">Breadcrumb with many levels</p>
+        <ui-breadcrumb>
+          <ui-breadcrumb-list>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/']">Home</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/dashboard']">Dashboard</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/habits']">Habits</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/habits', 'health']">Health</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/habits', 'health', 'meditation']">Meditation</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-page>Morning Session</ui-breadcrumb-page>
+            </ui-breadcrumb-item>
+          </ui-breadcrumb-list>
+        </ui-breadcrumb>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Collapsed Path (Mobile-Friendly)</h3>
+        <p class="text-sm text-muted-foreground mb-3">Using ellipsis to save space</p>
+        <ui-breadcrumb>
+          <ui-breadcrumb-list>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/']">Home</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-ellipsis></ui-breadcrumb-ellipsis>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-link [href]="['/analytics']">Analytics</ui-breadcrumb-link>
+            </ui-breadcrumb-item>
+            <ui-breadcrumb-separator></ui-breadcrumb-separator>
+            <ui-breadcrumb-item>
+              <ui-breadcrumb-page>Reports</ui-breadcrumb-page>
+            </ui-breadcrumb-item>
+          </ui-breadcrumb-list>
+        </ui-breadcrumb>
+      </div>
+    </div>
+  </section>
 </div>
