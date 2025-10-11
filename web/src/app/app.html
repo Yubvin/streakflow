@@ -2751,4 +2751,136 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Tooltip — Hover Information</h2>
+    <p class="text-muted-foreground mb-6">Tooltips provide additional context on hover.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Tooltip</h3>
+        <p class="text-sm text-muted-foreground mb-3">Hover over the button to see tooltip</p>
+        <div class="flex gap-4">
+          <ui-button uiTooltipTrigger="Click to save your changes" variant="primary">Save</ui-button>
+          <ui-button uiTooltipTrigger="This action cannot be undone" variant="destructive">Delete</ui-button>
+          <ui-button uiTooltipTrigger="Go back to previous page" variant="ghost">Cancel</ui-button>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Different Positions</h3>
+        <p class="text-sm text-muted-foreground mb-3">Tooltips can appear on all sides</p>
+        <div class="flex justify-center items-center gap-12 py-12">
+          <ui-button uiTooltipTrigger="Tooltip on left" tooltipSide="left" variant="outline">Left</ui-button>
+          <div class="flex flex-col gap-4">
+            <ui-button uiTooltipTrigger="Tooltip on top" tooltipSide="top" variant="outline">Top</ui-button>
+            <ui-button uiTooltipTrigger="Tooltip on bottom" tooltipSide="bottom" variant="outline">Bottom</ui-button>
+          </div>
+          <ui-button uiTooltipTrigger="Tooltip on right" tooltipSide="right" variant="outline">Right</ui-button>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Icon Buttons</h3>
+        <p class="text-sm text-muted-foreground mb-3">Tooltips help explain icon-only buttons</p>
+        <div class="flex gap-3">
+          <ui-button uiTooltipTrigger="Settings" variant="ghost" size="icon">
+            ⚙️
+          </ui-button>
+          <ui-button uiTooltipTrigger="Add new habit" variant="ghost" size="icon">
+            ➕
+          </ui-button>
+          <ui-button uiTooltipTrigger="Refresh data" variant="ghost" size="icon">
+            🔄
+          </ui-button>
+          <ui-button uiTooltipTrigger="Download report" variant="ghost" size="icon">
+            📥
+          </ui-button>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Real Example — Action Tooltips</h3>
+        <p class="text-sm text-muted-foreground mb-3">Tooltips in habit management</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Quick Actions</ui-card-title>
+            <ui-card-description>Manage your habits</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="flex flex-wrap gap-2">
+              <ui-button uiTooltipTrigger="Mark habit as complete for today" variant="secondary" size="sm">
+                ✓ Complete
+              </ui-button>
+              <ui-button uiTooltipTrigger="Skip this habit for today" variant="ghost" size="sm">
+                ⏭️ Skip
+              </ui-button>
+              <ui-button uiTooltipTrigger="Edit habit details" variant="outline" size="sm">
+                ✏️ Edit
+              </ui-button>
+              <ui-button uiTooltipTrigger="View full history and statistics" variant="ghost" size="sm">
+                📊 History
+              </ui-button>
+              <ui-button uiTooltipTrigger="Permanently delete this habit" variant="destructive" size="sm">
+                🗑️ Delete
+              </ui-button>
+            </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Badges with Tooltips</h3>
+        <p class="text-sm text-muted-foreground mb-3">Explain status badges</p>
+        <div class="flex flex-wrap gap-3">
+          <ui-badge uiTooltipTrigger="This habit is active and tracking" variant="default">Active</ui-badge>
+          <ui-badge uiTooltipTrigger="Waiting for your first completion" variant="secondary">Pending</ui-badge>
+          <ui-badge uiTooltipTrigger="Habit was not completed today" variant="destructive">Missed</ui-badge>
+          <ui-badge uiTooltipTrigger="Completed all goals for today" variant="outline">Done ✓</ui-badge>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Complex Example — Help Icons</h3>
+        <p class="text-sm text-muted-foreground mb-3">Tooltips for form field explanations</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Create Habit</ui-card-title>
+            <ui-card-description>Set up a new habit to track</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <div class="flex items-center gap-2">
+                  <ui-label>Habit Name</ui-label>
+                  <span uiTooltipTrigger="Choose a clear, descriptive name for your habit" class="text-muted-foreground cursor-help">ℹ️</span>
+                </div>
+                <ui-input type="text" placeholder="e.g., Morning Exercise"></ui-input>
+              </div>
+              <div class="space-y-2">
+                <div class="flex items-center gap-2">
+                  <ui-label>Daily Goal</ui-label>
+                  <span uiTooltipTrigger="How many times per day do you want to complete this?" class="text-muted-foreground cursor-help">ℹ️</span>
+                </div>
+                <ui-input type="number" placeholder="1"></ui-input>
+              </div>
+              <div class="space-y-2">
+                <div class="flex items-center gap-2">
+                  <ui-label>Streak Threshold</ui-label>
+                  <span uiTooltipTrigger="Number of consecutive days to maintain your streak" tooltipSide="bottom" class="text-muted-foreground cursor-help">ℹ️</span>
+                </div>
+                <ui-input type="number" placeholder="7"></ui-input>
+              </div>
+            </div>
+          </ui-card-content>
+          <ui-card-footer>
+            <div class="flex justify-end gap-3 w-full">
+              <ui-button variant="ghost">Cancel</ui-button>
+              <ui-button variant="primary" uiTooltipTrigger="Save and start tracking this habit">Create Habit</ui-button>
+            </div>
+          </ui-card-footer>
+        </ui-card>
+      </div>
+    </div>
+  </section>
 </div>

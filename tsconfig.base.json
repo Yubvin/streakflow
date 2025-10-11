@@ -37,7 +37,8 @@
       "@streakflow/ui/tabs": ["libs/ui/tabs/src/index.ts"],
       "@streakflow/ui/textarea": ["libs/ui/textarea/src/index.ts"],
       "@streakflow/ui/toggle": ["libs/ui/toggle/src/index.ts"],
-      "@streakflow/ui/toggle-group": ["libs/ui/toggle-group/src/index.ts"]
+      "@streakflow/ui/toggle-group": ["libs/ui/toggle-group/src/index.ts"],
+      "@streakflow/ui/tooltip": ["libs/ui/tooltip/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
