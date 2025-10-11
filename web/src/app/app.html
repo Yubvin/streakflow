@@ -1110,4 +1110,146 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Cards — Container Components</h2>
+    <p class="text-muted-foreground mb-6">Card components for grouping related content with headers, content, and footers.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Card</h3>
+        <p class="text-sm text-muted-foreground mb-3">Simple card with content</p>
+        <ui-card>
+          <ui-card-content>
+            <p>This is a basic card component with some content inside.</p>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Card with Header</h3>
+        <p class="text-sm text-muted-foreground mb-3">Card with title and description</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Card Title</ui-card-title>
+            <ui-card-description>This is a description of the card content</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <p class="text-sm">Card content goes here. This can include any type of content you need to display.</p>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Card with Header Action</h3>
+        <p class="text-sm text-muted-foreground mb-3">Card with action button in header</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Notifications</ui-card-title>
+            <ui-card-description>You have 3 unread messages</ui-card-description>
+            <ui-card-action>
+              <ui-button variant="ghost" size="sm">Mark all read</ui-button>
+            </ui-card-action>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <ui-avatar size="sm" fallback="JD"></ui-avatar>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">New message from John</p>
+                  <p class="text-xs text-muted-foreground">2 minutes ago</p>
+                </div>
+              </div>
+              <ui-separator></ui-separator>
+              <div class="flex items-center gap-3">
+                <ui-avatar size="sm" fallback="SM"></ui-avatar>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">Sarah mentioned you</p>
+                  <p class="text-xs text-muted-foreground">1 hour ago</p>
+                </div>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Card with Footer</h3>
+        <p class="text-sm text-muted-foreground mb-3">Card with action buttons in footer</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Create New Habit</ui-card-title>
+            <ui-card-description>Add a new habit to track your progress</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <ui-label>Habit Name</ui-label>
+                <ui-input type="text" placeholder="e.g., Morning Exercise"></ui-input>
+              </div>
+              <div class="space-y-2">
+                <ui-label>Goal</ui-label>
+                <ui-input type="number" placeholder="1"></ui-input>
+              </div>
+            </div>
+          </ui-card-content>
+          <ui-card-footer>
+            <div class="flex justify-end gap-3 w-full">
+              <ui-button variant="ghost">Cancel</ui-button>
+              <ui-button variant="primary">Create Habit</ui-button>
+            </div>
+          </ui-card-footer>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">KPI Card</h3>
+        <p class="text-sm text-muted-foreground mb-3">Dashboard metric card</p>
+        <ui-card customClass="max-w-xs">
+          <ui-card-header>
+            <ui-card-title>Total Habits</ui-card-title>
+            <ui-card-description>Active habits this month</ui-card-description>
+            <ui-card-action>
+              <app-icon name="i" [size]="16"></app-icon>
+            </ui-card-action>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="text-3xl font-bold">24</div>
+            <div class="flex items-center gap-2 mt-2 text-sm">
+              <span class="text-green-600">↑ 12%</span>
+              <span class="text-muted-foreground">from last month</span>
+            </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">User Profile Card</h3>
+        <p class="text-sm text-muted-foreground mb-3">Complete user profile with avatar and stats</p>
+        <ui-card>
+          <ui-card-content>
+            <div class="flex items-center gap-4 mb-4">
+              <ui-avatar size="xl" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face" fallback="AJ"></ui-avatar>
+              <div>
+                <h4 class="font-medium text-sm">Alex Johnson</h4>
+                <div class="text-xs text-muted-foreground">alex@example.com</div>
+                <div class="text-xs text-muted-foreground">@alexjohnson</div>
+              </div>
+            </div>
+            <ui-separator></ui-separator>
+            <div class="mt-4 space-y-2">
+              <div class="flex justify-between text-sm">
+                <span class="text-muted-foreground">Member since</span>
+                <span>Jan 2024</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-muted-foreground">Habits completed</span>
+                <span>127</span>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+    </div>
+  </section>
 </div>
