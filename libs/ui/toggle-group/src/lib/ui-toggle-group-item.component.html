@@ -1,0 +1,13 @@
+<button
+  type="button"
+  [attr.aria-pressed]="isPressed"
+  [attr.data-state]="isPressed ? 'on' : 'off'"
+  [attr.data-variant]="variant"
+  [attr.data-size]="size"
+  [disabled]="disabled()"
+  (click)="toggle()"
+  class="ui-toggle-group-item"
+>
+  <ng-content></ng-content>
+</button>
+

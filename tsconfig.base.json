@@ -33,7 +33,8 @@
       "@streakflow/ui/radio-group": ["libs/ui/radio-group/src/index.ts"],
       "@streakflow/ui/switch": ["libs/ui/switch/src/index.ts"],
       "@streakflow/ui/slider": ["libs/ui/slider/src/index.ts"],
-      "@streakflow/ui/toggle": ["libs/ui/toggle/src/index.ts"]
+      "@streakflow/ui/toggle": ["libs/ui/toggle/src/index.ts"],
+      "@streakflow/ui/toggle-group": ["libs/ui/toggle-group/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
