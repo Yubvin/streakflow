@@ -130,4 +130,18 @@ export class App {
     this.selectedFramework.set(value);
     console.log('Framework selected:', value);
   }
+
+  // Theme management
+  darkMode = signal<boolean>(false);
+
+  toggleTheme() {
+    const root = document.documentElement;
+    if (this.darkMode()) {
+      root.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      root.removeAttribute('data-theme');
+    }
+  }
 }
