@@ -10,8 +10,8 @@
 - ✅ Использование secondary entry points (`@streakflow/ui/button`)
 - ✅ Shared theme с дизайн-токенами
 
-### ❌ Проблемы:
-- ❌ **41 компонент** с inline `template:` вместо `templateUrl:` (плохо для читаемости)
+### ✅ Исправлено:
+- ✅ **41 компонент** перенесены с inline `template:` на `templateUrl:` (отличная читаемость)
 - ❌ Нет разделения на smart/dumb компоненты (пока только UI primitives)
 - ❌ Нет state management (NgRx/Signals Store) - только локальные signals
 - ❌ Нет CoreModule/SharedModule паттерна (но standalone components, так что это OK)
