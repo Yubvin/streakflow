@@ -2885,6 +2885,60 @@
   </section>
 
   <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Popover — Click to Open Content</h2>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Popover</h3>
+        <p class="text-sm text-muted-foreground mb-3">Click the button to open popover content</p>
+        <div class="p-6 border rounded-lg" style="border-color: var(--tw-border-border);">
+          <ui-button 
+            variant="outline"
+            [uiPopoverTrigger]="basicPopoverTemplate"
+          >
+            Open Popover
+          </ui-button>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Settings Popover</h3>
+        <p class="text-sm text-muted-foreground mb-3">Click to open settings menu</p>
+        <div class="p-6 border rounded-lg" style="border-color: var(--tw-border-border);">
+          <ui-button 
+            variant="outline"
+            size="sm"
+            [uiPopoverTrigger]="settingsPopoverTemplate"
+          >
+            ⚙️ Settings
+          </ui-button>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Profile Popover</h3>
+        <p class="text-sm text-muted-foreground mb-3">Click to view user profile</p>
+        <div class="p-6 border rounded-lg" style="border-color: var(--tw-border-border);">
+          <div class="flex items-center gap-3">
+            <ui-avatar fallback="JD"></ui-avatar>
+            <div>
+              <p class="text-sm font-medium">John Doe</p>
+              <p class="text-xs text-muted-foreground">Software Engineer</p>
+            </div>
+            <ui-button 
+              variant="ghost" 
+              size="sm"
+              [uiPopoverTrigger]="profilePopoverTemplate"
+            >
+              View Profile
+            </ui-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Hover Card — Rich Hover Content</h2>
     <p class="text-muted-foreground mb-6">Hover cards show rich content on hover, like user profiles or detailed information.</p>
     
@@ -3084,4 +3138,53 @@
       </div>
     </div>
   </div>
+</ng-template>
+
+<!-- Popover Templates -->
+<ng-template #basicPopoverTemplate>
+  <ui-popover-content>
+    <div class="space-y-2">
+      <h4 class="font-semibold text-sm">Basic Popover</h4>
+      <p class="text-sm text-muted-foreground">This is a basic popover content. Click outside to close.</p>
+      <div class="flex gap-2 pt-2">
+        <ui-button size="sm" variant="outline">Cancel</ui-button>
+        <ui-button size="sm">Confirm</ui-button>
+      </div>
+    </div>
+  </ui-popover-content>
+</ng-template>
+
+<ng-template #settingsPopoverTemplate>
+  <ui-popover-content>
+    <div class="space-y-2">
+      <h4 class="font-semibold text-sm">Settings</h4>
+      <div class="space-y-1">
+        <button class="w-full text-left px-2 py-1 text-sm hover:bg-accent rounded">Profile</button>
+        <button class="w-full text-left px-2 py-1 text-sm hover:bg-accent rounded">Preferences</button>
+        <button class="w-full text-left px-2 py-1 text-sm hover:bg-accent rounded">Notifications</button>
+        <button class="w-full text-left px-2 py-1 text-sm hover:bg-accent rounded">Privacy</button>
+      </div>
+    </div>
+  </ui-popover-content>
+</ng-template>
+
+<ng-template #profilePopoverTemplate>
+  <ui-popover-content>
+    <div class="flex gap-3">
+      <ui-avatar size="lg" fallback="JD"></ui-avatar>
+      <div class="space-y-1 min-w-0 flex-1">
+        <h4 class="text-sm font-semibold">John Doe</h4>
+        <p class="text-sm text-muted-foreground">@johndoe</p>
+        <div class="flex items-center gap-2 mt-2 flex-wrap">
+          <ui-badge variant="secondary" size="sm">Pro Member</ui-badge>
+          <ui-badge variant="outline" size="sm">💻 Developer</ui-badge>
+        </div>
+        <p class="text-xs text-muted-foreground mt-2">Joined March 2024</p>
+        <div class="flex gap-2 pt-2">
+          <ui-button size="sm" variant="outline">Follow</ui-button>
+          <ui-button size="sm">Message</ui-button>
+        </div>
+      </div>
+    </div>
+  </ui-popover-content>
 </ng-template>

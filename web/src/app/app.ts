@@ -24,6 +24,7 @@ import { UiBreadcrumbComponent, UiBreadcrumbListComponent, UiBreadcrumbItemCompo
 import { UiPaginationComponent, UiPaginationContentComponent, UiPaginationItemComponent, UiPaginationLinkComponent, UiPaginationPreviousComponent, UiPaginationNextComponent, UiPaginationEllipsisComponent } from '@streakflow/ui/pagination';
 import { UiTooltipTriggerDirective } from '@streakflow/ui/tooltip';
 import { UiHoverCardTriggerDirective } from '@streakflow/ui/hover-card';
+import { UiPopoverTriggerDirective, UiPopoverContentComponent } from '@streakflow/ui/popover';
 
 @Component({
   selector: 'app-icon',
@@ -44,7 +45,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [FormsModule, RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent, UiBreadcrumbComponent, UiBreadcrumbListComponent, UiBreadcrumbItemComponent, UiBreadcrumbLinkComponent, UiBreadcrumbPageComponent, UiBreadcrumbSeparatorComponent, UiBreadcrumbEllipsisComponent, UiPaginationComponent, UiPaginationContentComponent, UiPaginationItemComponent, UiPaginationLinkComponent, UiPaginationPreviousComponent, UiPaginationNextComponent, UiPaginationEllipsisComponent, UiTooltipTriggerDirective, UiHoverCardTriggerDirective],
+  imports: [FormsModule, RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent, UiBreadcrumbComponent, UiBreadcrumbListComponent, UiBreadcrumbItemComponent, UiBreadcrumbLinkComponent, UiBreadcrumbPageComponent, UiBreadcrumbSeparatorComponent, UiBreadcrumbEllipsisComponent, UiPaginationComponent, UiPaginationContentComponent, UiPaginationItemComponent, UiPaginationLinkComponent, UiPaginationPreviousComponent, UiPaginationNextComponent, UiPaginationEllipsisComponent, UiTooltipTriggerDirective, UiHoverCardTriggerDirective, UiPopoverTriggerDirective, UiPopoverContentComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
