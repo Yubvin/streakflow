@@ -2883,4 +2883,205 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Hover Card — Rich Hover Content</h2>
+    <p class="text-muted-foreground mb-6">Hover cards show rich content on hover, like user profiles or detailed information.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Hover Card</h3>
+        <p class="text-sm text-muted-foreground mb-3">Hover over the link to see user profile</p>
+        <div class="p-6 border rounded-lg" style="border-color: var(--tw-border-border);">
+          <p class="text-sm">
+            Created by 
+            <a 
+              href="#" 
+              class="text-primary hover:underline font-medium"
+              [uiHoverCardTrigger]="userCardTemplate"
+            >
+              @alexjohnson
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Habit Author Info</h3>
+        <p class="text-sm text-muted-foreground mb-3">Hover to see who created the habit template</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Morning Meditation Template</ui-card-title>
+            <ui-card-description>
+              Created by 
+              <a 
+                href="#" 
+                class="text-primary hover:underline font-medium"
+                [uiHoverCardTrigger]="authorCardTemplate"
+              >
+                Sarah Miller
+              </a>
+            </ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <p class="text-sm text-muted-foreground">A guided meditation practice to start your day with calm and focus.</p>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">User Mentions in Comments</h3>
+        <p class="text-sm text-muted-foreground mb-3">Hover over @mentions to see user info</p>
+        <div class="p-4 border rounded-lg space-y-3" style="border-color: var(--tw-border-border);">
+          <div class="flex gap-3">
+            <ui-avatar size="sm" fallback="AJ"></ui-avatar>
+            <div class="flex-1">
+              <div class="text-sm">
+                <a 
+                  href="#" 
+                  class="font-medium text-primary hover:underline"
+                  [uiHoverCardTrigger]="userCardTemplate"
+                >
+                  @alexjohnson
+                </a>
+                <span class="text-muted-foreground ml-1">Great progress on your meditation streak!</span>
+              </div>
+              <div class="text-xs text-muted-foreground mt-1">2 hours ago</div>
+            </div>
+          </div>
+          <ui-separator></ui-separator>
+          <div class="flex gap-3">
+            <ui-avatar size="sm" fallback="SM"></ui-avatar>
+            <div class="flex-1">
+              <div class="text-sm">
+                <a 
+                  href="#" 
+                  class="font-medium text-primary hover:underline"
+                  [uiHoverCardTrigger]="sarahCardTemplate"
+                >
+                  @sarahmiller
+                </a>
+                <span class="text-muted-foreground ml-1">Thanks! Your morning workout routine inspired me to start one too.</span>
+              </div>
+              <div class="text-xs text-muted-foreground mt-1">1 hour ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Habit Statistics Preview</h3>
+        <p class="text-sm text-muted-foreground mb-3">Hover to see detailed stats</p>
+        <div class="grid grid-cols-3 gap-4">
+          <div 
+            class="p-4 border rounded-lg cursor-pointer hover:border-primary transition-colors"
+            style="border-color: var(--tw-border-border);"
+            [uiHoverCardTrigger]="statsCardTemplate"
+          >
+            <div class="text-2xl font-bold">127</div>
+            <div class="text-xs text-muted-foreground">Total Completions</div>
+          </div>
+          <div class="p-4 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <div class="text-2xl font-bold">24</div>
+            <div class="text-xs text-muted-foreground">Active Habits</div>
+          </div>
+          <div class="p-4 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <div class="text-2xl font-bold">85%</div>
+            <div class="text-xs text-muted-foreground">Success Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
+
+<ng-template #userCardTemplate>
+  <div class="ui-hover-card-content" data-slot="hover-card-content" data-state="open">
+    <div class="flex gap-4">
+      <ui-avatar size="lg" fallback="AJ"></ui-avatar>
+      <div class="space-y-1">
+        <h4 class="text-sm font-semibold">Alex Johnson</h4>
+        <p class="text-sm text-muted-foreground">@alexjohnson</p>
+        <p class="text-xs text-muted-foreground mt-2">Meditation enthusiast. Building better habits one day at a time.</p>
+        <div class="flex gap-4 mt-3 text-xs">
+          <div>
+            <span class="font-semibold">127</span>
+            <span class="text-muted-foreground ml-1">habits</span>
+          </div>
+          <div>
+            <span class="font-semibold">2.3k</span>
+            <span class="text-muted-foreground ml-1">followers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #authorCardTemplate>
+  <div class="ui-hover-card-content" data-slot="hover-card-content" data-state="open">
+    <div class="flex gap-4">
+      <ui-avatar size="lg" fallback="SM"></ui-avatar>
+      <div class="space-y-1">
+        <h4 class="text-sm font-semibold">Sarah Miller</h4>
+        <p class="text-sm text-muted-foreground">@sarahmiller</p>
+        <p class="text-xs text-muted-foreground mt-2">UX Designer & Wellness Coach. Creating habit templates for mindful living.</p>
+        <div class="flex gap-4 mt-3 text-xs">
+          <div>
+            <span class="font-semibold">45</span>
+            <span class="text-muted-foreground ml-1">templates</span>
+          </div>
+          <div>
+            <span class="font-semibold">5.1k</span>
+            <span class="text-muted-foreground ml-1">followers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #sarahCardTemplate>
+  <div class="ui-hover-card-content" data-slot="hover-card-content" data-state="open">
+    <div class="flex gap-4">
+      <ui-avatar size="lg" fallback="SM"></ui-avatar>
+      <div class="space-y-1">
+        <h4 class="text-sm font-semibold">Sarah Miller</h4>
+        <p class="text-sm text-muted-foreground">@sarahmiller</p>
+        <div class="flex items-center gap-2 mt-2">
+          <ui-badge variant="secondary" size="sm">Pro Member</ui-badge>
+          <ui-badge variant="outline" size="sm">🏃 Fitness</ui-badge>
+        </div>
+        <p class="text-xs text-muted-foreground mt-2">Joined January 2024</p>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #statsCardTemplate>
+  <div class="ui-hover-card-content" data-slot="hover-card-content" data-state="open">
+    <div class="space-y-3">
+      <h4 class="font-semibold text-sm">Completion Details</h4>
+      <ui-separator></ui-separator>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between">
+          <span class="text-muted-foreground">This Month:</span>
+          <span class="font-medium">45</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-muted-foreground">This Week:</span>
+          <span class="font-medium">12</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-muted-foreground">Today:</span>
+          <span class="font-medium">3</span>
+        </div>
+      </div>
+      <ui-separator></ui-separator>
+      <div class="flex justify-between text-xs">
+        <span class="text-muted-foreground">Average per day:</span>
+        <span class="font-semibold text-primary">4.2</span>
+      </div>
+    </div>
+  </div>
+</ng-template>
