@@ -29,7 +29,8 @@
       "@streakflow/ui/card": ["libs/ui/card/src/index.ts"],
       "@streakflow/ui/aspect-ratio": ["libs/ui/aspect-ratio/src/index.ts"],
       "@streakflow/ui/textarea": ["libs/ui/textarea/src/index.ts"],
-      "@streakflow/ui/checkbox": ["libs/ui/checkbox/src/index.ts"]
+      "@streakflow/ui/checkbox": ["libs/ui/checkbox/src/index.ts"],
+      "@streakflow/ui/radio-group": ["libs/ui/radio-group/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1706,4 +1706,183 @@
       </div>
     </div>
   </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Radio Group — Single Choice Selection</h2>
+    <p class="text-muted-foreground mb-6">Radio button groups for selecting one option from multiple choices.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Radio Group</h3>
+        <p class="text-sm text-muted-foreground mb-3">Simple radio button selection</p>
+        <ui-radio-group>
+          <div class="flex items-center gap-2">
+            <ui-radio-item value="option1"></ui-radio-item>
+            <ui-label>Option 1</ui-label>
+          </div>
+          <div class="flex items-center gap-2">
+            <ui-radio-item value="option2"></ui-radio-item>
+            <ui-label>Option 2</ui-label>
+          </div>
+          <div class="flex items-center gap-2">
+            <ui-radio-item value="option3"></ui-radio-item>
+            <ui-label>Option 3</ui-label>
+          </div>
+        </ui-radio-group>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Habit Frequency Selection</h3>
+        <p class="text-sm text-muted-foreground mb-3">Choose how often to perform a habit</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Habit Frequency</ui-card-title>
+            <ui-card-description>How often do you want to do this habit?</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <ui-radio-group>
+              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                <ui-radio-item value="daily"></ui-radio-item>
+                <div class="flex-1">
+                  <ui-label customClass="font-medium">Daily</ui-label>
+                  <p class="text-sm text-muted-foreground">Every single day</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                <ui-radio-item value="weekly"></ui-radio-item>
+                <div class="flex-1">
+                  <ui-label customClass="font-medium">Weekly</ui-label>
+                  <p class="text-sm text-muted-foreground">Several times per week</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                <ui-radio-item value="monthly"></ui-radio-item>
+                <div class="flex-1">
+                  <ui-label customClass="font-medium">Monthly</ui-label>
+                  <p class="text-sm text-muted-foreground">A few times each month</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                <ui-radio-item value="custom"></ui-radio-item>
+                <div class="flex-1">
+                  <ui-label customClass="font-medium">Custom</ui-label>
+                  <p class="text-sm text-muted-foreground">Set your own schedule</p>
+                </div>
+              </div>
+            </ui-radio-group>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Notification Preference</h3>
+        <p class="text-sm text-muted-foreground mb-3">Choose your notification timing</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Reminder Time</ui-card-title>
+            <ui-card-description>When should we remind you?</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <ui-radio-group>
+              <div class="flex items-center gap-2">
+                <ui-radio-item value="morning"></ui-radio-item>
+                <ui-label>Morning (9:00 AM)</ui-label>
+              </div>
+              <div class="flex items-center gap-2">
+                <ui-radio-item value="afternoon"></ui-radio-item>
+                <ui-label>Afternoon (2:00 PM)</ui-label>
+              </div>
+              <div class="flex items-center gap-2">
+                <ui-radio-item value="evening"></ui-radio-item>
+                <ui-label>Evening (6:00 PM)</ui-label>
+              </div>
+              <div class="flex items-center gap-2">
+                <ui-radio-item value="custom"></ui-radio-item>
+                <ui-label>Custom time</ui-label>
+              </div>
+            </ui-radio-group>
+          </ui-card-content>
+          <ui-card-footer>
+            <div class="flex justify-end gap-3 w-full">
+              <ui-button variant="ghost">Cancel</ui-button>
+              <ui-button variant="primary">Save Preference</ui-button>
+            </div>
+          </ui-card-footer>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Theme Selection</h3>
+        <p class="text-sm text-muted-foreground mb-3">Choose your preferred theme</p>
+        <div class="space-y-3">
+          <ui-radio-group>
+            <div class="flex items-center gap-2">
+              <ui-radio-item value="light"></ui-radio-item>
+              <ui-label>Light theme</ui-label>
+            </div>
+            <div class="flex items-center gap-2">
+              <ui-radio-item value="dark"></ui-radio-item>
+              <ui-label>Dark theme</ui-label>
+            </div>
+            <div class="flex items-center gap-2">
+              <ui-radio-item value="system"></ui-radio-item>
+              <ui-label>System preference</ui-label>
+            </div>
+          </ui-radio-group>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Plan Selection</h3>
+        <p class="text-sm text-muted-foreground mb-3">Choose your subscription plan</p>
+        <ui-card>
+          <ui-card-content>
+            <ui-radio-group>
+              <div class="border rounded-lg p-4 hover:bg-muted/30 transition-colors cursor-pointer">
+                <div class="flex items-start gap-3">
+                  <ui-radio-item value="free" customClass="mt-1"></ui-radio-item>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <ui-label customClass="font-semibold">Free</ui-label>
+                      <span class="text-2xl font-bold">$0</span>
+                    </div>
+                    <p class="text-sm text-muted-foreground">Perfect for getting started</p>
+                    <ul class="mt-2 space-y-1 text-sm text-muted-foreground">
+                      <li>• Up to 3 habits</li>
+                      <li>• Basic analytics</li>
+                      <li>• 30-day history</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="border rounded-lg p-4 hover:bg-muted/30 transition-colors cursor-pointer">
+                <div class="flex items-start gap-3">
+                  <ui-radio-item value="pro" customClass="mt-1"></ui-radio-item>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <div class="flex items-center gap-2">
+                        <ui-label customClass="font-semibold">Pro</ui-label>
+                        <ui-badge variant="default" size="sm">Popular</ui-badge>
+                      </div>
+                      <span class="text-2xl font-bold">$9<span class="text-sm text-muted-foreground">/mo</span></span>
+                    </div>
+                    <p class="text-sm text-muted-foreground">For serious habit builders</p>
+                    <ul class="mt-2 space-y-1 text-sm text-muted-foreground">
+                      <li>• Unlimited habits</li>
+                      <li>• Advanced analytics</li>
+                      <li>• Unlimited history</li>
+                      <li>• Priority support</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </ui-radio-group>
+          </ui-card-content>
+          <ui-card-footer>
+            <ui-button variant="primary" [block]="true">Continue</ui-button>
+          </ui-card-footer>
+        </ui-card>
+      </div>
+    </div>
+  </section>
 </div>

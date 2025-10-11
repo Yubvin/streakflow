@@ -11,3 +11,4 @@ export * from '../card/src/index';
 export * from '../aspect-ratio/src/lib/ui-aspect-ratio.component';
 export * from '../textarea/src/lib/ui-textarea.component';
 export * from '../checkbox/src/lib/ui-checkbox.component';
+export * from '../radio-group/src/index';

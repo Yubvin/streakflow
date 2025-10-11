@@ -1,0 +1,19 @@
+<button
+  type="button"
+  role="radio"
+  [attr.aria-checked]="isSelected"
+  [attr.aria-disabled]="disabled() ? 'true' : null"
+  [attr.data-state]="isSelected ? 'checked' : 'unchecked'"
+  [disabled]="disabled()"
+  (click)="select()"
+  class="ui-radio-item"
+>
+  @if (isSelected) {
+    <span class="ui-radio-indicator" [attr.data-slot]="'radio-group-indicator'">
+      <svg class="ui-radio-icon" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="12" r="5"></circle>
+      </svg>
+    </span>
+  }
+</button>
+
