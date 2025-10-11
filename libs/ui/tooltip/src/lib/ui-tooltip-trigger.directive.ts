@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener, inject, input } from '@angular/core';
-import { Overlay, OverlayRef, OverlayPositionBuilder } from '@angular/cdk/overlay';
+import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { UiTooltipContentComponent } from './ui-tooltip-content.component';
 
@@ -25,32 +25,39 @@ export class UiTooltipTriggerDirective {
     if (this.overlayRef) return;
 
     const side = this.tooltipSide();
-    const offset = this.sideOffset() || 8; // Увеличил default offset до 8px
+    const offset = this.sideOffset() || 8;
 
-    // Определяем позицию в зависимости от side
-    let positions;
+    let positions: ConnectedPosition[];
     if (side === 'top') {
       positions = [{
-        originX: 'center', originY: 'top',
-        overlayX: 'center', overlayY: 'bottom',
+        originX: 'center' as const,
+        originY: 'top' as const,
+        overlayX: 'center' as const,
+        overlayY: 'bottom' as const,
         offsetY: -offset,
       }];
     } else if (side === 'bottom') {
       positions = [{
-        originX: 'center', originY: 'bottom',
-        overlayX: 'center', overlayY: 'top',
+        originX: 'center' as const,
+        originY: 'bottom' as const,
+        overlayX: 'center' as const,
+        overlayY: 'top' as const,
         offsetY: offset,
       }];
     } else if (side === 'left') {
       positions = [{
-        originX: 'start', originY: 'center',
-        overlayX: 'end', overlayY: 'center',
+        originX: 'start' as const,
+        originY: 'center' as const,
+        overlayX: 'end' as const,
+        overlayY: 'center' as const,
         offsetX: -offset,
       }];
-    } else { // right
+    } else {
       positions = [{
-        originX: 'end', originY: 'center',
-        overlayX: 'start', overlayY: 'center',
+        originX: 'end' as const,
+        originY: 'center' as const,
+        overlayX: 'start' as const,
+        overlayY: 'center' as const,
         offsetX: offset,
       }];
     }
