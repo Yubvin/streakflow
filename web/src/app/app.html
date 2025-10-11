@@ -1,4 +1,20 @@
-<div class="p-8 space-y-12 max-w-7xl mx-auto min-h-screen" style="background-color: var(--tw-bg-background);">
+<div class="min-h-screen bg-background text-foreground">
+  <!-- Theme Toggle Header -->
+  <div class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-8 flex h-14 items-center justify-between">
+      <div class="flex items-center gap-3">
+        <h1 class="text-lg font-semibold">StreakFlow UI Components</h1>
+        <ui-badge variant="outline" size="sm">{{darkMode() ? 'Dark' : 'Light'}}</ui-badge>
+      </div>
+      <div class="flex items-center gap-3 px-3 py-1.5 rounded-md border bg-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-muted-foreground"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-8-10h2m16 0h2m-4.93-7.07 1.41 1.41M6.34 17.66l-1.41 1.41"/></svg>
+        <ui-switch [(ngModel)]="darkMode" (ngModelChange)="toggleTheme()"></ui-switch>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-muted-foreground"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </div>
+    </div>
+  </div>
+
+<div class="p-8 space-y-12 max-w-7xl mx-auto">
   <section>
     <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Buttons — All Variants</h2>
     <div class="flex flex-wrap gap-3">
@@ -3662,3 +3678,5 @@
     </ui-select-item>
   </ui-select-content>
 </ng-template>
+
+</div>
