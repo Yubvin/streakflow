@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, inject, TemplateRef, input } from '@angular/core';
+import { Directive, ElementRef, HostListener, inject, TemplateRef, ViewContainerRef, input } from '@angular/core';
 import { Overlay, OverlayRef, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 
@@ -18,6 +18,7 @@ export class UiHoverCardTriggerDirective {
   private overlay = inject(Overlay);
   private elementRef = inject(ElementRef);
   private positionBuilder = inject(OverlayPositionBuilder);
+  private viewContainerRef = inject(ViewContainerRef);
   private overlayRef: OverlayRef | null = null;
   private hideTimeout: any;
 
@@ -79,7 +80,7 @@ export class UiHoverCardTriggerDirective {
       hasBackdrop: false,
     });
 
-    const portal = new TemplatePortal(this.contentTemplate(), null as any);
+    const portal = new TemplatePortal(this.contentTemplate(), this.viewContainerRef);
     this.overlayRef.attach(portal);
   }
 
