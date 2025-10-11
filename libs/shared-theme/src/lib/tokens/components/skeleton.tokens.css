@@ -1,0 +1,5 @@
+:root {
+  --skeleton-bg: hsl(var(--accent));
+  --skeleton-radius: var(--radius-md);
+}
+
