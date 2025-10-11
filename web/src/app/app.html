@@ -1895,8 +1895,14 @@
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Switches</h3>
         <p class="text-sm text-muted-foreground mb-3">Simple on/off toggles</p>
         <div class="flex items-center gap-6">
-          <ui-switch></ui-switch>
-          <ui-switch [disabled]="true"></ui-switch>
+          <div class="flex flex-col items-center gap-2">
+            <ui-switch [(ngModel)]="switchStates.basic"></ui-switch>
+            <span class="text-xs text-muted-foreground">{{ switchStates.basic ? 'On' : 'Off' }}</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <ui-switch [disabled]="true"></ui-switch>
+            <span class="text-xs text-muted-foreground">Disabled</span>
+          </div>
         </div>
       </div>
 
@@ -1904,16 +1910,25 @@
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">With Labels</h3>
         <p class="text-sm text-muted-foreground mb-3">Switches with descriptive labels</p>
         <div class="space-y-4">
-          <div class="flex items-center justify-between">
-            <ui-label>Dark Mode</ui-label>
-            <ui-switch></ui-switch>
+          <div class="flex items-center justify-between p-3 rounded-lg border" style="border-color: var(--tw-border-border);">
+            <div class="space-y-0.5">
+              <ui-label customClass="font-medium">Dark Mode</ui-label>
+              <p class="text-sm text-muted-foreground">Toggle dark theme</p>
+            </div>
+            <ui-switch [(ngModel)]="switchStates.darkMode"></ui-switch>
           </div>
-          <div class="flex items-center justify-between">
-            <ui-label>Notifications</ui-label>
-            <ui-switch></ui-switch>
+          <div class="flex items-center justify-between p-3 rounded-lg border" style="border-color: var(--tw-border-border);">
+            <div class="space-y-0.5">
+              <ui-label customClass="font-medium">Notifications</ui-label>
+              <p class="text-sm text-muted-foreground">Enable push notifications</p>
+            </div>
+            <ui-switch [(ngModel)]="switchStates.notifications"></ui-switch>
           </div>
-          <div class="flex items-center justify-between">
-            <ui-label>Auto-save (disabled)</ui-label>
+          <div class="flex items-center justify-between p-3 rounded-lg border" style="border-color: var(--tw-border-border);">
+            <div class="space-y-0.5">
+              <ui-label customClass="font-medium text-muted-foreground">Auto-save</ui-label>
+              <p class="text-sm text-muted-foreground">This option is disabled</p>
+            </div>
             <ui-switch [disabled]="true"></ui-switch>
           </div>
         </div>
@@ -1985,20 +2000,152 @@
     <div class="space-y-8 max-w-2xl">
       <div>
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Slider</h3>
-        <ui-slider [min]="0" [max]="100"></ui-slider>
+        <p class="text-sm text-muted-foreground mb-3">Simple range selector</p>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-muted-foreground">Value:</span>
+            <span class="text-sm font-medium">{{ sliderStates.basic }}</span>
+          </div>
+          <ui-slider [min]="0" [max]="100" [(value)]="sliderStates.basic"></ui-slider>
+        </div>
       </div>
 
       <div>
         <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Volume Control</h3>
+        <p class="text-sm text-muted-foreground mb-3">Adjust audio level</p>
         <ui-card>
           <ui-card-content>
             <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <ui-label>Volume</ui-label>
-                <span class="text-sm text-muted-foreground">50%</span>
+                <div class="flex items-center gap-2">
+                  <span>{{ sliderStates.volume === 0 ? '🔇' : sliderStates.volume < 50 ? '🔉' : '🔊' }}</span>
+                  <ui-label>Volume</ui-label>
+                </div>
+                <span class="text-sm font-medium">{{ sliderStates.volume }}%</span>
               </div>
-              <ui-slider [min]="0" [max]="100"></ui-slider>
+              <ui-slider [min]="0" [max]="100" [(value)]="sliderStates.volume"></ui-slider>
             </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Goal Adjustment</h3>
+        <p class="text-sm text-muted-foreground mb-3">Set your daily habit goal</p>
+        <ui-card>
+          <ui-card-header>
+            <ui-card-title>Daily Step Goal</ui-card-title>
+            <ui-card-description>How many steps do you want to walk today?</ui-card-description>
+          </ui-card-header>
+          <ui-card-content>
+            <div class="space-y-4">
+              <div class="text-center">
+                <div class="text-4xl font-bold">{{ sliderStates.steps }}</div>
+                <p class="text-sm text-muted-foreground">steps</p>
+              </div>
+              <ui-slider [min]="1000" [max]="20000" [step]="500" [(value)]="sliderStates.steps"></ui-slider>
+              <div class="flex justify-between text-xs text-muted-foreground">
+                <span>1,000</span>
+                <span>20,000</span>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Multiple Settings</h3>
+        <p class="text-sm text-muted-foreground mb-3">Configure various parameters</p>
+        <div class="space-y-6">
+          <div class="p-4 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <div class="flex items-center justify-between mb-3">
+              <ui-label>Brightness</ui-label>
+              <span class="text-sm font-medium">{{ sliderStates.brightness }}%</span>
+            </div>
+            <ui-slider [min]="0" [max]="100" [(value)]="sliderStates.brightness"></ui-slider>
+          </div>
+          <div class="p-4 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <div class="flex items-center justify-between mb-3">
+              <ui-label>Difficulty</ui-label>
+              <span class="text-sm font-medium">{{ sliderStates.difficulty === 1 ? 'Easy' : sliderStates.difficulty === 2 ? 'Medium' : 'Hard' }}</span>
+            </div>
+            <ui-slider [min]="1" [max]="3" [step]="1" [(value)]="sliderStates.difficulty"></ui-slider>
+          </div>
+          <div class="p-4 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <div class="flex items-center justify-between mb-3">
+              <ui-label>Duration (minutes)</ui-label>
+              <span class="text-sm font-medium">{{ sliderStates.duration }} min</span>
+            </div>
+            <ui-slider [min]="5" [max]="120" [step]="5" [(value)]="sliderStates.duration"></ui-slider>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Disabled State</h3>
+        <p class="text-sm text-muted-foreground mb-3">Slider in disabled state</p>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <ui-label customClass="text-muted-foreground">Locked Setting</ui-label>
+            <span class="text-sm text-muted-foreground">50</span>
+          </div>
+          <ui-slider [min]="0" [max]="100" [disabled]="true"></ui-slider>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Toggle — Button State</h2>
+    <p class="text-muted-foreground mb-6">Toggle buttons for binary on/off states (like text formatting).</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Toggles</h3>
+        <p class="text-sm text-muted-foreground mb-3">Simple toggle buttons</p>
+        <div class="flex gap-3">
+          <ui-toggle [(pressed)]="toggleStates.bold" (pressedChange)="onToggleChange('bold', $event)">
+            <span class="font-bold">B</span>
+          </ui-toggle>
+          <ui-toggle [(pressed)]="toggleStates.italic" variant="outline" (pressedChange)="onToggleChange('italic', $event)">
+            <span class="italic">I</span>
+          </ui-toggle>
+          <ui-toggle [(pressed)]="toggleStates.underline" variant="outline">
+            <span class="underline">U</span>
+          </ui-toggle>
+        </div>
+        <div class="mt-3 p-3 border rounded-lg" style="border-color: var(--tw-border-border);">
+          <p class="text-sm">
+            Active: 
+            @if (toggleStates.bold) { <span class="font-semibold">Bold</span> }
+            @if (toggleStates.italic) { <span class="italic">Italic</span> }
+            @if (toggleStates.underline) { <span class="underline">Underline</span> }
+            @if (!toggleStates.bold && !toggleStates.italic && !toggleStates.underline) { None }
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Text Editor Example</h3>
+        <p class="text-sm text-muted-foreground mb-3">Toggle buttons in a toolbar</p>
+        <ui-card>
+          <ui-card-content customClass="space-y-4">
+            <div class="flex items-center gap-2 p-2 border rounded-lg" style="border-color: var(--tw-border-border);">
+              <ui-toggle [(pressed)]="editorStates.bold" size="sm">
+                <span class="font-bold">B</span>
+              </ui-toggle>
+              <ui-toggle [(pressed)]="editorStates.italic" size="sm">
+                <span class="italic">I</span>
+              </ui-toggle>
+              <ui-toggle [(pressed)]="editorStates.underline" size="sm">
+                <span class="underline">U</span>
+              </ui-toggle>
+              <ui-separator orientation="vertical"></ui-separator>
+              <ui-toggle [(pressed)]="editorStates.strikethrough" size="sm">
+                <span class="line-through">S</span>
+              </ui-toggle>
+            </div>
+            <ui-textarea [rows]="4" placeholder="Start typing..."></ui-textarea>
           </ui-card-content>
         </ui-card>
       </div>
@@ -2006,37 +2153,191 @@
   </section>
 
   <section>
-    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Toggle — Button State</h2>
-    <div class="space-y-6 max-w-2xl">
-      <div class="flex gap-3">
-        <ui-toggle>Bold</ui-toggle>
-        <ui-toggle variant="outline">Italic</ui-toggle>
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Toggle Group — Multiple Toggle Buttons</h2>
+    <p class="text-muted-foreground mb-6">Grouped toggle buttons for single or multiple selection.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Text Alignment (Single Selection)</h3>
+        <p class="text-sm text-muted-foreground mb-3">Only one option can be active at a time</p>
+        <div class="space-y-4">
+          <ui-toggle-group type="single" variant="outline" [(value)]="toggleGroupStates.alignment">
+            <ui-toggle-group-item value="left">Left</ui-toggle-group-item>
+            <ui-toggle-group-item value="center">Center</ui-toggle-group-item>
+            <ui-toggle-group-item value="right">Right</ui-toggle-group-item>
+          </ui-toggle-group>
+          <div class="p-3 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <p class="text-sm text-muted-foreground">Selected: <span class="font-medium">{{ toggleGroupStates.alignment || 'None' }}</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">View Mode</h3>
+        <p class="text-sm text-muted-foreground mb-3">Different view options</p>
+        <div class="space-y-4">
+          <ui-toggle-group type="single" variant="outline" [(value)]="toggleGroupStates.view">
+            <ui-toggle-group-item value="list">📋 List</ui-toggle-group-item>
+            <ui-toggle-group-item value="grid">🔲 Grid</ui-toggle-group-item>
+            <ui-toggle-group-item value="calendar">📅 Calendar</ui-toggle-group-item>
+          </ui-toggle-group>
+          <div class="p-3 border rounded-lg" style="border-color: var(--tw-border-border);">
+            <p class="text-sm text-muted-foreground">Current view: <span class="font-medium">{{ toggleGroupStates.view || 'None' }}</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Font Size</h3>
+        <p class="text-sm text-muted-foreground mb-3">Control text size</p>
+        <ui-toggle-group type="single" variant="outline" size="sm" [(value)]="toggleGroupStates.fontSize">
+          <ui-toggle-group-item value="sm">Small</ui-toggle-group-item>
+          <ui-toggle-group-item value="md">Medium</ui-toggle-group-item>
+          <ui-toggle-group-item value="lg">Large</ui-toggle-group-item>
+        </ui-toggle-group>
       </div>
     </div>
   </section>
 
   <section>
-    <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Toggle Group — Multiple Toggle Buttons</h2>
-    <div class="space-y-6 max-w-2xl">
-      <ui-toggle-group type="single" variant="outline">
-        <ui-toggle-group-item value="left">Left</ui-toggle-group-item>
-        <ui-toggle-group-item value="center">Center</ui-toggle-group-item>
-        <ui-toggle-group-item value="right">Right</ui-toggle-group-item>
-      </ui-toggle-group>
-    </div>
-  </section>
-
-  <section>
     <h2 class="text-2xl font-bold mb-6" style="color: var(--tw-text-foreground);">Tabs — Navigation</h2>
-    <div class="space-y-6 max-w-2xl">
-      <ui-tabs>
-        <ui-tabs-list>
-          <ui-tabs-trigger value="tab1">Account</ui-tabs-trigger>
-          <ui-tabs-trigger value="tab2">Password</ui-tabs-trigger>
-        </ui-tabs-list>
-        <ui-tabs-content value="tab1">Account content</ui-tabs-content>
-        <ui-tabs-content value="tab2">Password content</ui-tabs-content>
-      </ui-tabs>
+    <p class="text-muted-foreground mb-6">Tab components for organizing content into separate views.</p>
+    
+    <div class="space-y-8 max-w-2xl">
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Basic Tabs</h3>
+        <p class="text-sm text-muted-foreground mb-3">Simple tab navigation</p>
+        <ui-tabs [(value)]="tabStates.basic">
+          <ui-tabs-list>
+            <ui-tabs-trigger value="account">Account</ui-tabs-trigger>
+            <ui-tabs-trigger value="password">Password</ui-tabs-trigger>
+            <ui-tabs-trigger value="notifications">Notifications</ui-tabs-trigger>
+          </ui-tabs-list>
+          <ui-tabs-content value="account">
+            <ui-card>
+              <ui-card-header>
+                <ui-card-title>Account Settings</ui-card-title>
+                <ui-card-description>Manage your account information</ui-card-description>
+              </ui-card-header>
+              <ui-card-content>
+                <div class="space-y-4">
+                  <div class="space-y-2">
+                    <ui-label>Name</ui-label>
+                    <ui-input type="text" placeholder="Your name"></ui-input>
+                  </div>
+                  <div class="space-y-2">
+                    <ui-label>Email</ui-label>
+                    <ui-input type="email" placeholder="your@email.com"></ui-input>
+                  </div>
+                </div>
+              </ui-card-content>
+              <ui-card-footer>
+                <div class="flex justify-end gap-3 w-full">
+                  <ui-button variant="ghost">Cancel</ui-button>
+                  <ui-button variant="primary">Save Changes</ui-button>
+                </div>
+              </ui-card-footer>
+            </ui-card>
+          </ui-tabs-content>
+          <ui-tabs-content value="password">
+            <ui-card>
+              <ui-card-header>
+                <ui-card-title>Change Password</ui-card-title>
+                <ui-card-description>Update your password to keep your account secure</ui-card-description>
+              </ui-card-header>
+              <ui-card-content>
+                <div class="space-y-4">
+                  <div class="space-y-2">
+                    <ui-label>Current Password</ui-label>
+                    <ui-input type="password" placeholder="Enter current password"></ui-input>
+                  </div>
+                  <div class="space-y-2">
+                    <ui-label>New Password</ui-label>
+                    <ui-input type="password" placeholder="Enter new password"></ui-input>
+                  </div>
+                  <div class="space-y-2">
+                    <ui-label>Confirm Password</ui-label>
+                    <ui-input type="password" placeholder="Confirm new password"></ui-input>
+                  </div>
+                </div>
+              </ui-card-content>
+              <ui-card-footer>
+                <div class="flex justify-end gap-3 w-full">
+                  <ui-button variant="ghost">Cancel</ui-button>
+                  <ui-button variant="primary">Update Password</ui-button>
+                </div>
+              </ui-card-footer>
+            </ui-card>
+          </ui-tabs-content>
+          <ui-tabs-content value="notifications">
+            <ui-card>
+              <ui-card-header>
+                <ui-card-title>Notification Preferences</ui-card-title>
+                <ui-card-description>Choose how you want to be notified</ui-card-description>
+              </ui-card-header>
+              <ui-card-content>
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between">
+                    <div class="space-y-0.5">
+                      <ui-label customClass="font-medium">Email Notifications</ui-label>
+                      <p class="text-sm text-muted-foreground">Receive email updates</p>
+                    </div>
+                    <ui-switch></ui-switch>
+                  </div>
+                  <ui-separator></ui-separator>
+                  <div class="flex items-center justify-between">
+                    <div class="space-y-0.5">
+                      <ui-label customClass="font-medium">Push Notifications</ui-label>
+                      <p class="text-sm text-muted-foreground">Get push notifications</p>
+                    </div>
+                    <ui-switch></ui-switch>
+                  </div>
+                </div>
+              </ui-card-content>
+            </ui-card>
+          </ui-tabs-content>
+        </ui-tabs>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3" style="color: var(--tw-text-foreground);">Stats Dashboard</h3>
+        <p class="text-sm text-muted-foreground mb-3">View different metrics</p>
+        <ui-tabs [(value)]="tabStates.stats">
+          <ui-tabs-list>
+            <ui-tabs-trigger value="overview">Overview</ui-tabs-trigger>
+            <ui-tabs-trigger value="habits">Habits</ui-tabs-trigger>
+            <ui-tabs-trigger value="analytics">Analytics</ui-tabs-trigger>
+          </ui-tabs-list>
+          <ui-tabs-content value="overview">
+            <div class="grid grid-cols-3 gap-4 mt-4">
+              <ui-card>
+                <ui-card-content customClass="pt-6">
+                  <div class="text-2xl font-bold">24</div>
+                  <p class="text-xs text-muted-foreground">Total Habits</p>
+                </ui-card-content>
+              </ui-card>
+              <ui-card>
+                <ui-card-content customClass="pt-6">
+                  <div class="text-2xl font-bold">127</div>
+                  <p class="text-xs text-muted-foreground">Completed</p>
+                </ui-card-content>
+              </ui-card>
+              <ui-card>
+                <ui-card-content customClass="pt-6">
+                  <div class="text-2xl font-bold">85%</div>
+                  <p class="text-xs text-muted-foreground">Success Rate</p>
+                </ui-card-content>
+              </ui-card>
+            </div>
+          </ui-tabs-content>
+          <ui-tabs-content value="habits">
+            <p class="text-sm text-muted-foreground mt-4">Your active habits will appear here</p>
+          </ui-tabs-content>
+          <ui-tabs-content value="analytics">
+            <p class="text-sm text-muted-foreground mt-4">Detailed analytics will appear here</p>
+          </ui-tabs-content>
+        </ui-tabs>
+      </div>
     </div>
   </section>
 </div>

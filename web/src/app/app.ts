@@ -1,5 +1,6 @@
 import { Component, input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { UiButtonComponent } from '@streakflow/ui/button';
 import { UiBadgeComponent } from '@streakflow/ui/badge';
 import { UiSeparatorComponent } from '@streakflow/ui/separator';
@@ -39,7 +40,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent],
+  imports: [FormsModule, RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -47,7 +48,56 @@ export class AppIcon {
 export class App {
   readonly loading = signal(false);
 
+  // Switch states
+  switchStates = {
+    basic: false,
+    darkMode: false,
+    notifications: true,
+  };
+
+  // Toggle states
+  toggleStates = {
+    bold: false,
+    italic: false,
+    underline: false,
+  };
+
+  // Editor states
+  editorStates = {
+    bold: false,
+    italic: false,
+    underline: false,
+    strikethrough: false,
+  };
+
+  // Toggle Group states
+  toggleGroupStates = {
+    alignment: 'left' as string | undefined,
+    view: 'list' as string | undefined,
+    fontSize: 'md' as string | undefined,
+  };
+
+  // Slider states
+  sliderStates = {
+    basic: 50,
+    volume: 50,
+    steps: 10000,
+    brightness: 80,
+    difficulty: 2,
+    duration: 30,
+  };
+
+  // Tab states
+  tabStates = {
+    basic: 'account',
+    stats: 'overview',
+  };
+
   toggleLoading() {
     this.loading.update((v) => !v);
+  }
+
+  onToggleChange(type: string, value: boolean) {
+    console.log(`Toggle ${type} changed to:`, value);
   }
 }
