@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, input, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -12,11 +12,26 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class UiTabsComponent implements ControlValueAccessor {
   readonly customClass = input<string>('');
-  value: string = '';
+  readonly value = signal<string>('');
+  
   private onChange: (value: string) => void = () => {};
   private onTouched: () => void = () => {};
-  writeValue(value: string): void { this.value = value || ''; }
-  registerOnChange(fn: (value: string) => void): void { this.onChange = fn; }
-  registerOnTouched(fn: () => void): void { this.onTouched = fn; }
-  selectTab(tabValue: string): void { this.value = tabValue; this.onChange(this.value); this.onTouched(); }
+  
+  writeValue(value: string): void { 
+    this.value.set(value || ''); 
+  }
+  
+  registerOnChange(fn: (value: string) => void): void { 
+    this.onChange = fn; 
+  }
+  
+  registerOnTouched(fn: () => void): void { 
+    this.onTouched = fn; 
+  }
+  
+  selectTab(tabValue: string): void { 
+    this.value.set(tabValue); 
+    this.onChange(tabValue); 
+    this.onTouched(); 
+  }
 }
