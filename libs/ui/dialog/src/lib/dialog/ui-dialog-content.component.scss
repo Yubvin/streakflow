@@ -1,0 +1,187 @@
+// Dialog Backdrop (overlay)
+:host-context(.ui-dialog-backdrop) {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5); /* bg-black/50 (прототип) */
+  animation: dialog-fade-in 0.2s ease-out;
+
+  &[data-state='closed'] {
+    animation: dialog-fade-out 0.2s ease-out;
+  }
+}
+
+// Dialog Content
+.ui-dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+  display: grid;
+  width: 100%;
+  max-width: calc(100% - 2rem); /* max-w-[calc(100%-2rem)] (прототип) */
+  transform: translate(-50%, -50%);
+  gap: 1rem; /* gap-4 = 16px (прототип) */
+  border-radius: var(--radius-lg); /* rounded-lg */
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--background)); /* bg-background */
+  padding: 1.5rem; /* p-6 = 24px (прототип) */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  animation: dialog-content-fade-in 0.2s ease-out, dialog-content-zoom-in 0.2s ease-out;
+
+  &[data-state='closed'] {
+    animation: dialog-content-fade-out 0.2s ease-out, dialog-content-zoom-out 0.2s ease-out;
+  }
+
+  @media (min-width: 640px) {
+    max-width: 32rem; /* sm:max-w-lg = 512px (прототип) */
+  }
+}
+
+// Dialog Close Button
+.ui-dialog-close {
+  position: absolute;
+  top: 1rem; /* top-4 = 16px (прототип) */
+  right: 1rem; /* right-4 = 16px (прототип) */
+  border-radius: 0.125rem; /* rounded-xs */
+  opacity: 0.7;
+  outline: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  &[data-state='open'] {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--muted-foreground));
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  svg {
+    pointer-events: none;
+    flex-shrink: 0;
+    width: 1rem; /* size-4 = 16px (прототип) */
+    height: 1rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Dialog Header
+.ui-dialog-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* gap-2 (прототип) */
+  text-align: center;
+
+  @media (min-width: 640px) {
+    text-align: left; /* sm:text-left (прототип) */
+  }
+}
+
+// Dialog Footer
+.ui-dialog-footer {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem; /* gap-2 (прототип) */
+
+  @media (min-width: 640px) {
+    flex-direction: row; /* sm:flex-row (прототип) */
+    justify-content: flex-end; /* sm:justify-end (прототип) */
+  }
+}
+
+// Dialog Title
+.ui-dialog-title {
+  font-size: 1.125rem; /* text-lg = 18px (прототип) */
+  line-height: 1; /* leading-none (прототип) */
+  font-weight: 600; /* font-semibold (прототип) */
+}
+
+// Dialog Description
+.ui-dialog-description {
+  font-size: 0.875rem; /* text-sm (прототип) */
+  color: hsl(var(--muted-foreground)); /* text-muted-foreground */
+}
+
+// Animations
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-content-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-content-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-content-zoom-in {
+  from {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes dialog-content-zoom-out {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+

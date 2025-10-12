@@ -3867,4 +3867,135 @@
   </ui-menubar-content>
 </ng-template>
 
+<!-- Navigation Menu Section -->
+<section>
+  <h2 class="text-2xl font-bold mb-6">Navigation Menu</h2>
+  <p class="text-muted-foreground mb-6">
+    Horizontal navigation menu with dropdown mega-menus and keyboard navigation
+  </p>
+
+  <div class="space-y-6">
+    <!-- Basic Navigation Menu -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Website Navigation</h3>
+      <ui-navigation-menu [viewport]="true">
+        <ui-navigation-menu-list>
+          <!-- Products Menu -->
+          <ui-navigation-menu-item>
+            <button [uiNavigationMenuTrigger]="productsMenuTemplate">
+              Products
+              <svg class="ui-navigation-menu-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </ui-navigation-menu-item>
+
+          <!-- Resources Menu -->
+          <ui-navigation-menu-item>
+            <button [uiNavigationMenuTrigger]="resourcesMenuTemplate">
+              Resources
+              <svg class="ui-navigation-menu-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </ui-navigation-menu-item>
+
+          <!-- Pricing Link (no dropdown) -->
+          <ui-navigation-menu-item>
+            <a href="#" uiNavigationMenuLink class="ui-navigation-menu-trigger">
+              Pricing
+            </a>
+          </ui-navigation-menu-item>
+
+          <!-- About Link (no dropdown) -->
+          <ui-navigation-menu-item>
+            <a href="#" uiNavigationMenuLink class="ui-navigation-menu-trigger">
+              About
+            </a>
+          </ui-navigation-menu-item>
+        </ui-navigation-menu-list>
+      </ui-navigation-menu>
+    </div>
+  </div>
+</section>
+
+<!-- Navigation Menu Templates -->
+<ng-template #productsMenuTemplate>
+  <ui-navigation-menu-content>
+    <div class="grid gap-3 p-4 md:w-[500px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
+      <!-- Featured Product -->
+      <div class="row-span-3">
+        <a uiNavigationMenuLink href="#" class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none">
+          <div class="mb-2 mt-4 text-lg font-medium">
+            StreakFlow Pro
+          </div>
+          <p class="text-sm leading-tight text-muted-foreground">
+            Track your habits with advanced analytics, team collaboration, and unlimited streaks.
+          </p>
+        </a>
+      </div>
+
+      <!-- Product Links -->
+      <a uiNavigationMenuLink href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+        <div class="text-sm font-medium leading-none">Dashboard</div>
+        <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          View all your habits and progress in one place
+        </p>
+      </a>
+
+      <a uiNavigationMenuLink href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+        <div class="text-sm font-medium leading-none">Analytics</div>
+        <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          Deep insights into your habit patterns
+        </p>
+      </a>
+
+      <a uiNavigationMenuLink href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+        <div class="text-sm font-medium leading-none">Mobile Apps</div>
+        <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          Track on the go with iOS and Android apps
+        </p>
+      </a>
+    </div>
+  </ui-navigation-menu-content>
+</ng-template>
+
+<ng-template #resourcesMenuTemplate>
+  <ui-navigation-menu-content>
+    <div class="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
+      <a uiNavigationMenuLink href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mb-2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <div class="text-sm font-medium leading-none">Documentation</div>
+        <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          Learn how to use StreakFlow effectively
+        </p>
+      </a>
+
+      <a uiNavigationMenuLink href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mb-2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div class="text-sm font-medium leading-none">Help Center</div>
+        <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          Get answers to common questions
+        </p>
+      </a>
+
+      <a uiNavigationMenuLink href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mb-2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <div class="text-sm font-medium leading-none">Community</div>
+        <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          Join our community forum
+        </p>
+      </a>
+
+      <a uiNavigationMenuLink href="#" class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mb-2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <div class="text-sm font-medium leading-none">API Reference</div>
+        <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          Build with our developer API
+        </p>
+      </a>
+    </div>
+  </ui-navigation-menu-content>
+</ng-template>
+
 </div>
