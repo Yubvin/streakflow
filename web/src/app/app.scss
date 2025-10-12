@@ -7,7 +7,7 @@
     inset: 0;
     z-index: 50;
     background-color: rgba(0, 0, 0, 0.5); /* bg-black/50 (прототип) */
-    backdrop-filter: none; /* Убираю blur для точного соответствия прототипу */
+    backdrop-filter: blur(4px); /* Добавляю blur как в прототипе */
     animation: dialog-fade-in 0.2s ease-out;
 
     &.cdk-overlay-backdrop-showing {

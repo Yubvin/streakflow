@@ -21,6 +21,7 @@
   width: 100%;
   max-width: calc(100% - 2rem); /* max-w-[calc(100%-2rem)] (прототип) */
   transform: translate(-50%, -50%); /* translate-x-[-50%] translate-y-[-50%] (прототип) */
+  margin: 0; /* Убираю любые margins */
   gap: 1rem; /* gap-4 = 16px (прототип) */
   border-radius: var(--radius-lg); /* rounded-lg */
   border: 1px solid hsl(var(--border));
