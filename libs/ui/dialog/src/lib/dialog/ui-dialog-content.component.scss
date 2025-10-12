@@ -20,7 +20,7 @@
   display: grid;
   width: 100%;
   max-width: calc(100% - 2rem); /* max-w-[calc(100%-2rem)] (прототип) */
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* translate-x-[-50%] translate-y-[-50%] (прототип) */
   gap: 1rem; /* gap-4 = 16px (прототип) */
   border-radius: var(--radius-lg); /* rounded-lg */
   border: 1px solid hsl(var(--border));
@@ -93,29 +93,7 @@
   border-width: 0;
 }
 
-// Dialog Header
-.ui-dialog-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem; /* gap-2 (прототип) */
-  text-align: center;
-
-  @media (min-width: 640px) {
-    text-align: left; /* sm:text-left (прототип) */
-  }
-}
-
-// Dialog Footer
-.ui-dialog-footer {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 0.5rem; /* gap-2 (прототип) */
-
-  @media (min-width: 640px) {
-    flex-direction: row; /* sm:flex-row (прототип) */
-    justify-content: flex-end; /* sm:justify-end (прототип) */
-  }
-}
+// Dialog Header & Footer styles moved to HTML templates for Tailwind classes
 
 // Dialog Title
 .ui-dialog-title {
