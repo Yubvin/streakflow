@@ -3679,192 +3679,146 @@
   </ui-select-content>
 </ng-template>
 
-<!-- Menubar Section -->
+<!-- Dialog Section -->
 <section>
-  <h2 class="text-2xl font-bold mb-6">Menubar</h2>
+  <h2 class="text-2xl font-bold mb-6">Dialog (Modal Windows)</h2>
   <p class="text-muted-foreground mb-6">
-    Navigation menu bar with dropdowns, submenus, checkbox items, radio groups, and keyboard shortcuts
+    Modal dialogs for critical user interactions - notifications, confirmations, and forms
   </p>
 
   <div class="space-y-6">
-    <!-- Basic Menubar -->
     <div>
-      <h3 class="text-lg font-semibold mb-3">Application Menubar</h3>
-      <ui-menubar>
-        <!-- File Menu -->
-        <ui-menubar-menu>
-          <button [uiMenubarTrigger]="fileMenuTemplate">
-            File
-          </button>
-        </ui-menubar-menu>
+      <h3 class="text-lg font-semibold mb-3">Dialog Examples</h3>
+      <div class="flex flex-wrap gap-3">
+        <ui-button (click)="openBasicDialog()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Open Basic Dialog
+        </ui-button>
+        
+        <ui-button variant="outline" (click)="openFormDialog()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="m18.5 2.5 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+          Open Form Dialog
+        </ui-button>
+        
+        <ui-button variant="destructive" (click)="openDeleteDialog()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2">
+            <path d="M3 6h18"/>
+            <path d="m19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+            <path d="m8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+          </svg>
+          Delete Confirmation
+        </ui-button>
+      </div>
+    </div>
 
-        <!-- Edit Menu -->
-        <ui-menubar-menu>
-          <button [uiMenubarTrigger]="editMenuTemplate">
-            Edit
-          </button>
-        </ui-menubar-menu>
+    <div class="border-t pt-6 mt-6">
+      <h3 class="text-lg font-semibold mb-3">Real-World Use Cases</h3>
+      <p class="text-sm text-muted-foreground mb-4">
+        Dialogs are used throughout StreakFlow for:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ui-card>
+          <ui-card-content class="pt-6">
+            <div class="flex items-start gap-3">
+              <div class="text-2xl">➕</div>
+              <div class="flex-1">
+                <h4 class="font-semibold text-sm mb-1">Add Habit Modal</h4>
+                <p class="text-xs text-muted-foreground">Create new habits with name, goal, frequency, and schedule</p>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
 
-        <!-- View Menu -->
-        <ui-menubar-menu>
-          <button [uiMenubarTrigger]="viewMenuTemplate">
-            View
-          </button>
-        </ui-menubar-menu>
+        <ui-card>
+          <ui-card-content class="pt-6">
+            <div class="flex items-start gap-3">
+              <div class="text-2xl">✏️</div>
+              <div class="flex-1">
+                <h4 class="font-semibold text-sm mb-1">Edit Habit Modal</h4>
+                <p class="text-xs text-muted-foreground">Modify existing habit details and settings</p>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
 
-        <!-- Help Menu -->
-        <ui-menubar-menu>
-          <button [uiMenubarTrigger]="helpMenuTemplate">
-            Help
-          </button>
-        </ui-menubar-menu>
-      </ui-menubar>
+        <ui-card>
+          <ui-card-content class="pt-6">
+            <div class="flex items-start gap-3">
+              <div class="text-2xl">🗑️</div>
+              <div class="flex-1">
+                <h4 class="font-semibold text-sm mb-1">Delete Confirmation</h4>
+                <p class="text-xs text-muted-foreground">Confirm before deleting habits and data</p>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
+
+        <ui-card>
+          <ui-card-content class="pt-6">
+            <div class="flex items-start gap-3">
+              <div class="text-2xl">🚪</div>
+              <div class="flex-1">
+                <h4 class="font-semibold text-sm mb-1">Logout Modal</h4>
+                <p class="text-xs text-muted-foreground">Confirm before signing out</p>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
+
+        <ui-card>
+          <ui-card-content class="pt-6">
+            <div class="flex items-start gap-3">
+              <div class="text-2xl">📸</div>
+              <div class="flex-1">
+                <h4 class="font-semibold text-sm mb-1">Avatar Upload</h4>
+                <p class="text-xs text-muted-foreground">Upload and crop profile pictures</p>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
+
+        <ui-card>
+          <ui-card-content class="pt-6">
+            <div class="flex items-start gap-3">
+              <div class="text-2xl">📊</div>
+              <div class="flex-1">
+                <h4 class="font-semibold text-sm mb-1">View History</h4>
+                <p class="text-xs text-muted-foreground">See detailed habit completion history</p>
+              </div>
+            </div>
+          </ui-card-content>
+        </ui-card>
+      </div>
+    </div>
+
+    <div class="border-t pt-6 mt-6">
+      <h3 class="text-lg font-semibold mb-3">Dialog Features</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-4 border rounded-lg">
+          <div class="text-lg mb-2">⌨️</div>
+          <h4 class="font-medium text-sm mb-1">Keyboard Support</h4>
+          <p class="text-xs text-muted-foreground">ESC to close, focus trap, tab navigation</p>
+        </div>
+        <div class="p-4 border rounded-lg">
+          <div class="text-lg mb-2">📱</div>
+          <h4 class="font-medium text-sm mb-1">Responsive</h4>
+          <p class="text-xs text-muted-foreground">Adapts to mobile and desktop screens</p>
+        </div>
+        <div class="p-4 border rounded-lg">
+          <div class="text-lg mb-2">🎨</div>
+          <h4 class="font-medium text-sm mb-1">Dark Mode Ready</h4>
+          <p class="text-xs text-muted-foreground">Works perfectly in light and dark themes</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- Menubar Templates -->
-<ng-template #fileMenuTemplate>
-  <ui-menubar-content>
-    <ui-menubar-item (selected)="onMenubarAction('new-file')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-      New File
-      <ui-menubar-shortcut>⌘N</ui-menubar-shortcut>
-    </ui-menubar-item>
-    
-    <ui-menubar-item (selected)="onMenubarAction('open')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-      Open
-      <ui-menubar-shortcut>⌘O</ui-menubar-shortcut>
-    </ui-menubar-item>
-    
-    <ui-menubar-separator></ui-menubar-separator>
-    
-    <ui-menubar-item (selected)="onMenubarAction('save')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-      Save
-      <ui-menubar-shortcut>⌘S</ui-menubar-shortcut>
-    </ui-menubar-item>
-    
-    <ui-menubar-item (selected)="onMenubarAction('save-as')">
-      Save As...
-      <ui-menubar-shortcut>⌘⇧S</ui-menubar-shortcut>
-    </ui-menubar-item>
-    
-    <ui-menubar-separator></ui-menubar-separator>
-    
-    <ui-menubar-item variant="destructive" (selected)="onMenubarAction('close')">
-      Close
-      <ui-menubar-shortcut>⌘W</ui-menubar-shortcut>
-    </ui-menubar-item>
-  </ui-menubar-content>
-</ng-template>
-
-<ng-template #editMenuTemplate>
-  <ui-menubar-content>
-    <ui-menubar-item (selected)="onMenubarAction('undo')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
-      Undo
-      <ui-menubar-shortcut>⌘Z</ui-menubar-shortcut>
-    </ui-menubar-item>
-    
-    <ui-menubar-item (selected)="onMenubarAction('redo')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"/></svg>
-      Redo
-      <ui-menubar-shortcut>⌘Y</ui-menubar-shortcut>
-    </ui-menubar-item>
-    
-    <ui-menubar-separator></ui-menubar-separator>
-    
-    <ui-menubar-item (selected)="onMenubarAction('cut')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
-      Cut
-      <ui-menubar-shortcut>⌘X</ui-menubar-shortcut>
-    </ui-menubar-item>
-    
-    <ui-menubar-item (selected)="onMenubarAction('copy')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-      Copy
-      <ui-menubar-shortcut>⌘C</ui-menubar-shortcut>
-    </ui-menubar-item>
-    
-    <ui-menubar-item (selected)="onMenubarAction('paste')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-      Paste
-      <ui-menubar-shortcut>⌘V</ui-menubar-shortcut>
-    </ui-menubar-item>
-  </ui-menubar-content>
-</ng-template>
-
-<ng-template #viewMenuTemplate>
-  <ui-menubar-content>
-    <ui-menubar-checkbox-item [(checked)]="showSidebar">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-      Show Sidebar
-      <ui-menubar-shortcut>⌘B</ui-menubar-shortcut>
-    </ui-menubar-checkbox-item>
-    
-    <ui-menubar-checkbox-item [(checked)]="showStatusBar">
-      Show Status Bar
-    </ui-menubar-checkbox-item>
-    
-    <ui-menubar-separator></ui-menubar-separator>
-    
-    <ui-menubar-label>Appearance</ui-menubar-label>
-    
-    <ui-menubar-radio-group>
-      <ui-menubar-radio-item 
-        value="default" 
-        [checked]="viewMode() === 'default'"
-        (selected)="setViewMode($event)">
-        Default View
-      </ui-menubar-radio-item>
-      <ui-menubar-radio-item 
-        value="compact" 
-        [checked]="viewMode() === 'compact'"
-        (selected)="setViewMode($event)">
-        Compact View
-      </ui-menubar-radio-item>
-      <ui-menubar-radio-item 
-        value="expanded" 
-        [checked]="viewMode() === 'expanded'"
-        (selected)="setViewMode($event)">
-        Expanded View
-      </ui-menubar-radio-item>
-    </ui-menubar-radio-group>
-    
-    <ui-menubar-separator></ui-menubar-separator>
-    
-    <ui-menubar-item (selected)="onMenubarAction('zoom-in')">
-      Zoom In
-      <ui-menubar-shortcut>⌘+</ui-menubar-shortcut>
-    </ui-menubar-item>
-    
-    <ui-menubar-item (selected)="onMenubarAction('zoom-out')">
-      Zoom Out
-      <ui-menubar-shortcut>⌘-</ui-menubar-shortcut>
-    </ui-menubar-item>
-  </ui-menubar-content>
-</ng-template>
-
-<ng-template #helpMenuTemplate>
-  <ui-menubar-content>
-    <ui-menubar-item (selected)="onMenubarAction('docs')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-      Documentation
-    </ui-menubar-item>
-    
-    <ui-menubar-item (selected)="onMenubarAction('support')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      Get Support
-    </ui-menubar-item>
-    
-    <ui-menubar-separator></ui-menubar-separator>
-    
-    <ui-menubar-item (selected)="onMenubarAction('about')">
-      About StreakFlow
-    </ui-menubar-item>
-  </ui-menubar-content>
-</ng-template>
 
 </div>
