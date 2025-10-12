@@ -29,7 +29,10 @@ import { UiDropdownMenuTriggerDirective, UiDropdownMenuContentComponent, UiDropd
 import { UiContextMenuTriggerDirective, UiContextMenuContentComponent, UiContextMenuItemComponent, UiContextMenuSeparatorComponent, UiContextMenuLabelComponent } from '@streakflow/ui/context-menu';
 import { UiSelectTriggerDirective, UiSelectContentComponent, UiSelectItemComponent, UiSelectGroupComponent, UiSelectLabelComponent } from '@streakflow/ui/select';
 import { UiMenubarComponent, UiMenubarMenuComponent, UiMenubarTriggerDirective, UiMenubarContentComponent, UiMenubarItemComponent, UiMenubarSeparatorComponent, UiMenubarLabelComponent, UiMenubarShortcutComponent, UiMenubarCheckboxItemComponent, UiMenubarRadioGroupComponent, UiMenubarRadioItemComponent, UiMenubarSubComponent, UiMenubarSubTriggerDirective, UiMenubarSubContentComponent } from '@streakflow/ui/menubar';
-import { UiNavigationMenuComponent, UiNavigationMenuListComponent, UiNavigationMenuItemComponent, UiNavigationMenuTriggerDirective, UiNavigationMenuContentComponent, UiNavigationMenuLinkComponent, UiNavigationMenuViewportComponent, UiNavigationMenuIndicatorComponent } from '@streakflow/ui/navigation-menu';
+import { UiDialogService } from '@streakflow/ui/dialog';
+import { BasicDialogComponent } from './dialogs/basic-dialog.component';
+import { FormDialogComponent } from './dialogs/form-dialog.component';
+import { DeleteDialogComponent } from './dialogs/delete-dialog.component';
 
 @Component({
   selector: 'app-icon',
@@ -50,7 +53,7 @@ export class AppIcon {
 }
 
 @Component({
-  imports: [FormsModule, RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent, UiBreadcrumbComponent, UiBreadcrumbListComponent, UiBreadcrumbItemComponent, UiBreadcrumbLinkComponent, UiBreadcrumbPageComponent, UiBreadcrumbSeparatorComponent, UiBreadcrumbEllipsisComponent, UiPaginationComponent, UiPaginationContentComponent, UiPaginationItemComponent, UiPaginationLinkComponent, UiPaginationPreviousComponent, UiPaginationNextComponent, UiPaginationEllipsisComponent, UiTooltipTriggerDirective, UiHoverCardTriggerDirective, UiPopoverTriggerDirective, UiPopoverContentComponent, UiDropdownMenuTriggerDirective, UiDropdownMenuContentComponent, UiDropdownMenuItemComponent, UiDropdownMenuSeparatorComponent, UiDropdownMenuLabelComponent, UiContextMenuTriggerDirective, UiContextMenuContentComponent, UiContextMenuItemComponent, UiContextMenuSeparatorComponent, UiContextMenuLabelComponent, UiSelectTriggerDirective, UiSelectContentComponent, UiSelectItemComponent, UiSelectGroupComponent, UiSelectLabelComponent, UiMenubarComponent, UiMenubarMenuComponent, UiMenubarTriggerDirective, UiMenubarContentComponent, UiMenubarItemComponent, UiMenubarSeparatorComponent, UiMenubarLabelComponent, UiMenubarShortcutComponent, UiMenubarCheckboxItemComponent, UiMenubarRadioGroupComponent, UiMenubarRadioItemComponent, UiMenubarSubComponent, UiMenubarSubTriggerDirective, UiMenubarSubContentComponent, UiNavigationMenuComponent, UiNavigationMenuListComponent, UiNavigationMenuItemComponent, UiNavigationMenuTriggerDirective, UiNavigationMenuContentComponent, UiNavigationMenuLinkComponent, UiNavigationMenuViewportComponent, UiNavigationMenuIndicatorComponent],
+  imports: [FormsModule, RouterModule, AppIcon, UiButtonComponent, UiBadgeComponent, UiSeparatorComponent, UiAvatarComponent, UiSkeletonComponent, UiInputComponent, UiProgressComponent, UiProgressStepsComponent, UiLabelComponent, UiCardComponent, UiCardHeaderComponent, UiCardTitleComponent, UiCardDescriptionComponent, UiCardActionComponent, UiCardContentComponent, UiCardFooterComponent, UiAspectRatioComponent, UiTextareaComponent, UiCheckboxComponent, UiRadioGroupComponent, UiRadioItemComponent, UiSwitchComponent, UiSliderComponent, UiToggleComponent, UiToggleGroupComponent, UiToggleGroupItemComponent, UiTabsComponent, UiTabsListComponent, UiTabsTriggerComponent, UiTabsContentComponent, UiBreadcrumbComponent, UiBreadcrumbListComponent, UiBreadcrumbItemComponent, UiBreadcrumbLinkComponent, UiBreadcrumbPageComponent, UiBreadcrumbSeparatorComponent, UiBreadcrumbEllipsisComponent, UiPaginationComponent, UiPaginationContentComponent, UiPaginationItemComponent, UiPaginationLinkComponent, UiPaginationPreviousComponent, UiPaginationNextComponent, UiPaginationEllipsisComponent, UiTooltipTriggerDirective, UiHoverCardTriggerDirective, UiPopoverTriggerDirective, UiPopoverContentComponent, UiDropdownMenuTriggerDirective, UiDropdownMenuContentComponent, UiDropdownMenuItemComponent, UiDropdownMenuSeparatorComponent, UiDropdownMenuLabelComponent, UiContextMenuTriggerDirective, UiContextMenuContentComponent, UiContextMenuItemComponent, UiContextMenuSeparatorComponent, UiContextMenuLabelComponent, UiSelectTriggerDirective, UiSelectContentComponent, UiSelectItemComponent, UiSelectGroupComponent, UiSelectLabelComponent, UiMenubarComponent, UiMenubarMenuComponent, UiMenubarTriggerDirective, UiMenubarContentComponent, UiMenubarItemComponent, UiMenubarSeparatorComponent, UiMenubarLabelComponent, UiMenubarShortcutComponent, UiMenubarCheckboxItemComponent, UiMenubarRadioGroupComponent, UiMenubarRadioItemComponent, UiMenubarSubComponent, UiMenubarSubTriggerDirective, UiMenubarSubContentComponent],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -159,5 +162,45 @@ export class App {
   setViewMode(mode: string) {
     this.viewMode.set(mode as 'default' | 'compact' | 'expanded');
     console.log(`View mode changed to:`, mode);
+  }
+
+  // Dialog management
+  private dialogService = new UiDialogService();
+
+  openBasicDialog() {
+    const dialogRef = this.dialogService.dialog.open(BasicDialogComponent, {
+      panelClass: 'ui-dialog-panel',
+      backdropClass: 'ui-dialog-backdrop',
+    });
+
+    dialogRef.closed.subscribe(result => {
+      console.log('Basic dialog closed', result);
+    });
+  }
+
+  openFormDialog() {
+    const dialogRef = this.dialogService.dialog.open(FormDialogComponent, {
+      panelClass: 'ui-dialog-panel',
+      backdropClass: 'ui-dialog-backdrop',
+    });
+
+    dialogRef.closed.subscribe(result => {
+      if (result) {
+        console.log('Form saved:', result);
+      }
+    });
+  }
+
+  openDeleteDialog() {
+    const dialogRef = this.dialogService.dialog.open(DeleteDialogComponent, {
+      panelClass: 'ui-dialog-panel',
+      backdropClass: 'ui-dialog-backdrop',
+    });
+
+    dialogRef.closed.subscribe(confirmed => {
+      if (confirmed) {
+        console.log('Habit deleted!');
+      }
+    });
   }
 }
