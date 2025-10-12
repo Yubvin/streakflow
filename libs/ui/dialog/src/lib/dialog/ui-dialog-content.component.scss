@@ -11,31 +11,20 @@
   }
 }
 
-// Dialog Content
+// Dialog Content (точные стили из прототипа)
 .ui-dialog-content {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 50;
   display: grid;
-  width: 100%;
-  max-width: calc(100% - 2rem); /* max-w-[calc(100%-2rem)] (прототип) */
-  transform: translate(-50%, -50%); /* translate-x-[-50%] translate-y-[-50%] (прототип) */
-  margin: 0; /* Убираю любые margins */
-  gap: 1rem; /* gap-4 = 16px (прототип) */
+  gap: 1rem; /* gap-4 */
   border-radius: var(--radius-lg); /* rounded-lg */
   border: 1px solid hsl(var(--border));
   background-color: hsl(var(--background)); /* bg-background */
-  padding: 1.5rem; /* p-6 = 24px (прототип) */
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-lg (прототип) */
-  animation: dialog-content-fade-in 0.2s ease-out, dialog-content-zoom-in 0.2s ease-out;
-
-  &[data-state='closed'] {
-    animation: dialog-content-fade-out 0.2s ease-out, dialog-content-zoom-out 0.2s ease-out;
-  }
-
+  padding: 1.5rem; /* p-6 */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-lg */
+  width: 100%;
+  max-width: calc(100% - 2rem); /* max-w-[calc(100%-2rem)] */
+  
   @media (min-width: 640px) {
-    max-width: 32rem; /* sm:max-w-lg = 512px (прототип) */
+    max-width: 32rem; /* sm:max-w-lg */
   }
 }
 
@@ -128,39 +117,5 @@
   }
 }
 
-@keyframes dialog-content-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes dialog-content-fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes dialog-content-zoom-in {
-  from {
-    transform: translate(-50%, -50%) scale(0.95);
-  }
-  to {
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes dialog-content-zoom-out {
-  from {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  to {
-    transform: translate(-50%, -50%) scale(0.95);
-  }
-}
+// Анимации убраны - CDK Dialog управляет ими
 
