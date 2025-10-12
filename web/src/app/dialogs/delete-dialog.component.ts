@@ -14,21 +14,7 @@ import { UiButtonComponent } from '@streakflow/ui/button';
     UiDialogFooterComponent,
     UiButtonComponent,
   ],
-  template: `
-    <ui-dialog-content class="sm:max-w-[425px]">
-      <ui-dialog-header>
-        <ui-dialog-title>Delete Habit</ui-dialog-title>
-        <ui-dialog-description>
-          Are you sure you want to delete "Morning Exercise"? This action cannot be undone and all your progress will be lost.
-        </ui-dialog-description>
-      </ui-dialog-header>
-      
-      <ui-dialog-footer>
-        <ui-button variant="outline" (click)="close()">Cancel</ui-button>
-        <ui-button variant="destructive" (click)="confirm()">Delete Habit</ui-button>
-      </ui-dialog-footer>
-    </ui-dialog-content>
-  `,
+  templateUrl: './delete-dialog.component.html',
 })
 export class DeleteDialogComponent {
   constructor(public dialogRef: DialogRef) {}

@@ -7,6 +7,7 @@
     inset: 0;
     z-index: 50;
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
     animation: dialog-fade-in 0.2s ease-out;
 
     &.cdk-overlay-backdrop-showing {
@@ -22,6 +23,7 @@
     transform: translate(-50%, -50%);
     width: 100%;
     max-width: calc(100% - 2rem);
+    margin: 1rem;
 
     @media (min-width: 640px) {
       max-width: 32rem; /* sm:max-w-lg */
@@ -31,6 +33,16 @@
   .cdk-overlay-container {
     z-index: 50;
   }
+
+  // Dialog content styling
+  .ui-dialog-content {
+    background-color: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 1.5rem;
+    animation: dialog-zoom-in 0.2s ease-out;
+  }
 }
 
 @keyframes dialog-fade-in {
@@ -39,6 +51,17 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes dialog-zoom-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 

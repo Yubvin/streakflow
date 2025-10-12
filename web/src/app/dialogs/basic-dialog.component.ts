@@ -14,21 +14,7 @@ import { UiButtonComponent } from '@streakflow/ui/button';
     UiDialogFooterComponent,
     UiButtonComponent,
   ],
-  template: `
-    <ui-dialog-content>
-      <ui-dialog-header>
-        <ui-dialog-title>Welcome to StreakFlow</ui-dialog-title>
-        <ui-dialog-description>
-          This is a basic dialog example. You can use dialogs for notifications, confirmations, or any content that needs user attention.
-        </ui-dialog-description>
-      </ui-dialog-header>
-      
-      <ui-dialog-footer>
-        <ui-button variant="outline" (click)="close()">Close</ui-button>
-        <ui-button (click)="close()">Got it</ui-button>
-      </ui-dialog-footer>
-    </ui-dialog-content>
-  `,
+  templateUrl: './basic-dialog.component.html',
 })
 export class BasicDialogComponent {
   constructor(public dialogRef: DialogRef) {}

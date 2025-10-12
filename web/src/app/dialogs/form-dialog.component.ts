@@ -20,33 +20,7 @@ import { UiLabelComponent } from '@streakflow/ui/label';
     UiInputComponent,
     UiLabelComponent,
   ],
-  template: `
-    <ui-dialog-content class="sm:max-w-[425px]">
-      <ui-dialog-header>
-        <ui-dialog-title>Edit Profile</ui-dialog-title>
-        <ui-dialog-description>
-          Make changes to your profile here. Click save when you're done.
-        </ui-dialog-description>
-      </ui-dialog-header>
-      
-      <div class="space-y-4 py-4">
-        <div class="space-y-2">
-          <ui-label for="name">Name</ui-label>
-          <ui-input id="name" [(ngModel)]="name" placeholder="Your name" />
-        </div>
-        
-        <div class="space-y-2">
-          <ui-label for="email">Email</ui-label>
-          <ui-input id="email" type="email" [(ngModel)]="email" placeholder="your@email.com" />
-        </div>
-      </div>
-      
-      <ui-dialog-footer>
-        <ui-button variant="outline" (click)="close()">Cancel</ui-button>
-        <ui-button (click)="save()">Save changes</ui-button>
-      </ui-dialog-footer>
-    </ui-dialog-content>
-  `,
+  templateUrl: './form-dialog.component.html',
 })
 export class FormDialogComponent {
   name = signal<string>('John Doe');
