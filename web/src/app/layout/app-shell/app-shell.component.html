@@ -1,0 +1,28 @@
+<div class="min-h-screen bg-background">
+  <div class="flex h-screen overflow-hidden">
+    <!-- Sidebar -->
+    <app-sidebar 
+      [open]="sidebarOpen()"
+      (openChange)="sidebarOpen.set($event)"
+    />
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <!-- Topbar -->
+      <app-topbar 
+        [title]="currentTitle()"
+        [showAddButton]="showAddButton()"
+        (toggleSidebar)="toggleSidebar()"
+      />
+
+      <!-- Page Content -->
+      <main class="flex-1 overflow-auto p-4 md:p-6">
+        <router-outlet />
+      </main>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notifications -->
+<app-toast-container />
+

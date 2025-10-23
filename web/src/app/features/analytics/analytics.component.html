@@ -1,0 +1,17 @@
+<app-page-header
+  title="Analytics & Insights"
+  description="Track your progress and discover patterns"
+/>
+
+@if (habits().length === 0) {
+  <app-empty-state
+    icon="📊"
+    title="No data yet"
+    description="Start tracking habits to see your analytics and insights"
+  />
+} @else {
+  <div class="text-center p-12">
+    <p class="text-muted-foreground">Analytics with charts - coming in Phase 9!</p>
+  </div>
+}
+

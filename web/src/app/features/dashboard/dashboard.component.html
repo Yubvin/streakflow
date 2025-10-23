@@ -1,0 +1,43 @@
+<app-page-header 
+  title="Dashboard"
+  description="Track your daily habits and progress"
+  actionLabel="Add Habit"
+  (action)="onAddHabit()"
+/>
+
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+  @for (kpi of kpiData(); track kpi.title) {
+    <app-kpi-card [data]="kpi" />
+  }
+</div>
+
+<!-- Today's Habits -->
+<div class="space-y-4">
+  <h2 class="text-xl font-semibold">Today's Habits</h2>
+  
+  @if (habits().length === 0) {
+    <app-empty-state
+      icon="🎯"
+      title="No habits yet"
+      description="Start building better habits by creating your first one"
+      actionLabel="Create Your First Habit"
+      (action)="onAddHabit()"
+    />
+  } @else {
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      @for (habit of habits(); track habit.id) {
+        <app-habit-card
+          [habit]="habit"
+          (markToday)="onMarkHabit(habit.id)"
+          (incrementStep)="onIncrementStep(habit.id)"
+          (undoToday)="onUndoStep(habit.id)"
+        />
+      }
+    </div>
+  }
+</div>
+
+<!-- Add Habit Modal -->
+<app-add-habit-modal />
+

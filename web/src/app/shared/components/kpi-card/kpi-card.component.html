@@ -1,0 +1,37 @@
+<ui-card class="p-4">
+  <div class="flex items-center justify-between">
+    <div class="space-y-2">
+      <!-- Title -->
+      <p class="text-sm text-muted-foreground">{{ data().title }}</p>
+      
+      <!-- Value -->
+      <p class="text-2xl font-semibold text-foreground">{{ data().value }}</p>
+      
+      <!-- Trend -->
+      @if (data().trendValue) {
+        <div class="flex items-center gap-1 text-xs">
+          @if (data().trend === 'up') {
+            <span class="text-green-600">↗️</span>
+          } @else if (data().trend === 'down') {
+            <span class="text-red-600">↘️</span>
+          }
+          <span [class]="
+            data().trend === 'up' ? 'text-green-600' : 
+            data().trend === 'down' ? 'text-red-600' : 
+            'text-muted-foreground'
+          ">
+            {{ data().trendValue }}
+          </span>
+        </div>
+      }
+    </div>
+    
+    <!-- Icon -->
+    @if (data().icon) {
+      <div class="p-2 bg-primary/10 rounded-lg">
+        <span class="text-2xl">{{ data().icon }}</span>
+      </div>
+    }
+  </div>
+</ui-card>
+

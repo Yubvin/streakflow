@@ -1,0 +1,39 @@
+<ui-dialog [open]="isOpen()" (openChange)="isOpen.set($event)">
+  <ui-dialog-content class="sm:max-w-[425px]">
+    <ui-dialog-header>
+      <ui-dialog-title>Delete Habit?</ui-dialog-title>
+      <ui-dialog-description>
+        This action cannot be undone. This will permanently delete your habit.
+      </ui-dialog-description>
+    </ui-dialog-header>
+
+    @if (habitToDelete()) {
+      <div class="py-4">
+        <div class="p-4 rounded-lg bg-destructive/10 border border-destructive/20">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">{{ habitToDelete()!.icon }}</span>
+            <div>
+              <p class="font-medium text-foreground">{{ habitToDelete()!.name }}</p>
+              <p class="text-sm text-muted-foreground">
+                {{ habitToDelete()!.currentStreak }} day streak will be lost
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    <ui-dialog-footer>
+      <ui-button variant="outline" (click)="close()">
+        Cancel
+      </ui-button>
+      <ui-button 
+        variant="destructive"
+        (click)="onConfirm()"
+      >
+        Delete Habit
+      </ui-button>
+    </ui-dialog-footer>
+  </ui-dialog-content>
+</ui-dialog>
+

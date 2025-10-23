@@ -11,6 +11,22 @@
 /прототип_temp/
 /прototип*/
 
+# React prototype (reference only)
+/prototype/node_modules/
+/prototype/.storybook/
+/prototype/src/stories/
+/prototype/storybook-static/
+/prototype/package-lock.json
+
 # Build outputs
 **/dist/
 *.tsbuildinfo
+
+# Playwright
+/tests/visual/current/
+/tests/visual/diff/
+/tests/visual/reports/
+/playwright-report/
+/test-results/
+*storybook.log
+storybook-static

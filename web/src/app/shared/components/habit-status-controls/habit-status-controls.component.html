@@ -1,0 +1,77 @@
+<div class="flex items-center justify-start">
+  <!-- For completed habits, show only Done button -->
+  @if (isCompleted()) {
+    <ui-button
+      variant="default"
+      size="sm"
+      class="h-8 px-3 text-xs rounded-lg bg-[#DCFCE7] text-[#16A34A] hover:bg-[#DCFCE7] cursor-default shadow-sm font-medium"
+    >
+      <span class="mr-2">✓</span>
+      Done
+    </ui-button>
+  } @else {
+    <!-- Multi-goal habit controls -->
+    @if (isMultiGoal()) {
+      <div class="flex items-baseline gap-4">
+        <!-- Progress Counter and Bar -->
+        <div class="flex items-center gap-3">
+          <div 
+            [class]="'text-sm font-medium text-foreground min-w-[38px] leading-none transition-transform duration-300 ' +
+              (isAnimating() ? 'scale-110' : '')"
+          >
+            {{ currentProgress() }}/{{ totalGoal() }}
+          </div>
+          
+          <!-- Thin Progress Bar -->
+          <div class="w-14 h-[3px] bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+            <div
+              class="h-full bg-[#93C5FD] rounded-full transition-all duration-300 ease-in-out"
+              [style.width.%]="progressPercentage()"
+            />
+          </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="flex items-center gap-1">
+          <!-- Mark Button -->
+          <ui-button
+            variant="ghost"
+            size="sm"
+            (click)="onIncrementClick()"
+            class="h-8 px-3 text-xs rounded-lg transition-all duration-200 hover:bg-[#F1F5F9] text-[#475569] border border-[#E2E8F0] font-medium"
+            [uiTooltipTrigger]="'Add one completion'"
+          >
+            <span class="mr-2">○</span>
+            Mark
+          </ui-button>
+
+          <!-- Undo Button -->
+          @if (showUndoButton()) {
+            <ui-button
+              variant="ghost"
+              size="sm"
+              (click)="onUndoClick()"
+              class="h-8 w-8 p-0 transition-all duration-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-[#64748B] hover:text-[#DC2626]"
+              [uiTooltipTrigger]="'Remove last completion'"
+            >
+              <span class="text-base">↩️</span>
+            </ui-button>
+          }
+        </div>
+      </div>
+    } @else {
+      <!-- Single-goal habit control -->
+      <ui-button
+        variant="ghost"
+        size="sm"
+        (click)="onMarkCompleteClick()"
+        class="h-8 px-3 text-xs rounded-lg transition-all duration-200 hover:bg-[#F1F5F9] text-[#475569] border border-[#E2E8F0] font-medium"
+        [uiTooltipTrigger]="'Mark as complete'"
+      >
+        <span class="mr-2">○</span>
+        Mark
+      </ui-button>
+    }
+  }
+</div>
+

@@ -1,0 +1,58 @@
+<lib-ui-sidebar variant="sidebar" collapsible="offcanvas">
+  <!-- Sidebar Header -->
+  <lib-ui-sidebar-header>
+    <div class="flex items-center gap-2">
+      <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary">
+        <span class="text-sm font-bold text-primary-foreground">SF</span>
+      </div>
+      <div class="flex flex-col flex-1">
+        <span class="text-sm font-semibold">StreakFlow</span>
+        <span class="text-xs text-muted-foreground">Habit Tracker</span>
+      </div>
+    </div>
+  </lib-ui-sidebar-header>
+
+  <!-- Sidebar Content with Navigation Menu -->
+  <lib-ui-sidebar-content>
+    <lib-ui-sidebar-group>
+      <lib-ui-sidebar-menu>
+        @for (item of navItems; track item.route) {
+          <lib-ui-sidebar-menu-item>
+            <lib-ui-sidebar-menu-button 
+              [routerLink]="item.route"
+              routerLinkActive="active"
+              #rla="routerLinkActive"
+              [isActive]="rla.isActive"
+            >
+              <span class="text-base">{{ item.icon }}</span>
+              <span>{{ item.label }}</span>
+            </lib-ui-sidebar-menu-button>
+          </lib-ui-sidebar-menu-item>
+        }
+      </lib-ui-sidebar-menu>
+    </lib-ui-sidebar-group>
+  </lib-ui-sidebar-content>
+
+  <!-- Sidebar Footer -->
+  <lib-ui-sidebar-footer>
+    @if (currentUser(); as user) {
+      <div class="flex items-center gap-2">
+        <ui-avatar size="sm" [fallback]="userInitials()" [src]="user.avatar"></ui-avatar>
+        <div class="flex flex-col flex-1 min-w-0">
+          <span class="text-xs font-medium truncate">{{ user.fullName }}</span>
+          <span class="text-xs text-muted-foreground truncate">{{ user.email }}</span>
+        </div>
+        <ui-button
+          variant="ghost"
+          size="sm"
+          (click)="onLogout()"
+          class="h-8 w-8 p-0 hover:bg-destructive/10 hover:text-destructive"
+          title="Logout"
+        >
+          <span class="text-sm">🚪</span>
+        </ui-button>
+      </div>
+    }
+  </lib-ui-sidebar-footer>
+</lib-ui-sidebar>
+

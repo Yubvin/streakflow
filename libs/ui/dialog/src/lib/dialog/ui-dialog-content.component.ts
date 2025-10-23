@@ -7,7 +7,6 @@ import { DialogRef } from '@angular/cdk/dialog';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './ui-dialog-content.component.html',
-  styleUrl: './ui-dialog-content.component.scss',
   host: {
     '[attr.data-slot]': '"dialog-content"',
     'class': 'ui-dialog-content',

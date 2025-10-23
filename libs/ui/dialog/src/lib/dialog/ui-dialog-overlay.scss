@@ -1,0 +1,164 @@
+// Глобальные стили для CDK Dialog Overlay
+// Эти стили должны быть глобальными, так как CDK создает backdrop и panel вне компонента
+
+// Dialog Backdrop (overlay)
+.ui-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50; /* z-50 (прототип) */
+  background-color: rgba(0, 0, 0, 0.5); /* bg-black/50 (прототип) */
+  animation: dialog-fade-in 0.2s ease-out;
+
+  &[data-state='closed'] {
+    animation: dialog-fade-out 0.2s ease-out;
+  }
+}
+
+// Dialog Panel - контейнер для центрирования
+.ui-dialog-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 50; /* z-50 (прототип) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  pointer-events: none;
+  
+  > * {
+    pointer-events: auto;
+  }
+}
+
+// Dialog Content
+.ui-dialog-content {
+  position: relative;
+  display: grid;
+  gap: 1rem; /* gap-4 (прототип) */
+  border-radius: var(--radius-lg); /* rounded-lg (прототип) */
+  border: 1px solid hsl(var(--border)); /* border (прототип) */
+  background-color: hsl(var(--background)); /* bg-background (прототип) */
+  padding: 1.5rem; /* p-6 (прототип) */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg (прототип) */
+  transition-duration: 200ms; /* duration-200 (прототип) */
+  width: 100%;
+  max-width: calc(100% - 2rem); /* max-w-[calc(100%-2rem)] (прототип) */
+  
+  @media (min-width: 640px) {
+    max-width: 32rem; /* sm:max-w-lg (прототип) */
+  }
+}
+
+// Dialog Close Button
+.ui-dialog-close {
+  position: absolute;
+  top: 1rem; /* top-4 (прототип) */
+  right: 1rem; /* right-4 (прототип) */
+  border-radius: 0.125rem; /* rounded-xs (прототип) */
+  opacity: 0.7; /* opacity-70 (прототип) */
+  outline: none; /* focus:outline-hidden (прототип) */
+  cursor: pointer;
+  transition: opacity 0.15s ease; /* transition-opacity (прототип) */
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 1; /* hover:opacity-100 (прототип) */
+  }
+
+  &:focus {
+    outline: none; /* focus:outline-hidden (прототип) */
+    box-shadow: 0 0 0 2px hsl(var(--ring)); /* focus:ring-2 (прототип) */
+    box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background)); /* focus:ring-offset-2 ring-offset-background (прототип) */
+  }
+
+  &[data-state='open'] {
+    background-color: hsl(var(--accent)); /* data-[state=open]:bg-accent (прототип) */
+    color: hsl(var(--muted-foreground)); /* data-[state=open]:text-muted-foreground (прототип) */
+  }
+
+  &:disabled {
+    pointer-events: none; /* disabled:pointer-events-none (прототип) */
+  }
+
+  svg {
+    pointer-events: none; /* [&_svg]:pointer-events-none (прототип) */
+    flex-shrink: 0; /* [&_svg]:shrink-0 (прототип) */
+    width: 1rem; /* [&_svg:not([class*='size-'])]:size-4 (прототип) */
+    height: 1rem;
+  }
+}
+
+// Dialog Header
+.ui-dialog-header {
+  display: flex;
+  flex-direction: column; /* flex flex-col (прототип) */
+  gap: 0.5rem; /* gap-2 (прототип) */
+  text-align: center; /* text-center (прототип) */
+  
+  @media (min-width: 640px) {
+    text-align: left; /* sm:text-left (прототип) */
+  }
+}
+
+// Dialog Footer
+.ui-dialog-footer {
+  display: flex;
+  flex-direction: column-reverse; /* flex flex-col-reverse (прототип) */
+  gap: 0.5rem; /* gap-2 (прототип) */
+  
+  @media (min-width: 640px) {
+    flex-direction: row; /* sm:flex-row (прототип) */
+    justify-content: flex-end; /* sm:justify-end (прототип) */
+  }
+}
+
+// Dialog Title
+.ui-dialog-title {
+  font-size: 1.125rem; /* text-lg (прототип) */
+  line-height: 1; /* leading-none (прототип) */
+  font-weight: 600; /* font-semibold (прототип) */
+}
+
+// Dialog Description
+.ui-dialog-description {
+  font-size: 0.875rem; /* text-sm (прототип) */
+  color: hsl(var(--muted-foreground)); /* text-muted-foreground (прототип) */
+}
+
+// Screen Reader Only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Animations
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+

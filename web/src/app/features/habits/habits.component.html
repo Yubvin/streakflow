@@ -1,0 +1,138 @@
+<app-page-header 
+  title="Habits"
+  description="Manage and track all your habits"
+  actionLabel="Add Habit"
+  (action)="onAddHabit()"
+/>
+
+<!-- Toolbar - show only if has habits -->
+@if (habits().length > 0) {
+  <app-habit-toolbar
+    [(searchQuery)]="searchQuery"
+    [(frequencyFilter)]="frequencyFilter"
+    (searchChange)="searchQuery.set($event)"
+    (filterChange)="frequencyFilter.set($event)"
+  />
+}
+
+<!-- Habits Table or Empty State -->
+@if (habits().length === 0) {
+  <!-- No habits at all -->
+  <app-empty-state
+    icon="📝"
+    title="No habits yet"
+    description="Create your first habit to start tracking your progress"
+    actionLabel="Add Your First Habit"
+    (action)="onAddHabit()"
+  />
+} @else if (filteredHabits().length === 0) {
+  <!-- No results from filters -->
+  <app-empty-state
+    icon="🔍"
+    title="No habits match your search"
+    description="Try adjusting your search terms or filter criteria"
+    actionLabel="Clear Filters"
+    (action)="onClearFilters()"
+  />
+} @else {
+  <!-- Habits Table -->
+  <ui-card class="overflow-hidden">
+    <app-table>
+      <app-table-header>
+        <app-table-row>
+          <app-table-head>Habit</app-table-head>
+          <app-table-head>Frequency</app-table-head>
+          <app-table-head class="text-center">Current Streak</app-table-head>
+          <app-table-head>Last Updated</app-table-head>
+          <app-table-head class="min-w-[240px]">Status</app-table-head>
+          <app-table-head class="text-center w-16">Actions</app-table-head>
+        </app-table-row>
+      </app-table-header>
+      
+      <app-table-body>
+        @for (habit of filteredHabits(); track habit.id) {
+          <app-table-row>
+            <!-- Habit Name and Icon -->
+            <app-table-cell>
+              <div class="flex items-center gap-3">
+                <span class="text-lg">{{ habit.icon }}</span>
+                <div>
+                  <div class="font-medium text-foreground text-sm">{{ habit.name }}</div>
+                  <div class="text-xs text-muted-foreground mt-1">
+                    Goal: {{ habit.goal }} {{ habit.frequency === 'daily' ? 'times/day' : 'times/week' }}
+                  </div>
+                </div>
+              </div>
+            </app-table-cell>
+            
+            <!-- Frequency Badge -->
+            <app-table-cell>
+              <ui-badge variant="secondary" class="capitalize">
+                {{ habit.frequency }}
+              </ui-badge>
+            </app-table-cell>
+            
+            <!-- Current Streak -->
+            <app-table-cell class="text-center">
+              <div class="flex flex-col items-center">
+                <span class="font-semibold text-sm">{{ habit.currentStreak }}</span>
+                <span class="text-xs text-muted-foreground">days</span>
+              </div>
+            </app-table-cell>
+            
+            <!-- Last Updated -->
+            <app-table-cell>
+              <span class="text-sm text-muted-foreground">
+                {{ habit.lastCheckIn | relativeTime }}
+              </span>
+            </app-table-cell>
+            
+            <!-- Status Controls -->
+            <app-table-cell>
+              <app-habit-status-controls
+                [habit]="habit"
+                (markComplete)="onMarkComplete(habit.id)"
+                (increment)="onIncrement(habit.id)"
+                (undo)="onUndo(habit.id)"
+              />
+            </app-table-cell>
+            
+            <!-- Actions Dropdown -->
+            <app-table-cell class="text-center">
+              <ui-button
+                variant="ghost"
+                size="sm"
+                class="h-8 w-8 p-0"
+                [uiDropdownMenuTrigger]="dropdownTemplate"
+              >
+                <span class="text-base">⋮</span>
+              </ui-button>
+              
+              <ng-template #dropdownTemplate>
+                <ui-dropdown-menu-content align="end" class="w-48">
+                  <ui-dropdown-menu-item (clicked)="onEditHabit(habit.id)">
+                    <span class="mr-2">✏️</span>
+                    Edit Habit
+                  </ui-dropdown-menu-item>
+                  <ui-dropdown-menu-item (clicked)="onViewHistory(habit.id)">
+                    <span class="mr-2">📅</span>
+                    View History
+                  </ui-dropdown-menu-item>
+                  <ui-dropdown-menu-item (clicked)="onDeleteHabit(habit.id)">
+                    <span class="mr-2 text-destructive">🗑️</span>
+                    <span class="text-destructive">Delete Habit</span>
+                  </ui-dropdown-menu-item>
+                </ui-dropdown-menu-content>
+              </ng-template>
+            </app-table-cell>
+          </app-table-row>
+        }
+      </app-table-body>
+    </app-table>
+  </ui-card>
+}
+
+<!-- Modals -->
+<app-add-habit-modal />
+<app-edit-habit-modal [habitToEdit]="habitToEdit()" />
+<app-delete-habit-modal [habitToDelete]="habitToDelete()" />

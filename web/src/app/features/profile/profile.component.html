@@ -1,0 +1,41 @@
+<app-page-header
+  title="Settings"
+  description="Manage your preferences and account"
+/>
+
+<ui-card class="p-6 max-w-2xl">
+  <h3 class="text-lg font-semibold mb-4">Theme</h3>
+  <p class="text-sm text-muted-foreground mb-4">
+    Choose your preferred theme or use system default
+  </p>
+  
+  <div class="flex gap-2">
+    <ui-button 
+      [variant]="themeService.theme() === 'light' ? 'default' : 'outline'"
+      (click)="themeService.setTheme('light')"
+    >
+      <span class="mr-2">☀️</span>
+      Light
+    </ui-button>
+    <ui-button 
+      [variant]="themeService.theme() === 'dark' ? 'default' : 'outline'"
+      (click)="themeService.setTheme('dark')"
+    >
+      <span class="mr-2">🌙</span>
+      Dark
+    </ui-button>
+    <ui-button 
+      [variant]="themeService.theme() === 'system' ? 'default' : 'outline'"
+      (click)="themeService.setTheme('system')"
+    >
+      <span class="mr-2">💻</span>
+      System
+    </ui-button>
+  </div>
+  
+  <p class="text-xs text-muted-foreground mt-4">
+    Current theme: <span class="font-medium">{{ themeService.theme() }}</span>
+    ({{ themeService.isDark() ? 'Dark mode active' : 'Light mode active' }})
+  </p>
+</ui-card>
+

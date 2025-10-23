@@ -4,7 +4,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:web": "nx serve web"
+    "start:web": "nx serve web",
+    "test:visual:install": "playwright install chromium",
+    "test:visual:reference": "playwright test tests/visual/capture-reference.spec.ts",
+    "test:visual:compare": "playwright test tests/visual/compare-angular.spec.ts",
+    "test:visual:update": "playwright test --update-snapshots",
+    "test:visual:report": "playwright show-report tests/visual/reports"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +30,7 @@
     "@nx/js": "21.6.3",
     "@nx/node": "^21.6.3",
     "@nx/web": "21.6.3",
+    "@playwright/test": "^1.56.1",
     "@schematics/angular": "~20.3.0",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",

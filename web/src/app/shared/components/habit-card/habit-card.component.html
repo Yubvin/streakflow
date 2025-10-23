@@ -1,0 +1,92 @@
+<ui-card 
+  [class]="'p-4 transition-all duration-300 ease-in-out hover:shadow-md group ' + 
+    (isAnimating() ? 'scale-[0.98]' : 'hover:scale-[1.02]')"
+>
+  <div class="flex items-start justify-between mb-3">
+    <div class="flex items-center gap-3">
+      <!-- Habit Icon -->
+      <span class="text-xl transition-transform duration-200">
+        {{ habit().icon }}
+      </span>
+      
+      <!-- Habit Info -->
+      <div>
+        <h3 class="font-medium text-foreground">{{ habit().name }}</h3>
+        <div class="flex items-center gap-1 text-sm text-muted-foreground">
+          <span class="text-orange-500">🔥</span>
+          <span>{{ streakText() }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="flex items-center gap-1">
+      <!-- Undo button - show only when progress > 0 and not completed -->
+      @if (showUndoButton()) {
+        <ui-button
+          variant="ghost"
+          size="sm"
+          (click)="onUndoClick()"
+          class="h-8 w-8 p-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+        >
+          <span class="text-base">↩️</span>
+        </ui-button>
+      }
+      
+      <!-- Main action button -->
+      <ui-button
+        [variant]="isCompleted() ? 'secondary' : 'ghost'"
+        size="sm"
+        (click)="onActionClick()"
+        [class]="'flex items-center gap-1 h-8 transition-all duration-300 ease-in-out ' +
+          (isAnimating() ? 'scale-95' : 'hover:scale-105') + ' ' +
+          (isCompleted() ? 'bg-[#DCFCE7] dark:bg-green-900/30 hover:bg-green-200 dark:hover:bg-green-900/50 text-green-800 dark:text-green-200' : '')"
+      >
+        <span [class]="'transition-transform duration-300 ease-in-out ' + 
+          (isAnimating() ? 'scale-110' : '')">
+          {{ isCompleted() ? '✓' : '○' }}
+        </span>
+        <span class="hidden sm:inline text-xs font-medium">
+          {{ isCompleted() ? 'Done' : 'Mark' }}
+        </span>
+      </ui-button>
+    </div>
+  </div>
+  
+  <!-- Progress Section -->
+  <div class="space-y-2">
+    <!-- Label -->
+    <div class="flex justify-between text-sm">
+      <span class="text-muted-foreground">
+        {{ isMultiGoal() ? 'Steps Today' : 'Today\'s Progress' }}
+      </span>
+      <span class="font-medium">
+        {{ isMultiGoal() ? habit().currentStep + ' / ' + habit().goal : displayProgress() + '%' }}
+      </span>
+    </div>
+    
+    <!-- Progress Visualization -->
+    @if (isMultiGoal()) {
+      <!-- Multi-step progress -->
+      <div class="flex gap-1">
+        @for (step of [].constructor(habit().goal); track $index; let index = $index) {
+          <div
+            [class]="'h-1.5 flex-1 rounded-full transition-all duration-300 ease-in-out ' +
+              (index < habit().currentStep
+                ? 'bg-primary scale-105'
+                : index === habit().currentStep && isAnimating()
+                ? 'bg-primary/60 scale-105'
+                : 'bg-muted')"
+          />
+        }
+      </div>
+    } @else {
+      <!-- Single progress bar -->
+      <ui-progress 
+        [value]="displayProgress()" 
+        class="h-2"
+      />
+    }
+  </div>
+</ui-card>
+

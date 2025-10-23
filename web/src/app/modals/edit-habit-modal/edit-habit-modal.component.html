@@ -1,0 +1,119 @@
+<ui-dialog [open]="isOpen()" (openChange)="isOpen.set($event)">
+  <ui-dialog-content class="sm:max-w-[425px]">
+    <ui-dialog-header>
+      <ui-dialog-title>Edit Habit</ui-dialog-title>
+      <ui-dialog-description>
+        Update your habit details below.
+      </ui-dialog-description>
+    </ui-dialog-header>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4 py-4">
+      <!-- Same form as AddHabitModal -->
+      
+      <!-- Habit Name -->
+      <div class="space-y-2">
+        <ui-label>Habit Name</ui-label>
+        <ui-input
+          formControlName="name"
+          placeholder="e.g., Drink 8 glasses of water"
+        />
+      </div>
+
+      <!-- Frequency -->
+      <div class="space-y-2">
+        <ui-label>Frequency</ui-label>
+        <select
+          [uiSelectTrigger]
+          formControlName="frequency"
+          (change)="onFrequencyChange($any($event.target).value)"
+        >
+          <ui-select-content>
+            <ui-select-item value="daily">Daily</ui-select-item>
+            <ui-select-item value="weekly">Weekly</ui-select-item>
+            <ui-select-item value="custom">Custom</ui-select-item>
+          </ui-select-content>
+        </select>
+      </div>
+
+      <!-- Goal -->
+      <div class="space-y-2">
+        <ui-label>{{ goalLabel() }}</ui-label>
+        <ui-input
+          type="number"
+          formControlName="goal"
+          [placeholder]="goalPlaceholder()"
+          min="1"
+          max="100"
+        />
+      </div>
+
+      <!-- Day Selection -->
+      @if (showDaySelector()) {
+        <div class="space-y-2">
+          <ui-label>Select Days</ui-label>
+          <div class="flex gap-2 flex-wrap">
+            @for (day of weekdayNames; track day; let index = $index) {
+              <ui-button
+                type="button"
+                [variant]="form.value.weekdays[index] ? 'default' : 'outline'"
+                size="sm"
+                (click)="toggleDay(index)"
+                class="h-8 px-3 rounded-full text-xs"
+              >
+                {{ day }}
+              </ui-button>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Icon Selector -->
+      <div class="space-y-2">
+        <ui-label>Icon</ui-label>
+        <div class="flex gap-2 flex-wrap">
+          @for (icon of icons; track icon) {
+            <ui-button
+              type="button"
+              [variant]="form.value.icon === icon ? 'default' : 'outline'"
+              size="sm"
+              (click)="selectIcon(icon)"
+              class="text-lg p-2 h-10 w-10"
+            >
+              {{ icon }}
+            </ui-button>
+          }
+        </div>
+      </div>
+
+      <!-- Color Picker -->
+      <div class="space-y-2">
+        <ui-label>Color</ui-label>
+        <div class="flex gap-2 flex-wrap">
+          @for (color of colors; track color) {
+            <button
+              type="button"
+              (click)="selectColor(color)"
+              class="w-8 h-8 rounded-full border-2 transition-transform hover:scale-110"
+              [style.backgroundColor]="color"
+              [style.borderColor]="form.value.color === color ? '#000' : 'var(--border)'"
+            />
+          }
+        </div>
+      </div>
+    </form>
+
+    <ui-dialog-footer>
+      <ui-button variant="outline" (click)="close()">
+        Cancel
+      </ui-button>
+      <ui-button 
+        (click)="onSubmit()" 
+        [disabled]="!isFormValid()"
+        class="min-w-[100px]"
+      >
+        Save Changes
+      </ui-button>
+    </ui-dialog-footer>
+  </ui-dialog-content>
+</ui-dialog>
+

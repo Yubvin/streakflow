@@ -41,6 +41,7 @@
       "@streakflow/ui/radio-group": ["libs/ui/radio-group/src/index.ts"],
       "@streakflow/ui/select": ["libs/ui/select/src/index.ts"],
       "@streakflow/ui/separator": ["libs/ui/separator/src/index.ts"],
+      "@streakflow/ui/sidebar": ["libs/ui/sidebar/src/index.ts"],
       "@streakflow/ui/skeleton": ["libs/ui/skeleton/src/index.ts"],
       "@streakflow/ui/slider": ["libs/ui/slider/src/index.ts"],
       "@streakflow/ui/switch": ["libs/ui/switch/src/index.ts"],

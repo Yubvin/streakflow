@@ -1,0 +1,12 @@
+{
+  "name": "@streakflow/storybook-contracts",
+  "version": "1.0.0",
+  "description": "Shared Storybook contracts for React prototype and Angular app",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {},
+  "keywords": ["storybook", "contracts", "fixtures", "visual-testing"],
+  "author": "",
+  "license": "MIT"
+}
+

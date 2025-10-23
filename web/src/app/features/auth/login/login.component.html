@@ -1,0 +1,75 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 to-background p-4">
+  <ui-card class="max-w-md w-full p-8">
+    <!-- Header -->
+    <div class="text-center mb-6">
+      <div class="text-4xl mb-2">🔥</div>
+      <h1 class="text-2xl font-bold">Welcome Back</h1>
+      <p class="text-muted-foreground">Sign in to your account</p>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+      <!-- Email -->
+      <div class="space-y-2">
+        <ui-label>Email</ui-label>
+        <ui-input 
+          type="email" 
+          formControlName="email" 
+          placeholder="you@example.com"
+          [class.border-destructive]="form.get('email')?.invalid && form.get('email')?.touched"
+        />
+        @if (form.get('email')?.invalid && form.get('email')?.touched) {
+          <p class="text-xs text-destructive">Please enter a valid email</p>
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="space-y-2">
+        <ui-label>Password</ui-label>
+        <div class="relative">
+          <ui-input 
+            [type]="showPassword() ? 'text' : 'password'"
+            formControlName="password" 
+            placeholder="••••••••"
+            [class.border-destructive]="form.get('password')?.invalid && form.get('password')?.touched"
+          />
+          <button
+            type="button"
+            (click)="togglePasswordVisibility()"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {{ showPassword() ? '🙈' : '👁️' }}
+          </button>
+        </div>
+        @if (form.get('password')?.invalid && form.get('password')?.touched) {
+          <p class="text-xs text-destructive">Password must be at least 6 characters</p>
+        }
+      </div>
+
+      <!-- Submit Button -->
+      <ui-button 
+        type="submit" 
+        [disabled]="!form.valid || isLoading()"
+        class="w-full"
+      >
+        {{ isLoading() ? '⏳ Signing in...' : '✅ Sign In' }}
+      </ui-button>
+    </form>
+
+    <!-- Footer Links -->
+    <div class="mt-6 space-y-2 text-center text-sm">
+      <p class="text-muted-foreground">
+        Don't have an account?
+        <a [routerLink]="['/auth/signup']" class="text-primary hover:underline ml-1 font-medium">
+          Sign up
+        </a>
+      </p>
+      <p>
+        <a [routerLink]="['/auth/welcome']" class="text-muted-foreground hover:text-foreground">
+          ← Back
+        </a>
+      </p>
+    </div>
+  </ui-card>
+</div>
+
