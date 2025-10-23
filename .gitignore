@@ -11,12 +11,8 @@
 /прототип_temp/
 /прototип*/
 
-# React prototype (reference only)
-/prototype/node_modules/
-/prototype/.storybook/
-/prototype/src/stories/
-/prototype/storybook-static/
-/prototype/package-lock.json
+# React prototype (reference only, not versioned)
+/prototype/
 
 # Build outputs
 **/dist/
